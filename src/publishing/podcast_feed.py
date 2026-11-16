@@ -63,6 +63,10 @@ def ensure_release_asset(tag: str, title: str, body: str, mp3: Path) -> dict:
     return {"url": a["browser_download_url"], "bytes": a["size"], "release": rel["html_url"]}
 
 
+def _owner_email(settings: Settings) -> str:
+    return (os.environ.get("PODCAST_OWNER_EMAIL") or settings.get_path("show.owner_email") or "").strip()
+
+
 def write_feed(ledger, settings: Settings, cover: Path | None) -> Path:
     s = settings.get_path
     FEED_DIR.mkdir(parents=True, exist_ok=True)
@@ -75,7 +79,7 @@ def write_feed(ledger, settings: Settings, cover: Path | None) -> Path:
              if (rec.get("podcast") or {}).get("mp3_url")]
     items = sorted(items, key=lambda x: x["date"], reverse=True)[: int(s("publishing.spotify.feed_max_episodes", 300))]
     xml = rss_feed(settings, items, feed_url, f"{base}/cover.jpg",
-                   owner_email=os.environ.get("PODCAST_OWNER_EMAIL", "").strip())
+                   owner_email=_owner_email(settings))
     out = FEED_DIR / "feed.xml"
     out.write_text(xml, encoding="utf-8")
     (FEED_DIR / "index.html").write_text(
@@ -92,7 +96,7 @@ def publish(episode: dict, files: dict[str, Path], title: str, description: str,
                                 "date": episode["date"], "mp3_url": asset["url"],
                                 "mp3_bytes": asset["bytes"], "duration": round(timeline["duration"])})
     feed = write_feed(ledger, settings, files.get("cover"))
-    if not os.environ.get("PODCAST_OWNER_EMAIL"):
+    if not _owner_email(settings):
         log.warning("PODCAST_OWNER_EMAIL is not set: Spotify needs an owner email in the feed to "
                     "verify the show (see README, Spotify section)")
     return {"status": "in_feed", "mp3_url": asset["url"], "release": asset["release"],

@@ -351,7 +351,7 @@ def cmd_rebuild_feed(_args) -> int:
     out = write_feed(ledger, settings, None)
     n = sum(1 for r in ledger.data["episodes"].values() if (r.get("podcast") or {}).get("mp3_url"))
     print(f"wrote {out.relative_to(ROOT)} with {n} episode(s); owner email "
-          f"{'set' if os.environ.get('PODCAST_OWNER_EMAIL') else 'NOT set'}")
+          f"{'set' if (os.environ.get('PODCAST_OWNER_EMAIL') or settings.get_path('show.owner_email')) else 'NOT set'}")
     return 0
 
 
