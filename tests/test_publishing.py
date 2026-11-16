@@ -4,7 +4,7 @@ from datetime import date, datetime, timedelta, timezone
 
 import pytest
 
-from src.data.market_close import CloseDataError, Series, apply_close, latest_session
+from src.data.market_close import Series, apply_close, latest_session
 from src.publishing import podcast_feed
 from src.state import Ledger
 
@@ -29,9 +29,10 @@ def test_latest_session_rows_and_periods():
     assert r.week is not None and r.ytd is not None and r.as_of == "2026-11-16"
 
 
-def test_intraday_snapshot_is_rejected():
-    with pytest.raises(CloseDataError):     # 15:00 New York = before the close
-        latest_session(date(2026, 11, 16), fetch=lambda s, *a: _series(s, mt_hour=20 - 0))
+def test_unfinished_session_is_ignored():
+    # 15:05 New York on the 16th = still trading: the latest COMPLETED session is the 13th
+    rows, session = latest_session(date(2026, 11, 16), fetch=lambda s, *a: _series(s, mt_hour=20))
+    assert session == date(2026, 11, 13) and rows["SPY"].as_of == "2026-11-13"
 
 
 def test_morning_text_from_previous_session_becomes_context_only(mb):

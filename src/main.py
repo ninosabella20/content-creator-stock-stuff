@@ -85,7 +85,7 @@ class Run:
 def cmd_run(args) -> int:
     settings = load_settings()
     s = settings.get_path
-    tz = s("schedule.timezone", "America/New_York")
+    tz = s("schedule.timezone", "Europe/Madrid")
     now_local = local_now(tz)
     today = now_local.date()
     gh_out = os.environ.get("GITHUB_OUTPUT")
@@ -98,8 +98,8 @@ def cmd_run(args) -> int:
 
     # ---- gates for scheduled runs (US market close, weekdays) --------------------------
     if args.scheduled:
-        if not s("schedule.produce_on_weekends", False) and today.weekday() >= 5:
-            print(f"{today:%A}: no market session, nothing to do.")
+        if today.weekday() not in (s("schedule.run_days") or [0, 1, 2, 3, 4, 5]):
+            print(f"{today:%A}: not a production day, nothing to do.")
             gh_set(produced="false")
             return 0
         if not in_window(settings, now_local):
@@ -114,12 +114,12 @@ def cmd_run(args) -> int:
     if use_close:
         from .data.market_close import latest_session
         try:
-            close_rows, session = latest_session(today)
+            close_rows, session = latest_session()
         except Exception as e:  # noqa: BLE001
             print(f"FAILED at stage 'market_close': {e}")
             gh_set(produced="false", failed_stage="market_close")
             return 1
-        if args.scheduled and session != today:
+        if args.scheduled and s("schedule.require_session_today", False) and session != today:
             print(f"US market did not trade today ({today}); latest session is {session}. Nothing to do.")
             gh_set(produced="false")
             return 0
@@ -135,7 +135,8 @@ def cmd_run(args) -> int:
     ledger = Ledger(ROOT / s("storage.ledger_path", "state/episodes.json"))
     gh_set(episode_id=eid)
     if ledger.is_produced(eid) and not args.force:
-        print(f"{eid} was already produced ({ledger.get(eid).get('status')}). Use --force to rebuild.")
+        print(f"{eid} (latest US session) was already produced ({ledger.get(eid).get('status')}): "
+              "nothing new to cover. Use --force to rebuild.")
         gh_set(produced="false")
         return 0
 

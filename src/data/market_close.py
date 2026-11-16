@@ -94,19 +94,20 @@ def session_label(d: date) -> str:
     return f"Close {d.strftime('%a')} {d.day} {d.strftime('%b %Y')}"
 
 
-def latest_session(episode_date: date, fetch=fetch_series) -> tuple[dict[str, PerfRow], date]:
-    """Rows for SPY + the 11 sector ETFs at the latest completed session."""
+def latest_session(ny_today: date | None = None, fetch=fetch_series) -> tuple[dict[str, PerfRow], date]:
+    """Rows for SPY + the 11 sector ETFs at the latest COMPLETED session (an unfinished
+    bar for the current New York day is ignored)."""
+    ny_today = ny_today or datetime.now(NY).date()
     rows: dict[str, PerfRow] = {}
     session = None
     for t in [INDEX_TICKER, *SECTOR_NAMES]:
         s = fetch(t)
+        if s.dates[-1] == ny_today and len(s.dates) > 2:
+            close_time = datetime.combine(ny_today, datetime.min.time(), NY).replace(hour=16)
+            if not s.market_time or s.market_time.astimezone(NY) < close_time:
+                s = Series(s.symbol, s.dates[:-1], s.closes[:-1], None)   # still trading
         rows[t] = s.row(t, "S&P 500" if t == INDEX_TICKER else SECTOR_NAMES[t])
         session = s.dates[-1] if session is None else max(session, s.dates[-1])
-        # today's bar must be the official close, not an intraday snapshot
-        if s.dates[-1] == episode_date and s.market_time:
-            close_time = datetime.combine(episode_date, datetime.min.time(), NY).replace(hour=16)
-            if s.market_time.astimezone(NY) < close_time:
-                raise CloseDataError(f"{t}: today's session has not closed yet")
     stale = [t for t, r in rows.items() if r.as_of != session.isoformat()]
     if stale:
         raise CloseDataError(f"inconsistent session dates for {stale}")

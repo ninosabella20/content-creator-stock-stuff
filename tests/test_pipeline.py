@@ -61,34 +61,36 @@ def test_failure_reports_the_stage(env, monkeypatch):
     assert ledger["episodes"]["market-brief-daily-2026-11-15"]["status"] == "failed"
 
 
-def test_schedule_window_new_york(settings):
+def test_schedule_window_madrid(settings):
     from datetime import datetime
     from zoneinfo import ZoneInfo
-    ny, utc = ZoneInfo("America/New_York"), ZoneInfo("UTC")
-    # winter (EST, UTC-5): 20:30 UTC = 15:30 NY too early; 21:30 UTC = 16:30 NY due
-    assert not m.in_window(settings, datetime(2026, 12, 1, 20, 30, tzinfo=utc).astimezone(ny))
-    assert m.in_window(settings, datetime(2026, 12, 1, 21, 30, tzinfo=utc).astimezone(ny))
-    # summer (EDT, UTC-4): 20:30 UTC = 16:30 NY due
-    assert m.in_window(settings, datetime(2026, 7, 1, 20, 30, tzinfo=utc).astimezone(ny))
+    md, utc = ZoneInfo("Europe/Madrid"), ZoneInfo("UTC")
+    # winter (CET, UTC+1): 07:00 UTC = 08:00 Madrid too early; 08:00 UTC = 09:00 due
+    assert not m.in_window(settings, datetime(2026, 12, 1, 7, 0, tzinfo=utc).astimezone(md))
+    assert m.in_window(settings, datetime(2026, 12, 1, 8, 0, tzinfo=utc).astimezone(md))
+    # summer (CEST, UTC+2): 07:00 UTC = 09:00 Madrid due
+    assert m.in_window(settings, datetime(2026, 7, 1, 7, 0, tzinfo=utc).astimezone(md))
 
 
-def test_scheduled_run_skips_weekends(env, monkeypatch):
+def test_scheduled_run_skips_sunday(env, monkeypatch):
     from datetime import datetime
     from zoneinfo import ZoneInfo
-    sat = datetime(2026, 11, 14, 17, 0, tzinfo=ZoneInfo("America/New_York"))
-    monkeypatch.setattr(m, "local_now", lambda tz: sat)
+    sun = datetime(2026, 11, 15, 9, 0, tzinfo=ZoneInfo("Europe/Madrid"))
+    monkeypatch.setattr(m, "local_now", lambda tz: sun)
     assert m.main(["run", "--scheduled"]) == 0
     assert not (env / "episodes.json").exists()
 
 
-def test_scheduled_run_skips_market_holidays(env, monkeypatch):
+def test_monday_skips_session_already_covered_on_saturday(env, monkeypatch):
     from datetime import date, datetime
     from zoneinfo import ZoneInfo
-    thanksgiving = datetime(2026, 11, 26, 17, 0, tzinfo=ZoneInfo("America/New_York"))
-    monkeypatch.setattr(m, "local_now", lambda tz: thanksgiving)
-    monkeypatch.setattr("src.data.market_close.latest_session", lambda d: ({}, date(2026, 11, 25)))
+    (env / "episodes.json").write_text(json.dumps({"episodes": {
+        "market-brief-daily-2026-11-13": {"date": "2026-11-13", "status": "published"}}}))
+    mon = datetime(2026, 11, 16, 9, 0, tzinfo=ZoneInfo("Europe/Madrid"))
+    monkeypatch.setattr(m, "local_now", lambda tz: mon)
+    monkeypatch.setattr("src.data.market_close.latest_session", lambda *a, **k: ({}, date(2026, 11, 13)))
     assert m.main(["run", "--scheduled"]) == 0
-    assert not (env / "episodes.json").exists()
+    assert not (env / "out").exists()
 
 
 def test_publish_failure_keeps_episode_produced(env, monkeypatch):

@@ -2,21 +2,21 @@ name: Daily production
 # Produces one episode per day; see README section 1 and 7.
 
 # WHEN IT RUNS
-# After the US market close (16:00 New York), Monday-Friday. GitHub cron is UTC-only and New
-# York is UTC-5 in winter (EST) and UTC-4 in summer (EDT), so we schedule both candidate
-# times and the pipeline (src/main.py --scheduled) only proceeds between 16:25 and 20:30 New
-# York time, on days the market actually traded (holidays skipped), once per session:
-#   20:30 UTC = 16:30 EDT (runs in summer)  | 15:30 EST (too early in winter -> skips)
-#   21:30 UTC = 17:30 EDT (already done)    | 16:30 EST (runs in winter)
-#   22:30 UTC = backup if GitHub dropped or badly delayed the earlier run
-# Weekday filter 1-5 is in UTC, which is the same calendar day as New York at these times.
+# 09:00 Europe/Madrid, Monday-Saturday, just after Market Brief's morning refresh. The main
+# trigger is cron-job.org (exact timing, see README); GitHub's own schedule below is a backup.
+# GitHub cron is UTC-only and Madrid is UTC+1 (winter) / UTC+2 (summer), so both candidate
+# times are listed and the pipeline (--scheduled) only proceeds between 08:55 and 13:00 Madrid:
+#   07:00 UTC = 09:00 summer (runs)          | 08:00 winter (too early -> skips)
+#   08:00 UTC = 10:00 summer (already done)  | 09:00 winter (runs)
+#   09:30 UTC = backup if a run was dropped or failed to start
+# The episode covers the latest completed US session and is never produced twice, so the
+# Monday run skips (Saturday already covered Friday's close), as does the day after a US holiday.
 on:
   schedule:
-    - cron: "30 20 * * 1-5"
-    - cron: "30 21 * * 1-5"
-    - cron: "30 22 * * 1-5"
-  # Also triggered by cron-job.org at 22:30 Europe/Madrid Mon-Fri with inputs.scheduled=true
-  # (GitHub's own schedule above can start late; whichever comes first does the work).
+    - cron: "0 7 * * 1-6"
+    - cron: "0 8 * * 1-6"
+    - cron: "30 9 * * 1-6"
+  # Main trigger: cron-job.org at 09:00 Europe/Madrid Mon-Sat with inputs.scheduled=true.
   workflow_dispatch:
     inputs:
       scheduled:

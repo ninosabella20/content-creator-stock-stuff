@@ -31,14 +31,15 @@ sources:
   # Freshness rules for Market Brief (stories + geopolitics). "Fresh" = generated on the
   # episode's date (Madrid clock), at/after min_local_hour (it builds 06:00-07:00 Madrid).
   min_local_hour: 5
-  max_data_age_hours: 22        # the evening episode runs ~16-17 h after that build
-  # After the US close, replace Market Brief's morning numbers (previous session) with
-  # today's official closes from Yahoo Finance (free, no key). Same formulas as Market Brief.
+  max_data_age_hours: 20
+  # Cross-check / refresh Market Brief's numbers with the official closes from Yahoo Finance
+  # (free, no key; same formulas). If Market Brief's text describes an older session than the
+  # latest close, that text is kept only as labelled background.
   use_live_close: true
   max_geo_age_hours: 30         # geo is secondary: older -> warning, not failure
   # If data is stale, re-fetch every retry_interval_minutes, up to retry_max_minutes.
   retry_interval_minutes: 5
-  retry_max_minutes: 15          # Market Brief builds once a day; long waits don't help
+  retry_max_minutes: 45          # wait for a late Market Brief build, then stop
   # false (default): stale market data stops the run. true: produce an episode that is
   # clearly flagged as stale and is never auto-published.
   allow_stale: false
@@ -129,13 +130,17 @@ storage:
   ledger_path: "state/episodes.json"
 
 schedule:
-  # After the US market close, Monday-Friday, New York time. The workflow fires at several
-  # UTC times; the pipeline only proceeds inside this window (US daylight saving handled
-  # automatically) and only on days the market actually traded (holidays are skipped).
-  timezone: "America/New_York"
-  local_start: "16:25"
-  local_end: "20:30"
-  produce_on_weekends: false
+  # 09:00 Madrid, Monday-Saturday, just after Market Brief's morning refresh. The episode
+  # covers the latest completed US session and is identified by that session's date, so a
+  # session is never covered twice (Monday's run finds Friday already done by Saturday's).
+  # The workflow fires at several UTC times; the pipeline only proceeds inside this window
+  # (summer/winter time handled automatically).
+  timezone: "Europe/Madrid"
+  local_start: "08:55"
+  local_end: "13:00"
+  run_days: [0, 1, 2, 3, 4, 5]     # Monday=0 ... Saturday=5
+  # true = only produce when the market traded TODAY (for an after-close schedule)
+  require_session_today: false
 
 quotas:
   # Free-tier assumptions used by the quota estimator. Google shows the real values for

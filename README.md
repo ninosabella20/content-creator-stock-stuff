@@ -9,8 +9,9 @@ morning into a ~10-minute daily news briefing:
 * **Podcast (Spotify, audio only):** the same narration as an MP3, published automatically through an RSS feed
 * **YouTube:** official Data API upload (off by default; private/unlisted only until you approve public)
 
-Runs on GitHub Actions **after the US market close (≈16:30 New York), Monday-Friday**, skipping
-market holidays. Target cost: **€0/month**.
+Runs on GitHub Actions at **09:00 Madrid, Monday-Saturday**, just after Market Brief refreshes, and
+covers the latest US session (Tue-Sat = Mon-Fri's close; Monday skips because Saturday already
+covered Friday). Target cost: **€0/month**.
 
 > Not investment advice. The pipeline only uses facts that Market Brief already published and checks the
 > script's numbers against them, but AI-written text can still be wrong. Review episodes before enabling
@@ -23,10 +24,10 @@ market holidays. Target cost: **€0/month**.
 ```
 06:00-07:00 Madrid  Market Brief refreshes data.json + geo.json (separate repo, untouched): stories,
                     geopolitics, company facts
-16:30 New York      Daily production (this repo), Mon-Fri
-   skip weekends; skip market holidays (no trading session today)
-   today's official closes for SPY + 11 sector ETFs + story companies (Yahoo Finance, free)
-   Market Brief's morning recap describes the PREVIOUS session -> kept only as labelled background
+09:00 Madrid        Daily production (this repo), Mon-Sat (cron-job.org; GitHub schedule as backup)
+   latest completed US session = episode ID; already covered (Monday, post-holiday) -> skip
+   official closes for SPY + 11 sector ETFs + story companies (Yahoo Finance, free) cross-check
+   Market Brief's numbers (if Market Brief describes an older session, its text is background only)
    rank stories per sector (rules) ── Gemini picks 1 per sector and writes the script (1 call)
    validate script (11 sectors, URLs, numbers vs source data, no advice) ── 1 repair call if needed
    narrate (Gemini TTS, ~6 calls) ── loudness-normalise (-16 LUFS) ── WAV master + MP3
@@ -202,19 +203,32 @@ an environment variable / repository variable (see `.env.example`). Never put se
 
 ## 7. Schedule, daylight saving and market holidays
 
-GitHub cron is UTC only, so the workflow fires at **20:30, 21:30 and 22:30 UTC, Monday-Friday**, and
-the code proceeds only between **16:25 and 20:30 New York time**, once per trading session:
+**Main trigger: cron-job.org at 09:00 Europe/Madrid, Monday-Saturday** (GitHub's own scheduler can
+start runs late). Setup:
 
-| UTC trigger | Winter (EST, UTC-5) | Summer (EDT, UTC-4) |
+1. GitHub: create a fine-grained token at https://github.com/settings/personal-access-tokens/new →
+   *Only select repositories*: this repo → *Repository permissions* → **Actions: Read and write**.
+2. cron-job.org → *Create cronjob*:
+   * URL `https://api.github.com/repos/ninosabella20/content-creator-stock-stuff/actions/workflows/daily-production.yml/dispatches`
+   * Schedule: custom, Monday-Saturday, 09:00; Advanced → time zone `Europe/Madrid`
+   * Advanced → method **POST**; headers `Authorization: Bearer <token>`,
+     `Accept: application/vnd.github+json`, `X-GitHub-Api-Version: 2022-11-28`,
+     `Content-Type: application/json`; body `{"ref":"claude/eager-ride-5heya6","inputs":{"scheduled":"true"}}`
+   * Success = HTTP **204**. Turn on "notify on failure". Renew the token before it expires.
+
+**Backup:** the workflow's own cron at 07:00, 08:00 and 09:30 UTC (Mon-Sat). The code only proceeds
+between **08:55 and 13:00 Madrid** and never produces the same session twice:
+
+| UTC trigger | Winter (CET, UTC+1) | Summer (CEST, UTC+2) |
 |---|---|---|
-| 20:30 | 15:30 → before the close, skip | **16:30 → produce** |
-| 21:30 | **16:30 → produce** | 17:30 → already done, skip |
-| 22:30 | 17:30 → backup if the earlier run was dropped | 18:30 → backup |
+| 07:00 | 08:00 → too early, skip | **09:00 → produce** |
+| 08:00 | **09:00 → produce** | 10:00 → already done, skip |
+| 09:30 | 10:30 → backup | 11:30 → backup |
 
-US daylight-saving dates are handled automatically (they differ from Europe's). On market holidays
-(e.g. Thanksgiving) the price data shows no session for today, so nothing is produced. The episode ID
-and title use the **market session date**, e.g. `market-brief-daily-2026-11-16`. Production takes about
-15-20 minutes, so episodes go out around 16:50-17:00 New York time (22:50-23:00 Madrid).
+Which session each run covers: Tue→Mon, Wed→Tue, Thu→Wed, Fri→Thu, **Sat→Fri**; **Monday skips**
+(latest close is still Friday's). After a US market holiday, the next run skips too. The episode ID and
+title use the US **session date**, e.g. `market-brief-daily-2026-11-13`. Production takes 15-20
+minutes, so episodes are out around 09:20 Madrid.
 
 ## 8. Running locally
 
