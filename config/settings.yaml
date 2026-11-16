@@ -1,0 +1,139 @@
+# Market Brief Daily: production settings.
+#
+# Every value here can be overridden by an environment variable (see .env.example
+# and the "env" lines below). Secrets are NEVER stored here: they come only from
+# environment variables / GitHub Actions secrets.
+
+show:
+  name: "Daily Market Brief"            # Spotify show name
+  video_brand: "MARKET BRIEF DAILY"     # on-screen brand
+  creator: "Active Thinking"
+  category: "Investing"
+  language: "en"
+  website: "https://ninosabella20.github.io/market-brief/"
+  episode_id_prefix: "market-brief-daily"
+  timezone: "Europe/Madrid"
+  description: >-
+    Daily updates covering the top stories across all 11 market sectors and major
+    geopolitical developments, explaining what happened, why it matters, and what
+    it means for investors.
+  disclaimer: >-
+    This podcast provides news and commentary for informational purposes only and
+    does not constitute professional financial or investment advice. Listeners are
+    responsible for their own investment decisions. Active Thinking does not provide
+    personalised investment recommendations.
+  sign_off: "That's your Daily Market Brief. I'll be back tomorrow with the next one."
+
+sources:
+  data_url: "https://raw.githubusercontent.com/ninosabella20/market-brief/main/docs/data.json"
+  geo_url: "https://raw.githubusercontent.com/ninosabella20/market-brief/main/docs/geo.json"
+  # Freshness rules. "Fresh" = generated on the episode's Madrid date, at/after
+  # min_local_hour (the website builds between 06:00 and 07:00 Madrid).
+  min_local_hour: 5
+  max_data_age_hours: 20        # hard limit even if the date matches
+  max_geo_age_hours: 30         # geo is secondary: older -> warning, not failure
+  # If data is stale, re-fetch every retry_interval_minutes, up to retry_max_minutes.
+  retry_interval_minutes: 5
+  retry_max_minutes: 60
+  # false (default): stale market data stops the run. true: produce an episode that is
+  # clearly flagged as stale and is never auto-published.
+  allow_stale: false
+
+editorial:
+  sector_order: [XLK, XLC, XLY, XLP, XLF, XLV, XLI, XLB, XLE, XLU, XLRE]
+  target_words_min: 1250
+  target_words_max: 1450
+  words_per_minute: 150          # used for duration estimates
+  max_story_age_days: 5          # older stories are treated as "no fresh development"
+  candidates_per_sector: 5       # candidates shown to the model (pre-ranked in Python)
+  avoid_repeat_days: 3           # penalise stories (URLs) used in recent episodes
+  # When Gemini is unavailable (quota/outage): "fail" stops the run (safe default for
+  # publishing); "template" builds a plainer script straight from Market Brief text,
+  # flagged as such, and never auto-published.
+  on_gemini_failure: "template"
+  # Unverified numbers in the script (not found in the source data) -> one repair call;
+  # more than this many after repair -> the episode is flagged and not published.
+  max_unverified_numbers: 2
+
+gemini:
+  # Empty = auto-pick the newest stable "gemini-X.Y-flash" listed for the key, then fall back.
+  model: ""                      # env: GEMINI_MODEL
+  temperature: 0.4
+  timeout_seconds: 180
+  min_interval_seconds: 12       # spacing between calls (free-tier RPM)
+  max_calls_per_run: 6           # hard cap on text-generation calls (env: MAX_AI_CALLS)
+
+tts:
+  provider: "gemini"             # gemini | piper   (env: TTS_PROVIDER)
+  # If the primary provider fails: "piper" re-voices the WHOLE episode with Piper (one
+  # consistent voice), "fail" stops the run.
+  fallback: "piper"
+  gemini:
+    # Tried in order; the first one that works voices the whole episode.
+    models: [gemini-2.5-flash-preview-tts, gemini-3.8-flash-tts, gemini-3.1-flash-tts-preview, gemini-3.8-flash-lite-tts]
+    voice: "Charon"              # env: NARRATOR_VOICE  (prebuilt Gemini voice, "Informative")
+    style: >-
+      Read this as a calm, confident, professional financial news presenter on a
+      morning briefing. Measured pace, clear diction, natural pauses between ideas,
+      neutral and analytical tone, never sensational.
+    max_words_per_chunk: 300     # fewer, larger chunks = fewer requests per day
+    min_interval_seconds: 21     # free tier TTS is ~3 requests/minute
+    timeout_seconds: 300
+    max_calls_per_run: 14
+  piper:
+    # "en-us-libritts-high" is downloaded from Piper's GitHub release; names like
+    # "en_US-ryan-high" are downloaded from huggingface.co/rhasspy/piper-voices.
+    voice: "en-us-libritts-high"   # LibriTTS = CC BY 4.0 data (commercial use OK with attribution)
+    speaker: 0                   # multi-speaker voice (904 speakers): pick one id
+    length_scale: 0.88           # >1 = slower (0.88 ~ 140 words per minute for speaker 0)
+    sentence_silence: 0.25
+  # Pronunciation fixes applied before speech, e.g. {"Caplyta": "cap-LEE-tah"}
+  pronunciations: {}
+  speaking_rate: 1.0             # env: SPEAKING_RATE (1.0 = natural; applied as gentle tempo change)
+  segment_gap_seconds: 0.7       # pause inserted between segments
+  loudness_lufs: -16             # podcast standard (YouTube normalises to -14 itself)
+
+video:
+  width: 1920                    # env: VIDEO_WIDTH
+  height: 1080                   # env: VIDEO_HEIGHT
+  fps: 30
+  crf: 21
+  preset: "veryfast"
+  burn_subtitles: true           # draw subtitles into the video (sound-off viewers)
+  transition_seconds: 0.5
+  show_company_logos: false      # off until logo usage rights are confirmed
+  music: false                   # no music until properly licensed audio is available
+
+publishing:
+  youtube:
+    enabled: false               # env: PUBLISH_YOUTUBE
+    privacy: "private"           # private | unlisted | public. "public" also needs PUBLISH_PUBLICLY=true
+    category_id: "25"            # News & Politics
+    tags: ["stock market", "market news", "S&P 500", "sector news", "investing", "finance news", "geopolitics", "daily market brief"]
+    made_for_kids: false
+    upload_captions: true
+  spotify:
+    enabled: false               # env: PUBLISH_SPOTIFY
+    mode: "manual"               # manual = ready-to-upload package | rss = self-hosted RSS feed
+  public: false                  # env: PUBLISH_PUBLICLY - master switch for anything public
+
+storage:
+  output_dir: "output"           # env: OUTPUT_DIR
+  ledger_path: "state/episodes.json"
+
+schedule:
+  # The workflow fires on several UTC times; the pipeline itself only proceeds when
+  # Madrid local time is inside this window (handles summer/winter time automatically).
+  local_start: "08:30"
+  local_end: "13:00"
+  produce_on_weekends: true
+
+quotas:
+  # Free-tier assumptions used by the quota estimator. Google shows the real values for
+  # YOUR project in AI Studio (Rate limits page); update these if they differ.
+  gemini_text_rpd_per_model: 20
+  gemini_tts_rpd_per_model: 15
+  youtube_daily_units: 10000
+  youtube_upload_units: 1600
+  youtube_thumbnail_units: 50
+  youtube_caption_units: 400

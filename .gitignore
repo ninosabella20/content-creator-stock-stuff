@@ -1,0 +1,22 @@
+# generated media and run outputs: never committed (stored as GitHub Actions artifacts)
+output/*
+!output/.gitkeep
+*.mp4
+*.mp3
+*.wav
+*.m4a
+# secrets / local config
+.env
+*.token
+client_secret*.json
+token*.json
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+# voices / caches
+*.onnx
+*.onnx.json
+.cache/

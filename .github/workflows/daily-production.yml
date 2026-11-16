@@ -1,0 +1,153 @@
+name: Daily production
+
+# WHEN IT RUNS
+# GitHub cron is UTC-only, and Madrid is UTC+1 in winter (CET) and UTC+2 in summer (CEST).
+# So we schedule BOTH candidate times, and the pipeline itself (src/main.py --scheduled) only
+# proceeds when it is between 08:30 and 13:00 in Europe/Madrid AND today's episode has not
+# been produced yet:
+#   06:30 UTC = 08:30 summer (runs)   | 07:30 winter (too early -> skips)
+#   07:30 UTC = 09:30 summer (already done -> skips) | 08:30 winter (runs)
+#   09:15 UTC = backup if GitHub dropped or badly delayed the earlier run (10:15/11:15 Madrid)
+# This switches automatically on the DST dates; nothing to edit twice a year.
+on:
+  schedule:
+    - cron: "30 6 * * *"
+    - cron: "30 7 * * *"
+    - cron: "15 9 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Episode date YYYY-MM-DD (empty = today, Madrid)"
+        type: string
+        default: ""
+      force:
+        description: "Rebuild even if today's episode already exists"
+        type: boolean
+        default: false
+      tts_provider:
+        description: "Voice engine"
+        type: choice
+        options: [gemini, piper]
+        default: gemini
+      template:
+        description: "Skip Gemini script writing (no-AI template script; flagged)"
+        type: boolean
+        default: false
+      video_seconds:
+        description: "Test: render only the first N seconds of video (empty = full)"
+        type: string
+        default: ""
+      publish_youtube:
+        description: "Upload to YouTube (never public unless repo variable PUBLISH_PUBLICLY=true)"
+        type: boolean
+        default: false
+      youtube_privacy:
+        description: "YouTube privacy for this upload"
+        type: choice
+        options: [private, unlisted]
+        default: private
+      allow_stale:
+        description: "Produce even if Market Brief data is stale (flagged, never published)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # commit the episode ledger (state/episodes.json)
+  issues: write     # open an issue when a run fails
+
+concurrency:
+  group: daily-production
+  cancel-in-progress: false
+
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      PYTHONUNBUFFERED: "1"
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+      # Optional repository VARIABLES (Settings > Secrets and variables > Actions > Variables)
+      GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+      NARRATOR_VOICE: ${{ vars.NARRATOR_VOICE }}
+      TTS_PROVIDER: ${{ github.event_name == 'workflow_dispatch' && inputs.tts_provider || vars.TTS_PROVIDER || 'gemini' }}
+      PUBLISH_YOUTUBE: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.publish_youtube) || vars.PUBLISH_YOUTUBE || 'false' }}
+      YOUTUBE_PRIVACY: ${{ github.event_name == 'workflow_dispatch' && inputs.youtube_privacy || vars.YOUTUBE_PRIVACY || 'private' }}
+      PUBLISH_PUBLICLY: ${{ vars.PUBLISH_PUBLICLY || 'false' }}
+      PUBLISH_SPOTIFY: ${{ vars.PUBLISH_SPOTIFY || 'false' }}
+      ALLOW_STALE: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.allow_stale) || 'false' }}
+    steps:
+      # Always the LATEST commit of this branch (not the one that queued the run), so a
+      # retry sees the ledger committed by the run before it -> no duplicate episodes.
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install FFmpeg and Python packages
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q -r requirements.txt
+
+      - name: Cache Piper voices (fallback voice)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/market-brief-daily/piper
+          key: piper-voices-v1
+
+      - name: Produce episode
+        id: run
+        run: |
+          ARGS=""
+          if [ "${{ github.event_name }}" = "schedule" ]; then ARGS="--scheduled"; fi
+          if [ -n "${{ inputs.date }}" ]; then ARGS="$ARGS --date ${{ inputs.date }}"; fi
+          if [ "${{ inputs.force }}" = "true" ]; then ARGS="$ARGS --force"; fi
+          if [ "${{ inputs.template }}" = "true" ]; then ARGS="$ARGS --template"; fi
+          if [ -n "${{ inputs.video_seconds }}" ]; then ARGS="$ARGS --video-seconds ${{ inputs.video_seconds }}"; fi
+          python -m src.main run $ARGS
+
+      - name: Summary
+        if: always()
+        run: python scripts/run_summary.py "${{ steps.run.outputs.episode_id }}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload episode files (artifact)
+        if: always() && steps.run.outputs.episode_id != '' && hashFiles(format('output/{0}/run_report.json', steps.run.outputs.episode_id)) != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.run.outputs.episode_id }}-run${{ github.run_number }}
+          path: output/${{ steps.run.outputs.episode_id }}/
+          retention-days: 14
+          compression-level: 0
+
+      - name: Save episode ledger
+        if: always()
+        run: |
+          if [ -z "$(git status --porcelain state/)" ]; then echo "ledger unchanged"; exit 0; fi
+          git config user.name  "market-brief-daily-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/episodes.json
+          git commit -m "Ledger: ${{ steps.run.outputs.episode_id }} [skip ci]"
+          for i in 1 2 3 4; do
+            git pull --rebase -X theirs origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
+
+      - name: Open an issue on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          EP="${{ steps.run.outputs.episode_id }}"
+          STAGE="${{ steps.run.outputs.failed_stage }}"
+          gh issue create --title "Production failed: ${EP:-unknown} (${STAGE:-workflow})" \
+            --body "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          Failed stage: \`${STAGE:-see log}\`. Download the artifact for run_report.json and run.log.
+          Nothing was published from this run." || true

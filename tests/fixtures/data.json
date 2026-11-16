@@ -1,0 +1,2807 @@
+{
+ "generated_at": "2026-11-15T05:01:11Z",
+ "notices": [],
+ "model": "gemini-3.6-flash",
+ "market": {
+  "rows": [
+   {
+    "ticker": "SPY",
+    "name": "S&P 500",
+    "is_index": true,
+    "last": 754.37,
+    "day": -0.36,
+    "week": 2.59,
+    "month": -3.04,
+    "ytd": 10.62,
+    "y1": 12.25,
+    "y5": 61.44,
+    "as_of": "2026-11-13"
+   },
+   {
+    "ticker": "XLK",
+    "name": "Information Technology",
+    "is_index": false,
+    "last": 170.28,
+    "day": -2.01,
+    "week": 3.36,
+    "month": -13.25,
+    "ytd": 18.27,
+    "y1": 18.83,
+    "y5": 103.55,
+    "as_of": "2026-11-13"
+   },
+   {
+    "ticker": "XLC",
+    "name": "Communication Services",
+    "is_index": false,
+    "last": 108.69,
+    "day": 1.05,
+    "week": 3.72,
+    "month": -3.2,
+    "ytd": -7.67,
+    "y1": -2.89,
+    "y5": 33.81,
+    "as_of": "2026-11-13"
+   },
+   {
+    "ticker": "XLY",
+    "name": "Consumer Discretionary",
+    "is_index": false,
+    "last": 119.98,
+    "day": -0.4,
+    "week": 2.04,
+    "month": 6.78,
+    "ytd": 0.48,
+    "y1": 3.43,
+    "y5": 17.75,
+    "as_of": "2026-11-13"
+   },
+   {
+    "ticker": "XLP",
+    "name": "Consumer Staples",
+    "is_index": false,
+    "last": 92.35,
+    "day": 1.42,
+    "week": 2.52,
+    "month": 9.69,
+    "ytd": 18.89,
+    "y1": 19.44,
+    "y5": 26.78,
+    "as_of": "2026-11-13"
+   },
+   {
+    "ticker": "XLF",
+    "name": "Financials",
+    "is_index": false,
+    "last": 58.68,
+    "day": 0.81,
+    "week": 2.66,
+    "month": 7.04,
+    "ytd": 7.14,
+    "y1": 10.76,
+    "y5": 46.15,
+    "as_of": "2026-11-13"
+   },
+   {
+    "ticker": "XLV",
+    "name": "Health Care",
+    "is_index": false,
+    "last": 188.85,
+    "day": 0.54,
+    "week": 2.19,
+    "month": 11.31,
+    "ytd": 22.0,
+    "y1": 23.64,
+    "y5": 41.13,
+    "as_of": "2026-11-13"
+   },
+   {
+    "ticker": "XLI",
+    "name": "Industrials",
+    "is_index": false,
+    "last": 168.78,
+    "day": -0.39,
+    "week": 3.76,
+    "month": 0.07,
+    "ytd": 8.81,
+    "y1": 11.04,
+    "y5": 57.89,
+    "as_of": "2026-11-13"
+   },
+   {
+    "ticker": "XLB",
+    "name": "Materials",
+    "is_index": false,
+    "last": 52.23,
+    "day": -0.21,
+    "week": 0.54,
+    "month": 5.05,
+    "ytd": 15.17,
+    "y1": 19.29,
+    "y5": 15.94,
+    "as_of": "2026-11-13"
+   },
+   {
+    "ticker": "XLE",
+    "name": "Energy",
+    "is_index": false,
+    "last": 64.96,
+    "day": 0.98,
+    "week": 5.42,
+    "month": -3.33,
+    "ytd": 45.29,
+    "y1": 43.59,
+    "y5": 125.75,
+    "as_of": "2026-11-13"
+   },
+   {
+    "ticker": "XLU",
+    "name": "Utilities",
+    "is_index": false,
+    "last": 44.04,
+    "day": 0.52,
+    "week": 2.11,
+    "month": 5.18,
+    "ytd": 3.16,
+    "y1": -0.68,
+    "y5": 32.15,
+    "as_of": "2026-11-13"
+   },
+   {
+    "ticker": "XLRE",
+    "name": "Real Estate",
+    "is_index": false,
+    "last": 44.37,
+    "day": 0.02,
+    "week": 0.84,
+    "month": 6.07,
+    "ytd": 9.96,
+    "y1": 8.67,
+    "y5": -7.93,
+    "as_of": "2026-11-13"
+   }
+  ],
+  "as_of": "2026-11-13",
+  "intraday": false,
+  "as_of_label": "Close Fri 13 Nov 2026",
+  "missing": [],
+  "updated_at": "2026-11-15T05:01:13Z"
+ },
+ "recap": {
+  "text": "The S&P 500 (SPY) slipped -0.36% on Friday but secured a +2.59% gain for the week despite significant technology sector volatility. A sharp drop in tech pulled indexes lower as Nvidia faced CEO exit uncertainty and AMD plunged 8.75%, while Treasury yields topping 5% added market pressure. In contrast, defensive sectors led Friday's session, with Consumer Staples (XLP) rising +1.42%, Communication Services (XLC) gaining +1.05%, and Energy (XLE) advancing +0.98%.",
+  "updated_at": "2026-11-15T05:06:33Z"
+ },
+ "reasons": {
+  "updated_at": "2026-11-15T05:06:33Z",
+  "items": {
+   "SPY": "The S&P 500 fell -0.36% on Friday as a tech sell-off weighed on the broader index, though strong performance earlier in the week preserved a +2.59% weekly gain.",
+   "XLK": "Information Technology dropped -2.01% on Friday, heavily dragged down by Nvidia's slump following CEO exit news and downgrade concerns, as well as AMD dropping 8.75% and Treasury yields rising above 5%.",
+   "XLC": "Communication Services advanced +1.05% on Friday and +3.72% for the week as buyers rotated into interactive media and telecom names away from hardware technology.",
+   "XLY": "Consumer Discretionary dipped -0.40% on Friday due to pressure on high P/E growth stocks like Tesla and consumer rate sensitivity as yields climbed.",
+   "XLP": "Consumer Staples outperformed with a +1.42% gain on Friday, benefiting from strong defensive positioning as investors sought safe havens amid tech market volatility.",
+   "XLF": "Financials gained +0.81% on Friday, buoyed by Treasury yields topping 5% which typically supports net interest margins for banks.",
+   "XLV": "Health Care rose +0.54% on Friday as market participants rotated capital into defensive healthcare equity names.",
+   "XLI": "Industrials slipped -0.39% on Friday in tandem with the broader market pullback, despite posting a solid +3.76% gain for the week.",
+   "XLB": "Materials dropped -0.21% on Friday as fluctuating commodity demand and rate concerns limited upside momentum.",
+   "XLE": "Energy advanced +0.98% on Friday to lead the week with a +5.42% gain, supported by Middle East tensions and geopolitical risk premiums despite weekly crude price drops.",
+   "XLU": "Utilities gained +0.52% on Friday, driven by defensive demand despite headwind pressure from rising Treasury yields.",
+   "XLRE": "Real Estate remained essentially flat at +0.02% on Friday, as defensive REIT buying was constrained by Treasury yields hovering above 5%."
+  }
+ },
+ "stories": {
+  "updated_at": "2026-11-15T05:14:53Z",
+  "sectors": {
+   "XLK": {
+    "name": "Information Technology",
+    "updated_at": "2026-11-15T05:07:01Z",
+    "items": [
+     {
+      "headline": "Nvidia Appoints Interim CEO Colette Kress Following Jensen Huang's Exit and $1.6 Trillion Market Loss",
+      "company": "Nvidia Corporation",
+      "ticker": "NVDA",
+      "country": "United States",
+      "profile": "Santa Clara, California-based Nvidia Corporation is the global leader in graphics processing units and artificial intelligence hardware accelerators.",
+      "why_it_matters": "The sudden exit of Nvidia's founder-CEO disrupts the core anchor of the enterprise AI buildout, elevating executive execution risks across the semiconductor sector.",
+      "what_happened": {
+       "strategy": "Nvidia relied on longtime chief executive Jensen Huang to maintain its dominant position in AI computing infrastructure.",
+       "event": "Nvidia lost $1.6 trillion in market value following Jensen Huang's resignation, with CFO Colette Kress taking over as interim CEO.",
+       "why": "Huang stepped down amid corporate scandal, creating leadership uncertainty at the world's most prominent AI semiconductor firm."
+      },
+      "url": "https://finance.yahoo.com/technology/articles/nvidia-lost-1-6-trillion-154500086.html",
+      "source": "Moneywise",
+      "published": "2026-11-14",
+      "related": [
+       "NVDA",
+       "AAPL",
+       "UBER"
+      ],
+      "link_verified": true,
+      "symbol": "NVDA",
+      "growth": {
+       "w1": -12.75,
+       "y1": -12.85,
+       "y5": 435.87,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "NVIDIA Corporation",
+       "currency": "USD",
+       "price": 162.85,
+       "market_cap": 3932339044352,
+       "country": "United States",
+       "industry": "Semiconductors",
+       "website": "https://www.nvidia.com",
+       "logo": "https://www.google.com/s2/favicons?domain=nvidia.com&sz=128",
+       "exchange": "NasdaqGS",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.62,
+        "analysts": 53,
+        "target_mean": 278.31,
+        "upside": 70.9,
+        "breakdown": {
+         "buy": 47,
+         "hold": 14,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "NVDA",
+       "ratings": [
+        {
+         "firm": "Melius Research",
+         "grade": "Hold",
+         "rating": "hold",
+         "action": "down",
+         "date": "2026-11-12",
+         "target": 185.0
+        },
+        {
+         "firm": "DA Davidson",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-12",
+         "target": 200.0
+        },
+        {
+         "firm": "Craig-Hallum",
+         "grade": "Hold",
+         "rating": "hold",
+         "action": "down",
+         "date": "2026-11-12",
+         "target": 180.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Microsoft Restores Cloud Services After Global Network Upgrade Disruption",
+      "company": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "country": "United States",
+      "profile": "Headquartered in Redmond, Washington, Microsoft Corporation is a leading global technology company specializing in enterprise software, cloud infrastructure, and productivity applications.",
+      "why_it_matters": "Infrastructure failures at key enterprise software vendors highlight operational vulnerabilities and test corporate reliance on centralized cloud platforms.",
+      "what_happened": {
+       "strategy": "Microsoft operates mission-critical enterprise productivity tools and cloud systems for hundreds of millions of daily global users.",
+       "event": "Microsoft restored services and cleared an email backlog following a widespread global disruption across Microsoft 365 and Outlook.",
+       "why": "The service outage was caused by an internal network upgrade failure rather than external software vulnerabilities."
+      },
+      "url": "https://finance.yahoo.com/m/bc9e955a-7b75-3d20-aedf-c011e890455f/microsoft-service-restored.html",
+      "source": "The Wall Street Journal",
+      "published": "2026-11-14",
+      "related": [
+       "MSFT"
+      ],
+      "link_verified": true,
+      "symbol": "MSFT",
+      "growth": {
+       "w1": -1.27,
+       "y1": 4.09,
+       "y5": 55.58,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Microsoft Corporation",
+       "currency": "USD",
+       "price": 523.88,
+       "market_cap": 3890434801664,
+       "country": "United States",
+       "industry": "Software - Infrastructure",
+       "website": "https://www.microsoft.com",
+       "logo": "https://www.google.com/s2/favicons?domain=microsoft.com&sz=128",
+       "exchange": "NasdaqGS",
+       "partial": false,
+       "consensus": {
+        "rating": "Strong Buy",
+        "mean": 1.38,
+        "analysts": 54,
+        "target_mean": 636.12,
+        "upside": 21.4,
+        "breakdown": {
+         "buy": 53,
+         "hold": 5,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "MSFT",
+       "ratings": [
+        {
+         "firm": "Bernstein",
+         "grade": "Outperform",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-29",
+         "target": 722.0
+        },
+        {
+         "firm": "RBC Capital",
+         "grade": "Outperform",
+         "rating": "buy",
+         "action": "reit",
+         "date": "2026-10-29",
+         "target": 640.0
+        },
+        {
+         "firm": "Citigroup",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-29",
+         "target": 680.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Samsung Commits $34 Billion to HBM Expansion Raising Memory Oversupply Concerns",
+      "company": "Samsung Electronics Co., Ltd.",
+      "ticker": "005930.KS",
+      "country": "South Korea",
+      "profile": "Based in Suwon, South Korea, Samsung Electronics is one of the world's largest memory chipmakers and consumer electronics manufacturers.",
+      "why_it_matters": "Aggressive capital deployment into high-bandwidth memory risks shifting the memory industry from current tightness into cyclical oversupply, impacting long-term average selling prices.",
+      "what_happened": {
+       "strategy": "Samsung is expanding capital expenditure to secure market leadership in high-bandwidth memory for next-generation AI accelerators.",
+       "event": "Samsung launched a $34 billion high-bandwidth memory investment, raising industry concerns regarding future memory supply gluts.",
+       "why": "Chipmakers are building massive new fabrication facilities while current supply shortages continue to squeeze device manufacturers."
+      },
+      "url": "https://finance.yahoo.com/technology/articles/samsung-34-billion-hbm-bet-010807624.html",
+      "source": "24/7 Wall St.",
+      "published": "2026-11-15",
+      "related": [
+       "005930.KS",
+       "SKHY",
+       "MU"
+      ],
+      "link_verified": true,
+      "symbol": "005930.KS",
+      "growth": {
+       "w1": 9.17,
+       "y1": 100.39,
+       "y5": 191.78,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Samsung Electronics Co., Ltd.",
+       "currency": "KRW",
+       "price": 206000.0,
+       "market_cap": 1341457067671552,
+       "country": "South Korea",
+       "industry": "Consumer Electronics",
+       "website": "https://www.samsung.com",
+       "logo": "https://www.google.com/s2/favicons?domain=samsung.com&sz=128",
+       "exchange": "KSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Strong Buy",
+        "mean": 1.33,
+        "analysts": 35,
+        "target_mean": 475628.56,
+        "upside": 130.9,
+        "breakdown": {
+         "buy": 36,
+         "hold": 0,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "005930.KS",
+       "ratings": []
+      }
+     }
+    ]
+   },
+   "XLC": {
+    "name": "Communication Services",
+    "updated_at": "2026-11-15T05:07:39Z",
+    "items": [
+     {
+      "headline": "Netflix Cuts 2026 Ad Revenue and Free Cash Flow Outlook on Feature Delays",
+      "company": "Netflix, Inc.",
+      "ticker": "NFLX",
+      "country": "United States",
+      "profile": "Netflix is a global leader in subscription video streaming and entertainment based in the United States.",
+      "why_it_matters": "The guidance reduction signals execution hurdles in monetizing ad tiers, challenging market expectations for margin expansion beyond standard subscription price increases.",
+      "what_happened": {
+       "strategy": "Expanding ad-supported subscription tiers and proprietary ad technology to drive non-subscription monetization and free cash flow growth.",
+       "event": "Netflix reduced its 2026 ad revenue and free cash flow outlook, causing its stock to fall 11.9% over 30 days.",
+       "why": "Execution delays in rolling out new advertising features and partner integrations impaired near-term ad revenue generation."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-nflx-following-ad-outlook-190805204.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-14",
+      "related": [
+       "NFLX"
+      ],
+      "link_verified": true,
+      "symbol": "NFLX",
+      "growth": {
+       "w1": -1.99,
+       "y1": -46.15,
+       "y5": -8.95,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Netflix, Inc.",
+       "currency": "USD",
+       "price": 62.15,
+       "market_cap": 255208161280,
+       "country": "United States",
+       "industry": "Entertainment",
+       "website": "https://www.netflix.com",
+       "logo": "https://www.google.com/s2/favicons?domain=netflix.com&sz=128",
+       "exchange": "NasdaqGS",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.92,
+        "analysts": 43,
+        "target_mean": 84.76,
+        "upside": 36.4,
+        "breakdown": {
+         "buy": 33,
+         "hold": 16,
+         "sell": 2
+        }
+       },
+       "ratings_ticker": "NFLX",
+       "ratings": [
+        {
+         "firm": "Wolfe Research",
+         "grade": "Peer Perform",
+         "rating": "hold",
+         "action": "down",
+         "date": "2026-10-22",
+         "target": null
+        },
+        {
+         "firm": "Argus Research",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-22",
+         "target": 95.0
+        },
+        {
+         "firm": "Pivotal Research",
+         "grade": "Hold",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-10-22",
+         "target": 65.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Italian Regulators Fine Meta 805 Million Euros Over User Photo Access",
+      "company": "Meta Platforms, Inc.",
+      "ticker": "META",
+      "country": "United States",
+      "profile": "Meta Platforms operates world-leading social media and digital communication networks headquartered in the United States.",
+      "why_it_matters": "Substantial regulatory fines highlight ongoing international compliance risks that threaten operational margins and user data practices for mega-cap platforms.",
+      "what_happened": {
+       "strategy": "Operating global digital communication networks while maintaining compliance with international user privacy regulations across operating regions.",
+       "event": "Italian regulators fined Facebook parent Meta 805 million euros ($880 million) for unauthorized access to users' photos.",
+       "why": "Regulatory authorities determined the company breached privacy rules regarding mobile device photo access permissions."
+      },
+      "url": "https://finance.yahoo.com/technology/articles/italy-fines-meta-880-mn-201258052.html",
+      "source": "AFP",
+      "published": "2026-11-14",
+      "related": [
+       "META"
+      ],
+      "link_verified": true,
+      "symbol": "META",
+      "growth": {
+       "w1": 5.17,
+       "y1": 5.21,
+       "y5": 88.24,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Meta Platforms, Inc.",
+       "currency": "USD",
+       "price": 641.69,
+       "market_cap": 1640314437632,
+       "country": "United States",
+       "industry": "Internet Content & Information",
+       "website": "https://www.meta.com",
+       "logo": "https://www.google.com/s2/favicons?domain=meta.com&sz=128",
+       "exchange": "NasdaqGS",
+       "partial": false,
+       "consensus": {
+        "rating": "Strong Buy",
+        "mean": 1.41,
+        "analysts": 57,
+        "target_mean": 850.1,
+        "upside": 32.5,
+        "breakdown": {
+         "buy": 54,
+         "hold": 6,
+         "sell": 1
+        }
+       },
+       "ratings_ticker": "META",
+       "ratings": [
+        {
+         "firm": "UBS",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-22",
+         "target": 892.0
+        },
+        {
+         "firm": "Citigroup",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-22",
+         "target": 905.0
+        },
+        {
+         "firm": "DA Davidson",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-22",
+         "target": 800.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Verizon Cuts 13,000 Jobs in Operational Turnaround Led by CEO Schulman",
+      "company": "Verizon Communications Inc.",
+      "ticker": "VZ",
+      "country": "United States",
+      "profile": "Verizon Communications is one of the largest telecommunications network providers in the United States.",
+      "why_it_matters": "Major workforce reductions illustrate aggressive cost containment across telecom incumbents seeking to protect cash flows amidst mature wireless subscriber growth.",
+      "what_happened": {
+       "strategy": "Executing an operational overhaul to eliminate management layers, reduce operating overhead, and accelerate customer growth.",
+       "event": "Verizon is cutting approximately 13,000 jobs as part of a restructuring plan led by CEO Dan Schulman.",
+       "why": "Management is streamlining entrenched bureaucracy and internal processes to reset company culture and improve operational efficiency."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/verizon-communications-vz-cuts-13-191015085.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-13",
+      "related": [
+       "VZ"
+      ],
+      "link_verified": true,
+      "symbol": "VZ",
+      "growth": {
+       "w1": 1.47,
+       "y1": 12.77,
+       "y5": -11.43,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Verizon Communications Inc.",
+       "currency": "USD",
+       "price": 46.36,
+       "market_cap": 192143572992,
+       "country": "United States",
+       "industry": "Telecom Services",
+       "website": "https://www.verizon.com",
+       "logo": "https://www.google.com/s2/favicons?domain=verizon.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 2.12,
+        "analysts": 22,
+        "target_mean": 50.65,
+        "upside": 9.3,
+        "breakdown": {
+         "buy": 12,
+         "hold": 12,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "VZ",
+       "ratings": [
+        {
+         "firm": "Freedom Broker",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "up",
+         "date": "2026-10-28",
+         "target": 55.0
+        },
+        {
+         "firm": "Citigroup",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-28",
+         "target": 53.0
+        },
+        {
+         "firm": "TD Cowen",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-27",
+         "target": 55.0
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "XLY": {
+    "name": "Consumer Discretionary",
+    "updated_at": "2026-11-15T05:08:30Z",
+    "items": [
+     {
+      "headline": "Tesla Opens Personal-Use Cybercab Pre-Orders with $299 Monthly Fee",
+      "company": "Tesla, Inc.",
+      "ticker": "TSLA",
+      "country": "United States",
+      "profile": "Tesla is a leading US-based electric vehicle and clean energy manufacturer, ranking as the world's most valuable automaker.",
+      "why_it_matters": "This marks Tesla's official commercial push into personal driverless mobility and software subscriptions. Long-term value creation hinges on scaling autonomous deployment while navigating regulatory approvals and technical safety hurdles.",
+      "what_happened": {
+       "strategy": "Expand beyond traditional EV manufacturing into driverless vehicle sales and recurring autonomous software subscriptions.",
+       "event": "Tesla opened Cybercab pre-orders for personal use, featuring geographic restrictions and a $299 monthly subscription fee.",
+       "why": "Commercialize proprietary autonomous driving technology to establish recurring, high-margin software revenue streams."
+      },
+      "url": "https://finance.yahoo.com/technology/articles/tesla-opens-cybercab-pre-orders-200444578.html",
+      "source": "TechCrunch",
+      "published": "2026-11-14",
+      "related": [
+       "TSLA"
+      ],
+      "link_verified": true,
+      "symbol": "TSLA",
+      "growth": {
+       "w1": 8.93,
+       "y1": -2.93,
+       "y5": 13.28,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Tesla, Inc.",
+       "currency": "USD",
+       "price": 390.22,
+       "market_cap": 1542445203456,
+       "country": "United States",
+       "industry": "Auto Manufacturers",
+       "website": "https://www.tesla.com",
+       "logo": "https://www.google.com/s2/favicons?domain=tesla.com&sz=128",
+       "exchange": "NasdaqGS",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 2.3,
+        "analysts": 40,
+        "target_mean": 412.48,
+        "upside": 5.7,
+        "breakdown": {
+         "buy": 20,
+         "hold": 22,
+         "sell": 2
+        }
+       },
+       "ratings_ticker": "TSLA",
+       "ratings": [
+        {
+         "firm": "GLJ Research",
+         "grade": "Sell",
+         "rating": "sell",
+         "action": "reit",
+         "date": "2026-11-05",
+         "target": 24.86
+        },
+        {
+         "firm": "Barclays",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "up",
+         "date": "2026-10-26",
+         "target": 450.0
+        },
+        {
+         "firm": "UBS",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-10-22",
+         "target": 425.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Amazon Workers in Canada Secure First Binding North American Union Contract",
+      "company": "Amazon.com, Inc.",
+      "ticker": "AMZN",
+      "country": "United States",
+      "profile": "Amazon is a global e-commerce and cloud computing leader, operating the dominant online retail marketplace in North America.",
+      "why_it_matters": "Securing a binding union contract creates a notable precedent for labor relations across Amazon's vast fulfillment network. Broader unionization across North America could pressure operating margins and restrict operational flexibility.",
+      "what_happened": {
+       "strategy": "Maintain flexible, non-unionized logistics network operations across North America to control operating expenses.",
+       "event": "Amazon warehouse workers in Canada secured the company's first binding union contract in North America.",
+       "why": "Escalating organized labor representation and collective bargaining pressure across North American fulfillment facilities."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-amzn-first-binding-union-230857139.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-14",
+      "related": [
+       "AMZN"
+      ],
+      "link_verified": true,
+      "symbol": "AMZN",
+      "growth": {
+       "w1": 2.84,
+       "y1": 12.24,
+       "y5": 51.29,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Amazon.com, Inc.",
+       "currency": "USD",
+       "price": 266.66,
+       "market_cap": 2883431432192,
+       "country": "United States",
+       "industry": "Internet Retail",
+       "website": "https://www.amazon.com",
+       "logo": "https://www.google.com/s2/favicons?domain=amazon.com&sz=128",
+       "exchange": "NasdaqGS",
+       "partial": false,
+       "consensus": {
+        "rating": "Strong Buy",
+        "mean": 1.32,
+        "analysts": 60,
+        "target_mean": 326.29,
+        "upside": 22.4,
+        "breakdown": {
+         "buy": 59,
+         "hold": 3,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "AMZN",
+       "ratings": [
+        {
+         "firm": "Freedom Broker",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-03",
+         "target": 330.0
+        },
+        {
+         "firm": "UBS",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-31",
+         "target": 352.0
+        },
+        {
+         "firm": "Scotiabank",
+         "grade": "Sector Outperform",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-30",
+         "target": 300.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Starbucks Unveils Global Employee Stock Grants and Drive-Thru Format Reset",
+      "company": "Starbucks Corporation",
+      "ticker": "SBUX",
+      "country": "United States",
+      "profile": "Starbucks is the world's premier roaster and retailer of specialty coffee, operating more than 38,000 stores globally.",
+      "why_it_matters": "The new incentive structure and drive-thru template reflect management's aggressive focus on store-level efficiency and employee alignment. Successful execution of the drive-thru refresh is vital for expanding margins and accelerating speed of service.",
+      "what_happened": {
+       "strategy": "Execute a global operational turnaround led by CEO Brian Niccol to reinvigorate store throughput and partner retention.",
+       "event": "Starbucks announced global employee stock grants and quarterly bonuses, alongside a reinvention of its drive-thru format and menu concepts.",
+       "why": "Address store operational bottlenecks and improve partner retention to restore store traffic and comparable sales growth."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/starbucks-sbux-unveils-global-stock-002442112.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-14",
+      "related": [
+       "SBUX"
+      ],
+      "link_verified": true,
+      "symbol": "SBUX",
+      "growth": {
+       "w1": 0.98,
+       "y1": 23.14,
+       "y5": -4.73,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Starbucks Corporation",
+       "currency": "USD",
+       "price": 106.44,
+       "market_cap": 121352241152,
+       "country": "United States",
+       "industry": "Restaurants",
+       "website": "https://www.starbucks.com",
+       "logo": "https://www.google.com/s2/favicons?domain=starbucks.com&sz=128",
+       "exchange": "NasdaqGS",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 2.33,
+        "analysts": 30,
+        "target_mean": 111.07,
+        "upside": 4.3,
+        "breakdown": {
+         "buy": 15,
+         "hold": 18,
+         "sell": 3
+        }
+       },
+       "ratings_ticker": "SBUX",
+       "ratings": [
+        {
+         "firm": "UBS",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-06",
+         "target": 110.0
+        },
+        {
+         "firm": "Citigroup",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-02",
+         "target": 107.0
+        },
+        {
+         "firm": "Guggenheim",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-02",
+         "target": 103.0
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "XLP": {
+    "name": "Consumer Staples",
+    "updated_at": "2026-11-15T05:09:09Z",
+    "items": [
+     {
+      "headline": "Walmart Agrees to Record $7.8 Million Settlement Over Child Labor Violations",
+      "company": "Walmart Inc.",
+      "ticker": "WMT",
+      "country": "United States",
+      "profile": "Walmart Inc. is the world's largest omni-channel retail corporation, operating hypermarkets, discount department stores, and grocery stores headquartered in Bentonville, Arkansas.",
+      "why_it_matters": "The record settlement highlights operational regulatory risks and labor compliance scrutiny for large retail employers. While financially minor relative to Walmart's overall revenues, it reinforces the need for strict labor oversight across store networks.",
+      "what_happened": {
+       "strategy": "Walmart aims to maintain regulatory compliance across its retail footprint while expanding digital and physical operations.",
+       "event": "Walmart agreed to a record $7.8 million settlement with Pennsylvania authorities over Child Labor Act violations.",
+       "why": "State authorities cited non-compliance with child labor laws at retail store locations across Pennsylvania."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/digital-expansion-walmart-wmt-changed-231951520.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-13",
+      "related": [
+       "WMT"
+      ],
+      "link_verified": true,
+      "symbol": "WMT",
+      "growth": {
+       "w1": 2.05,
+       "y1": 24.92,
+       "y5": 160.06,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Walmart Inc.",
+       "currency": "USD",
+       "price": 128.09,
+       "market_cap": 1016233525248,
+       "country": "United States",
+       "industry": "Discount Stores",
+       "website": "https://www.stock.walmart.com",
+       "logo": "https://www.google.com/s2/favicons?domain=stock.walmart.com&sz=128",
+       "exchange": "NasdaqGS",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.51,
+        "analysts": 40,
+        "target_mean": 130.4,
+        "upside": 1.8,
+        "breakdown": {
+         "buy": 38,
+         "hold": 4,
+         "sell": 1
+        }
+       },
+       "ratings_ticker": "WMT",
+       "ratings": [
+        {
+         "firm": "BTIG",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "reit",
+         "date": "2026-11-12",
+         "target": 140.0
+        },
+        {
+         "firm": "Mizuho",
+         "grade": "Outperform",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-10",
+         "target": 135.0
+        },
+        {
+         "firm": "UBS",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-09",
+         "target": 149.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Costco Board Director Helena Foulkes Resigns Following Election as Rhode Island Governor",
+      "company": "Costco Wholesale Corporation",
+      "ticker": "COST",
+      "country": "United States",
+      "profile": "Costco Wholesale Corporation is a leading global membership warehouse club operator offering bulk products and discounted goods headquartered in Issaquah, Washington.",
+      "why_it_matters": "Board shifts at premier retail membership operators require governance adjustments to ensure strong oversight. However, operational disruption from this political transition is expected to be minimal.",
+      "what_happened": {
+       "strategy": "Costco relies on a qualified board of directors to provide strategic governance across its international warehouse club operations.",
+       "event": "Director Helena B. Foulkes resigned from Costco Wholesale's board after being elected governor of Rhode Island.",
+       "why": "Foulkes stepped down from her board role following her election as governor of Rhode Island."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/costco-wholesale-cost-director-resigned-121118459.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-14",
+      "related": [
+       "COST"
+      ],
+      "link_verified": true,
+      "symbol": "COST",
+      "growth": {
+       "w1": 5.0,
+       "y1": 19.58,
+       "y5": 113.9,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Costco Wholesale Corporation",
+       "currency": "USD",
+       "price": 1106.21,
+       "market_cap": 490194108416,
+       "country": "United States",
+       "industry": "Discount Stores",
+       "website": "https://www.costco.com",
+       "logo": "https://www.google.com/s2/favicons?domain=costco.com&sz=128",
+       "exchange": "NasdaqGS",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.98,
+        "analysts": 37,
+        "target_mean": 1078.05,
+        "upside": -2.5,
+        "breakdown": {
+         "buy": 25,
+         "hold": 14,
+         "sell": 2
+        }
+       },
+       "ratings_ticker": "COST",
+       "ratings": [
+        {
+         "firm": "Bernstein",
+         "grade": "Outperform",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-11",
+         "target": 1155.0
+        },
+        {
+         "firm": "JP Morgan",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-05",
+         "target": 1150.0
+        },
+        {
+         "firm": "CICC",
+         "grade": "Outperform",
+         "rating": "buy",
+         "action": "init",
+         "date": "2026-10-21",
+         "target": 1050.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Procter & Gamble Appoints Shalini Saraswat as Business Head for Pantene India",
+      "company": "The Procter & Gamble Company",
+      "ticker": "PG",
+      "country": "United States",
+      "profile": "The Procter & Gamble Company is a major global consumer packaged goods manufacturer specializing in beauty, personal healthcare, and hygiene products headquartered in Cincinnati, Ohio.",
+      "why_it_matters": "Executive realignments in key emerging regions reflect P&G's strategic push to defend and grow personal care market share in high-growth consumer markets like India.",
+      "what_happened": {
+       "strategy": "Procter & Gamble leverages experienced leadership talent to drive brand growth and market penetration in key international markets.",
+       "event": "Procter & Gamble elevated long-time insider Shalini Saraswat to Brand Director and Business Head for Pantene India.",
+       "why": "The promotion follows Saraswat's previous leadership roles across P&G's Tide and Head & Shoulders brand portfolios in India."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/procter-gamble-pg-why-back-210940743.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-13",
+      "related": [
+       "PG"
+      ],
+      "link_verified": true,
+      "symbol": "PG",
+      "growth": {
+       "w1": 2.66,
+       "y1": 14.76,
+       "y5": 15.86,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "The Procter & Gamble Company",
+       "currency": "USD",
+       "price": 169.8,
+       "market_cap": 393559572480,
+       "country": "United States",
+       "industry": "Household & Personal Products",
+       "website": "https://www.pginvestor.com",
+       "logo": "https://www.google.com/s2/favicons?domain=pginvestor.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 2.12,
+        "analysts": 23,
+        "target_mean": 174.04,
+        "upside": 2.5,
+        "breakdown": {
+         "buy": 14,
+         "hold": 10,
+         "sell": 1
+        }
+       },
+       "ratings_ticker": "PG",
+       "ratings": [
+        {
+         "firm": "Barclays",
+         "grade": "Equal-Weight",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-10-26",
+         "target": 165.0
+        },
+        {
+         "firm": "Piper Sandler",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-10-26",
+         "target": 167.0
+        },
+        {
+         "firm": "Freedom Broker",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "up",
+         "date": "2026-10-23",
+         "target": 176.0
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "XLF": {
+    "name": "Financials",
+    "updated_at": "2026-11-15T05:09:42Z",
+    "items": [
+     {
+      "headline": "Goldman Sachs and Citigroup Back $270 Million Stablecoin Initiative Project Faro",
+      "company": "The Goldman Sachs Group, Inc.",
+      "ticker": "GS",
+      "country": "United States",
+      "profile": "The Goldman Sachs Group, Inc. is a leading global investment banking, securities, and investment management firm headquartered in the United States.",
+      "why_it_matters": "This marks a major strategic push by mainstream global banks into stablecoins, challenging crypto-native incumbents and accelerating institutional adoption of blockchain settlement.",
+      "what_happened": {
+       "strategy": "Expand digital asset infrastructure and transaction banking solutions to capture growing institutional demand for blockchain-based payments.",
+       "event": "Goldman Sachs, Citigroup, and partners committed $270 million to launch Project Faro, a U.S. dollar-pegged stablecoin for institutional and retail users.",
+       "why": "Major banks aim to compete directly with crypto-native stablecoin issuers across global retail and institutional markets."
+      },
+      "url": "https://finance.yahoo.com/markets/crypto/articles/goldman-sachs-gs-backs-270-200743183.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-13",
+      "related": [
+       "GS",
+       "DX-Y.NYB"
+      ],
+      "link_verified": true,
+      "symbol": "GS",
+      "growth": {
+       "w1": 5.86,
+       "y1": 13.79,
+       "y5": 126.36,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "The Goldman Sachs Group, Inc.",
+       "currency": "USD",
+       "price": 916.56,
+       "market_cap": 264367603712,
+       "country": "United States",
+       "industry": "Capital Markets",
+       "website": "https://www.goldmansachs.com",
+       "logo": "https://www.google.com/s2/favicons?domain=goldmansachs.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 2.46,
+        "analysts": 21,
+        "target_mean": 1030.67,
+        "upside": 12.4,
+        "breakdown": {
+         "buy": 9,
+         "hold": 15,
+         "sell": 2
+        }
+       },
+       "ratings_ticker": "GS",
+       "ratings": [
+        {
+         "firm": "UBS",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-02",
+         "target": 1000.0
+        },
+        {
+         "firm": "Freedom Broker",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "up",
+         "date": "2026-10-23",
+         "target": 1100.0
+        },
+        {
+         "firm": "BMO Capital",
+         "grade": "Market Perform",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-10-19",
+         "target": 950.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "American Express and OpenAI Launch AI Payments via ChatGPT Wallet",
+      "company": "American Express Company",
+      "ticker": "AXP",
+      "country": "United States",
+      "profile": "American Express Company is a top-tier global payments network and integrated card issuer based in the United States.",
+      "why_it_matters": "The partnership is among the first direct credit card integrations into AI chat interfaces, opening a brand-new distribution channel for digital payments.",
+      "what_happened": {
+       "strategy": "Expand cardholder digital engagement and payment capabilities by integrating into emerging conversational artificial intelligence platforms.",
+       "event": "American Express partnered with OpenAI to launch ChatGPT Wallet, letting cardholders authorize payments directly within ChatGPT conversations.",
+       "why": "Emerging generative AI platforms create direct commerce opportunities requiring embedded card payment functionality."
+      },
+      "url": "https://finance.yahoo.com/technology/ai/articles/american-express-axp-brings-ai-031517403.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-14",
+      "related": [
+       "AXP",
+       "OPAI.PVT"
+      ],
+      "link_verified": true,
+      "symbol": "AXP",
+      "growth": {
+       "w1": -0.12,
+       "y1": -12.1,
+       "y5": 76.26,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "American Express Company",
+       "currency": "USD",
+       "price": 320.6,
+       "market_cap": 214978969600,
+       "country": "United States",
+       "industry": "Credit Services",
+       "website": "https://www.americanexpress.com",
+       "logo": "https://www.google.com/s2/favicons?domain=americanexpress.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 2.21,
+        "analysts": 24,
+        "target_mean": 364.79,
+        "upside": 13.8,
+        "breakdown": {
+         "buy": 14,
+         "hold": 15,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "AXP",
+       "ratings": [
+        {
+         "firm": "UBS",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-02",
+         "target": 346.0
+        },
+        {
+         "firm": "Citigroup",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-10-27",
+         "target": 335.0
+        },
+        {
+         "firm": "JP Morgan",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-26",
+         "target": 365.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "JPMorgan Chase Card and Connected Commerce CEO Allison Beer to Depart",
+      "company": "JPMorgan Chase & Co.",
+      "ticker": "JPM",
+      "country": "United States",
+      "profile": "JPMorgan Chase & Co. is the largest commercial and investment bank in the United States by assets.",
+      "why_it_matters": "Executive turnover in JPM's high-margin card division comes at a critical juncture for retail banking competition and consumer spending.",
+      "what_happened": {
+       "strategy": "Maintain dominant market share in consumer credit cards and connected commerce while driving digital innovation.",
+       "event": "Allison Beer, CEO of card and connected commerce, decided to leave JPMorgan Chase for an external opportunity.",
+       "why": "The executive chose to leave the bank to pursue an external career opportunity."
+      },
+      "url": "https://finance.yahoo.com/m/f6833278-a282-381a-a8cf-3802b9d06b33/jpmorgan%E2%80%99s-top-credit-cards.html",
+      "source": "Barrons.com",
+      "published": "2026-11-13",
+      "related": [
+       "JPM",
+       "AXP",
+       "GS"
+      ],
+      "link_verified": true,
+      "symbol": "JPM",
+      "growth": {
+       "w1": 3.5,
+       "y1": 11.86,
+       "y5": 107.47,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "JPMorgan Chase & Co.",
+       "currency": "USD",
+       "price": 346.19,
+       "market_cap": 919345496064,
+       "country": "United States",
+       "industry": "Banks - Diversified",
+       "website": "https://www.jpmorganchase.com",
+       "logo": "https://www.google.com/s2/favicons?domain=jpmorganchase.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 2.04,
+        "analysts": 23,
+        "target_mean": 373.48,
+        "upside": 7.9,
+        "breakdown": {
+         "buy": 15,
+         "hold": 11,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "JPM",
+       "ratings": [
+        {
+         "firm": "UBS",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-02",
+         "target": 400.0
+        },
+        {
+         "firm": "Citigroup",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-10-15",
+         "target": 350.0
+        },
+        {
+         "firm": "Truist Securities",
+         "grade": "Hold",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-10-14",
+         "target": 361.0
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "XLV": {
+    "name": "Health Care",
+    "updated_at": "2026-11-15T05:10:21Z",
+    "items": [
+     {
+      "headline": "Pfizer Secures $1.5 Billion Blackstone Funding for GLP-1 Obesity Drug",
+      "company": "Pfizer Inc.",
+      "ticker": "PFE",
+      "country": "United States",
+      "profile": "Pfizer Inc. is a major global biopharmaceutical company headquartered in New York, USA.",
+      "why_it_matters": "The $1.5 billion deal allows Pfizer to aggressively advance its obesity candidate alongside market leaders while offloading significant R&D financial risk. Private equity co-funding structures are becoming an essential strategy for big pharma targeting capital-intensive therapeutic areas.",
+      "what_happened": {
+       "strategy": "Expand its pipeline in the lucrative obesity market while managing capital spending on late-stage drug development.",
+       "event": "Pfizer partnered with Blackstone Life Sciences to secure up to $1.5 billion in co-funding for late-stage development of berobenatide.",
+       "why": "Pfizer aims to accelerate late-stage clinical trials for chronic weight management while retaining operational control over its GLP-1 candidate."
+      },
+      "url": "https://finance.yahoo.com/healthcare/articles/pfizer-pfe-secures-1-5-001937225.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-14",
+      "related": [
+       "PFE",
+       "GC=F"
+      ],
+      "link_verified": true,
+      "symbol": "PFE",
+      "growth": {
+       "w1": -1.7,
+       "y1": 12.02,
+       "y5": -41.91,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Pfizer Inc.",
+       "currency": "USD",
+       "price": 28.89,
+       "market_cap": 164668768256,
+       "country": "United States",
+       "industry": "Drug Manufacturers - General",
+       "website": "https://www.pfizer.com",
+       "logo": "https://www.google.com/s2/favicons?domain=pfizer.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 2.5,
+        "analysts": 26,
+        "target_mean": 30.22,
+        "upside": 4.6,
+        "breakdown": {
+         "buy": 9,
+         "hold": 17,
+         "sell": 2
+        }
+       },
+       "ratings_ticker": "PFE",
+       "ratings": [
+        {
+         "firm": "Freedom Broker",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-07",
+         "target": 34.0
+        },
+        {
+         "firm": "Guggenheim",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-05",
+         "target": 33.0
+        },
+        {
+         "firm": "UBS",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-04",
+         "target": 30.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Elevance Health Forecasts 12% Earnings Growth in 2027 Baseline Recovery",
+      "company": "Elevance Health, Inc.",
+      "ticker": "ELV",
+      "country": "United States",
+      "profile": "Elevance Health, Inc. is one of the largest health insurance providers in the United States, operating Blue Cross Blue Shield plans.",
+      "why_it_matters": "The target signals that major health insurers are regaining pricing power and margin stability following periods of elevated medical utilization. It provides investors with clear medium-term visibility into managed care margin recovery.",
+      "what_happened": {
+       "strategy": "Restore long-term earnings growth by improving health insurance margins and maintaining disciplined pricing across managed care plans.",
+       "event": "Elevance Health announced it targets adjusted earnings per share growth of at least 12% in 2027 from its baseline of $26.75.",
+       "why": "The target is supported by expected recovery in health insurance margins and disciplined pricing strategies across its insurance business."
+      },
+      "url": "https://finance.yahoo.com/healthcare/articles/elevance-health-targets-12-earnings-001218065.html",
+      "source": "MarketBeat",
+      "published": "2026-11-14",
+      "related": [
+       "ELV",
+       "UNH"
+      ],
+      "link_verified": true,
+      "symbol": "ELV",
+      "growth": {
+       "w1": 0.96,
+       "y1": 30.89,
+       "y5": -1.68,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Elevance Health, Inc.",
+       "currency": "USD",
+       "price": 429.69,
+       "market_cap": 92837052416,
+       "country": "United States",
+       "industry": "Healthcare Plans",
+       "website": "https://www.elevancehealth.com",
+       "logo": "https://www.google.com/s2/favicons?domain=elevancehealth.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.77,
+        "analysts": 21,
+        "target_mean": 482.38,
+        "upside": 12.3,
+        "breakdown": {
+         "buy": 15,
+         "hold": 7,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "ELV",
+       "ratings": [
+        {
+         "firm": "Wells Fargo",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-27",
+         "target": 492.0
+        },
+        {
+         "firm": "TD Cowen",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-23",
+         "target": 495.0
+        },
+        {
+         "firm": "UBS",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-22",
+         "target": 523.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "CVS Health Identifies $350 Monthly Breakeven Price Threshold for GLP-1s",
+      "company": "CVS Health Corporation",
+      "ticker": "CVS",
+      "country": "United States",
+      "profile": "CVS Health Corporation is a leading U.S. integrated healthcare enterprise encompassing retail pharmacies, pharmacy benefit management, and Aetna health insurance.",
+      "why_it_matters": "This data provides a concrete benchmark for ongoing price negotiations between pharmacy benefit managers, employers, and GLP-1 drugmakers. Lower drug pricing could unlock broader insurance coverage and dramatically expand patient volume.",
+      "what_happened": {
+       "strategy": "Optimize pharmacy benefit structures and medical claims spending while assessing the long-term economic return of high-cost therapeutics.",
+       "event": "CVS stated health plan sponsors break even on GLP-1 drugs if priced below $350 per month, based on Aetna claims data.",
+       "why": "Reduced medical utilization, such as fewer emergency room visits and hospitalizations, offsets drug spending once pricing falls below $350 monthly."
+      },
+      "url": "https://finance.yahoo.com/healthcare/articles/cvs-says-glp-1s-save-110514978.html",
+      "source": "Reuters",
+      "published": "2026-11-14",
+      "related": [
+       "CVS",
+       "LLY",
+       "NVO"
+      ],
+      "link_verified": true,
+      "symbol": "CVS",
+      "growth": {
+       "w1": 6.56,
+       "y1": 12.76,
+       "y5": -4.97,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "CVS Health Corporation",
+       "currency": "USD",
+       "price": 89.35,
+       "market_cap": 114321014784,
+       "country": "United States",
+       "industry": "Healthcare Plans",
+       "website": "https://www.cvshealth.com",
+       "logo": "https://www.google.com/s2/favicons?domain=cvshealth.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Strong Buy",
+        "mean": 1.46,
+        "analysts": 25,
+        "target_mean": 109.6,
+        "upside": 22.7,
+        "breakdown": {
+         "buy": 25,
+         "hold": 3,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "CVS",
+       "ratings": [
+        {
+         "firm": "Wells Fargo",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-12",
+         "target": 112.0
+        },
+        {
+         "firm": "UBS",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-06",
+         "target": 107.0
+        },
+        {
+         "firm": "Leerink Partners",
+         "grade": "Outperform",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-05",
+         "target": 104.0
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "XLI": {
+    "name": "Industrials",
+    "updated_at": "2026-11-15T05:11:01Z",
+    "items": [
+     {
+      "headline": "Regulators raise serious concerns over Union Pacific's $72B merger following CEO remarks",
+      "company": "Union Pacific Corporation",
+      "ticker": "UNP",
+      "country": "United States",
+      "profile": "Union Pacific Corporation is one of North America's largest railroad operators, providing freight transportation across 23 western U.S. states.",
+      "why_it_matters": "Regulatory resistance threatens a landmark deal that would fundamentally reshape North American logistics infrastructure. It highlights intensifying regulatory scrutiny on major M&A transactions within critical transportation sectors.",
+      "what_happened": {
+       "strategy": "Executing a proposed $72 billion merger to establish the first coast-to-coast freight rail network in the United States.",
+       "event": "Regulators reviewing the $72 billion megadeal cited serious concerns after reviewing video footage of Union Pacific's CEO making loose remarks.",
+       "why": "Unscripted executive commentary created regulatory friction and amplified antitrust concerns among federal authorities evaluating the rail combination."
+      },
+      "url": "https://finance.yahoo.com/m/a9636277-7c15-31d0-8ee8-c364b5cdb3c2/railroad-ceo%E2%80%99s-loose-lips.html",
+      "source": "The Wall Street Journal",
+      "published": "2026-11-13",
+      "related": [
+       "NSC",
+       "UNP"
+      ],
+      "link_verified": true,
+      "symbol": "UNP",
+      "growth": {
+       "w1": 4.23,
+       "y1": 36.55,
+       "y5": 24.75,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Union Pacific Corporation",
+       "currency": "USD",
+       "price": 302.44,
+       "market_cap": 179725107200,
+       "country": "United States",
+       "industry": "Railroads",
+       "website": "https://www.up.com",
+       "logo": "https://www.google.com/s2/favicons?domain=up.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.8,
+        "analysts": 24,
+        "target_mean": 329.96,
+        "upside": 9.1,
+        "breakdown": {
+         "buy": 17,
+         "hold": 7,
+         "sell": 1
+        }
+       },
+       "ratings_ticker": "UNP",
+       "ratings": [
+        {
+         "firm": "Baird",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "down",
+         "date": "2026-11-05",
+         "target": 310.0
+        },
+        {
+         "firm": "Susquehanna",
+         "grade": "Positive",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-27",
+         "target": 345.0
+        },
+        {
+         "firm": "Citigroup",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-23",
+         "target": 348.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Boeing cuts 2,500 jobs despite record $745B backlog due to 737 assembly delays",
+      "company": "The Boeing Company",
+      "ticker": "BA",
+      "country": "United States",
+      "profile": "The Boeing Company is a premier global aerospace manufacturer and defense contractor, ranking among the world's largest commercial jetliner producers.",
+      "why_it_matters": "Trimming workforce while sitting on a record $745 billion order book signals persistent operational bottlenecks in aerospace manufacturing. Delaying production recovery impedes cash generation and delays deliveries to global airlines.",
+      "what_happened": {
+       "strategy": "Accelerating manufacturing rates to deliver on a major commercial aviation order backlog.",
+       "event": "Boeing is cutting about 2,500 airliner jobs despite holding a record $745 billion backlog because its 737 factory cannot build planes fast enough.",
+       "why": "Persistent manufacturing bottlenecks prevented the company from scaling 737 production to match planned operational staffing levels."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/boeing-cuts-2-500-jobs-163700843.html",
+      "source": "24/7 Wall St.",
+      "published": "2026-11-13",
+      "related": [
+       "BA"
+      ],
+      "link_verified": true,
+      "symbol": "BA",
+      "growth": {
+       "w1": -1.1,
+       "y1": -11.86,
+       "y5": -22.38,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "The Boeing Company",
+       "currency": "USD",
+       "price": 171.5,
+       "market_cap": 135905165312,
+       "country": "United States",
+       "industry": "Aerospace & Defense",
+       "website": "https://www.boeing.com",
+       "logo": "https://www.google.com/s2/favicons?domain=boeing.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Strong Buy",
+        "mean": 1.41,
+        "analysts": 26,
+        "target_mean": 233.35,
+        "upside": 36.1,
+        "breakdown": {
+         "buy": 24,
+         "hold": 3,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "BA",
+       "ratings": [
+        {
+         "firm": "Bernstein",
+         "grade": "Outperform",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-29",
+         "target": 223.0
+        },
+        {
+         "firm": "Jefferies",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-28",
+         "target": 230.0
+        },
+        {
+         "firm": "UBS",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-28",
+         "target": 240.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "S&P upgrades RTX credit rating to A- on sustained demand and balance sheet deleveraging",
+      "company": "RTX Corporation",
+      "ticker": "RTX",
+      "country": "United States",
+      "profile": "RTX Corporation is a top global aerospace and defense provider offering commercial aircraft engines, avionics, and defense systems.",
+      "why_it_matters": "An upgraded credit rating lowers RTX's capital costs and confirms balance sheet improvement. It underscores robust commercial and defense demand that provides clear cash flow visibility.",
+      "what_happened": {
+       "strategy": "Strengthening financial stability through debt reduction while fulfilling rising defense and commercial aerospace orders.",
+       "event": "S&P Global Ratings upgraded RTX Corporation's long-term credit rating to A-.",
+       "why": "The rating upgrade was driven by robust market demand across product segments and continuous debt reduction."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/p-global-ratings-upgrades-rtx-175521160.html",
+      "source": "Investing.com",
+      "published": "2026-11-13",
+      "related": [
+       "RTX"
+      ],
+      "link_verified": true,
+      "symbol": "RTX",
+      "growth": {
+       "w1": 4.77,
+       "y1": 14.15,
+       "y5": 123.48,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "RTX Corporation",
+       "currency": "USD",
+       "price": 198.58,
+       "market_cap": 267971903488,
+       "country": "United States",
+       "industry": "Aerospace & Defense",
+       "website": "https://www.rtx.com",
+       "logo": "https://www.google.com/s2/favicons?domain=rtx.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.92,
+        "analysts": 23,
+        "target_mean": 227.91,
+        "upside": 14.8,
+        "breakdown": {
+         "buy": 16,
+         "hold": 8,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "RTX",
+       "ratings": [
+        {
+         "firm": "UBS",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-10-21",
+         "target": 212.0
+        },
+        {
+         "firm": "Barclays",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-21",
+         "target": 235.0
+        },
+        {
+         "firm": "RBC Capital",
+         "grade": "Outperform",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-15",
+         "target": 235.0
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "XLB": {
+    "name": "Materials",
+    "updated_at": "2026-11-15T05:11:38Z",
+    "items": [
+     {
+      "headline": "Freeport-McMoRan Agrees to Acquire 51% Stake in Aurora West Project for C$110 Million",
+      "company": "Freeport-McMoRan Inc.",
+      "ticker": "FCX",
+      "country": "United States",
+      "profile": "Freeport-McMoRan Inc. is one of the world's largest publicly traded copper producers, headquartered in Phoenix, Arizona.",
+      "why_it_matters": "Securing key copper assets in Tier-1 mining jurisdictions strengthens Freeport's medium-to-long-term production pipeline amidst tight global copper supply forecasts. For mining investors, the deal highlights ongoing corporate consolidation in copper exploration assets.",
+      "what_happened": {
+       "strategy": "Freeport aims to secure high-quality copper reserves in low-risk jurisdictions to support long-term production volume.",
+       "event": "Freeport agreed to acquire a 51% interest in the Aurora West copper-gold property from TDG Gold for C$110 million cash.",
+       "why": "The deal expands Freeport's North American copper development footprint alongside its existing local exploration joint ventures."
+      },
+      "url": "https://finance.yahoo.com/markets/commodities/articles/tdg-gold-corp-agrees-sell-183800100.html",
+      "source": "GlobeNewswire",
+      "published": "2026-11-12",
+      "related": [
+       "TDG.V",
+       "FCX",
+       "TDGGF"
+      ],
+      "link_verified": true,
+      "symbol": "FCX",
+      "growth": {
+       "w1": -0.3,
+       "y1": 46.13,
+       "y5": 43.68,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Freeport-McMoRan Inc.",
+       "currency": "USD",
+       "price": 59.24,
+       "market_cap": 85005615104,
+       "country": "United States",
+       "industry": "Copper",
+       "website": "https://fcx.com",
+       "logo": "https://www.google.com/s2/favicons?domain=fcx.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.78,
+        "analysts": 22,
+        "target_mean": 78.22,
+        "upside": 32.0,
+        "breakdown": {
+         "buy": 18,
+         "hold": 4,
+         "sell": 1
+        }
+       },
+       "ratings_ticker": "FCX",
+       "ratings": [
+        {
+         "firm": "Freedom Broker",
+         "grade": "Hold",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-02",
+         "target": 68.0
+        },
+        {
+         "firm": "UBS",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-28",
+         "target": 85.0
+        },
+        {
+         "firm": "JP Morgan",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-28",
+         "target": 90.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Air Products Reports Q4 Sales of $3.56 Billion and FY2026 Sales of $12.99 Billion",
+      "company": "Air Products and Chemicals, Inc.",
+      "ticker": "APD",
+      "country": "United States",
+      "profile": "Air Products and Chemicals is a major global supplier of industrial gases and process equipment based in Pennsylvania.",
+      "why_it_matters": "The earnings demonstrate resilience in base industrial gas demand despite macroeconomic headwinds. Investors gain clarity on cash flow execution supporting Air Products' ambitious long-term energy transition megaprojects.",
+      "what_happened": {
+       "strategy": "Air Products focuses on long-term industrial gas supply agreements while deploying capital into large-scale clean energy projects.",
+       "event": "Air Products reported Q4 sales of $3,555.6 million with net income of $584.3 million, bringing full-year sales to $12,990.9 million.",
+       "why": "Stable core industrial gas contracts helped offset ongoing capital outlay pressures across the company's major clean hydrogen buildouts."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/profit-return-might-change-case-051133163.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-14",
+      "related": [
+       "APD"
+      ],
+      "link_verified": true,
+      "symbol": "APD",
+      "growth": {
+       "w1": 3.83,
+       "y1": 20.34,
+       "y5": 2.11,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Air Products and Chemicals, Inc.",
+       "currency": "USD",
+       "price": 316.53,
+       "market_cap": 70486654976,
+       "country": "United States",
+       "industry": "Specialty Chemicals",
+       "website": "https://www.airproducts.com",
+       "logo": "https://www.google.com/s2/favicons?domain=airproducts.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.92,
+        "analysts": 21,
+        "target_mean": 344.1,
+        "upside": 8.7,
+        "breakdown": {
+         "buy": 15,
+         "hold": 9,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "APD",
+       "ratings": [
+        {
+         "firm": "Citigroup",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-09",
+         "target": 335.0
+        },
+        {
+         "firm": "RBC Capital",
+         "grade": "Outperform",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-06",
+         "target": 359.0
+        },
+        {
+         "firm": "Barclays",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-06",
+         "target": 346.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Linde Issues \u20ac1.3 Billion in Debt and Moves to Restructure Lincare Unit",
+      "company": "Linde plc",
+      "ticker": "LIN",
+      "country": "United Kingdom",
+      "profile": "Linde plc is the world's largest industrial gas supplier by revenue and market capitalization, headquartered in the United Kingdom.",
+      "why_it_matters": "Linde's proactive restructuring shows management's commitment to protecting group margins in non-core units while taking advantage of attractive debt markets. Industrial gas investors benefit from sustained pricing discipline and capital return stability.",
+      "what_happened": {
+       "strategy": "Linde actively manages capital allocation and operational efficiency to consistently increase shareholder returns and cash generation.",
+       "event": "Linde completed \u20ac1.3 billion in fixed-income offerings and announced a restructuring of its U.S. home care business, Lincare.",
+       "why": "The debt capital issue provides liquidity, while restructuring addresses underperforming healthcare services to safeguard overall profit margins."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/dividend-growth-linde-lin-changed-201544872.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-12",
+      "related": [
+       "LIN"
+      ],
+      "link_verified": true,
+      "symbol": "LIN",
+      "growth": {
+       "w1": 2.1,
+       "y1": 22.73,
+       "y5": 56.09,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Linde plc",
+       "currency": "USD",
+       "price": 526.06,
+       "market_cap": 241505615872,
+       "country": "United Kingdom",
+       "industry": "Specialty Chemicals",
+       "website": "https://www.linde.com",
+       "logo": "https://www.google.com/s2/favicons?domain=linde.com&sz=128",
+       "exchange": "NasdaqGS",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.69,
+        "analysts": 27,
+        "target_mean": 551.04,
+        "upside": 4.7,
+        "breakdown": {
+         "buy": 23,
+         "hold": 5,
+         "sell": 1
+        }
+       },
+       "ratings_ticker": "LIN",
+       "ratings": [
+        {
+         "firm": "UBS",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-31",
+         "target": 585.0
+        },
+        {
+         "firm": "Citigroup",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-30",
+         "target": 580.0
+        },
+        {
+         "firm": "RBC Capital",
+         "grade": "Outperform",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-30",
+         "target": 568.0
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "XLE": {
+    "name": "Energy",
+    "updated_at": "2026-11-15T05:12:18Z",
+    "items": [
+     {
+      "headline": "ExxonMobil Sanctions $12.5B Longtail Gas Development Offshore Guyana",
+      "company": "Exxon Mobil Corporation",
+      "ticker": "XOM",
+      "country": "United States",
+      "profile": "ExxonMobil is the largest public energy major in the United States, engaged in global oil and natural gas exploration, production, refining, and petrochemicals.",
+      "why_it_matters": "The $12.5 billion commitment reinforces Guyana's role as ExxonMobil's primary volume growth driver and expands its long-term gas asset base.",
+      "what_happened": {
+       "strategy": "ExxonMobil seeks to expand its high-margin offshore resource base in South America to drive long-term cash flow growth.",
+       "event": "ExxonMobil approved a $12.5 billion investment for the Longtail offshore project in Guyana, targeting non-associated gas and condensate.",
+       "why": "The decision is backed by strong deepwater project economics and ongoing capital deployment into high-return offshore production assets."
+      },
+      "url": "https://finance.yahoo.com/energy/articles/exxonmobil-holdings-xom-undervalued-12-011312124.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-14",
+      "related": [
+       "XOM"
+      ],
+      "link_verified": true,
+      "symbol": "XOM",
+      "growth": {
+       "w1": 2.85,
+       "y1": 43.61,
+       "y5": 167.3,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "ExxonMobil Holdings Corporation",
+       "currency": "USD",
+       "price": 170.59,
+       "market_cap": 695874551808,
+       "country": "United States",
+       "industry": "Oil & Gas Integrated",
+       "website": "https://corporate.exxonmobil.com",
+       "logo": "https://www.google.com/s2/favicons?domain=corporate.exxonmobil.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 2.42,
+        "analysts": 22,
+        "target_mean": 184.32,
+        "upside": 8.0,
+        "breakdown": {
+         "buy": 9,
+         "hold": 17,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "XOM",
+       "ratings": [
+        {
+         "firm": "Bernstein",
+         "grade": "Outperform",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-12",
+         "target": 186.0
+        },
+        {
+         "firm": "Freedom Broker",
+         "grade": "Hold",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-07",
+         "target": 162.0
+        },
+        {
+         "firm": "Citigroup",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-04",
+         "target": 175.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Marathon Petroleum Reports Q3 2026 Net Income of $7.4 Billion",
+      "company": "Marathon Petroleum Corporation",
+      "ticker": "MPC",
+      "country": "United States",
+      "profile": "Marathon Petroleum is the largest petroleum refining company in the United States, headquartered in Findlay, Ohio.",
+      "why_it_matters": "The strong quarterly results highlight solid cash generation among U.S. downstream refiners despite periodic margin headwinds in key product lines.",
+      "what_happened": {
+       "strategy": "Marathon Petroleum aims to maximize refining cash generation while optimizing throughput efficiency across its domestic downstream assets.",
+       "event": "Marathon Petroleum reported Q3 2026 revenue of $56.5 billion and net income of $7.4 billion, yielding basic EPS of $26.66.",
+       "why": "Strong earnings were supported by refinery upgrades, offsetting operational headwinds and weaker jet fuel refining margins."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/learn-why-bull-case-marathon-121051253.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-12",
+      "related": [
+       "MPC",
+       "FLR",
+       "SSL"
+      ],
+      "link_verified": true,
+      "symbol": "MPC",
+      "growth": {
+       "w1": 11.24,
+       "y1": 113.1,
+       "y5": 530.17,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Marathon Petroleum Corporation",
+       "currency": "USD",
+       "price": 414.65,
+       "market_cap": 112901840896,
+       "country": "United States",
+       "industry": "Oil & Gas Refining & Marketing",
+       "website": "https://www.marathonpetroleum.com",
+       "logo": "https://www.google.com/s2/favicons?domain=marathonpetroleum.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 2.33,
+        "analysts": 17,
+        "target_mean": 460.94,
+        "upside": 11.2,
+        "breakdown": {
+         "buy": 8,
+         "hold": 9,
+         "sell": 1
+        }
+       },
+       "ratings_ticker": "MPC",
+       "ratings": [
+        {
+         "firm": "Piper Sandler",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-05",
+         "target": 466.0
+        },
+        {
+         "firm": "Wells Fargo",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-04",
+         "target": 564.0
+        },
+        {
+         "firm": "Morgan Stanley",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-04",
+         "target": 458.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "SLB Wins Offshore Integrated Drilling Deal from V\u00e5r Energi",
+      "company": "SLB",
+      "ticker": "SLB",
+      "country": "United States",
+      "profile": "SLB is the world's largest oilfield services company, providing technology for reservoir characterization, drilling, production, and processing to the global energy industry.",
+      "why_it_matters": "The win underscores strong demand for offshore integrated services and secures revenue visibility for SLB in key North Sea assets.",
+      "what_happened": {
+       "strategy": "SLB aims to expand its market-leading integrated drilling services portfolio across high-margin offshore production basins.",
+       "event": "SLB secured an integrated drilling contract from V\u00e5r Energi for two rigs offshore Norway, with potential extensions lasting through 2034.",
+       "why": "V\u00e5r Energi selected SLB as its primary drilling partner for the Transocean Barents and Deepsea Bergen rigs on the Norwegian Continental Shelf."
+      },
+      "url": "https://finance.yahoo.com/energy/articles/slb-selected-v-r-energi-125000421.html",
+      "source": "Business Wire",
+      "published": "2026-11-12",
+      "related": [
+       "SLB"
+      ],
+      "link_verified": true,
+      "symbol": "SLB",
+      "growth": {
+       "w1": 3.51,
+       "y1": 42.3,
+       "y5": 57.72,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "SLB N.V.",
+       "currency": "USD",
+       "price": 51.67,
+       "market_cap": 76266446848,
+       "country": "United States",
+       "industry": "Oil & Gas Equipment & Services",
+       "website": "https://www.slb.com",
+       "logo": "https://www.google.com/s2/favicons?domain=slb.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.53,
+        "analysts": 29,
+        "target_mean": 62.21,
+        "upside": 20.4,
+        "breakdown": {
+         "buy": 26,
+         "hold": 3,
+         "sell": 1
+        }
+       },
+       "ratings_ticker": "SLB",
+       "ratings": [
+        {
+         "firm": "Freedom Broker",
+         "grade": "Hold",
+         "rating": "hold",
+         "action": "up",
+         "date": "2026-10-26",
+         "target": 48.0
+        },
+        {
+         "firm": "UBS",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-26",
+         "target": 70.0
+        },
+        {
+         "firm": "Barclays",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-26",
+         "target": 63.0
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "XLU": {
+    "name": "Utilities",
+    "updated_at": "2026-11-15T05:13:14Z",
+    "items": [
+     {
+      "headline": "Constellation Energy Raises 2026 Guidance Following Strong Third-Quarter Performance",
+      "company": "Constellation Energy Corporation",
+      "ticker": "CEG",
+      "country": "United States",
+      "profile": "Constellation Energy Corporation is the largest producer of carbon-free energy and the leading nuclear fleet operator in the United States.",
+      "why_it_matters": "The guidance increase underscores nuclear energy's role as a primary beneficiary of AI data center growth, strengthening long-term earnings visibility and cash flow for investors.",
+      "what_happened": {
+       "strategy": "Deliver carbon-free baseload power to capture expanding demand from technology infrastructure and data center operators.",
+       "event": "Constellation Energy raised its full-year 2026 earnings guidance alongside its third-quarter earnings report.",
+       "why": "Strong power plant execution and increasing demand for nuclear generation contracts boosted company financial forecasts."
+      },
+      "url": "https://finance.yahoo.com/energy/articles/constellation-energy-corp-ceg-q3-230123365.html",
+      "source": "GuruFocus.com",
+      "published": "2026-11-12",
+      "related": [
+       "CEG"
+      ],
+      "link_verified": true,
+      "symbol": "CEG",
+      "growth": {
+       "w1": 12.1,
+       "y1": -16.54,
+       "y5": null,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Constellation Energy Corporation",
+       "currency": "USD",
+       "price": 280.2,
+       "market_cap": 98520711168,
+       "country": "United States",
+       "industry": "Utilities - Independent Power Producers",
+       "website": "https://www.constellationenergy.com",
+       "logo": "https://www.google.com/s2/favicons?domain=constellationenergy.com&sz=128",
+       "exchange": "NasdaqGS",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.64,
+        "analysts": 23,
+        "target_mean": 338.25,
+        "upside": 20.7,
+        "breakdown": {
+         "buy": 20,
+         "hold": 5,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "CEG",
+       "ratings": [
+        {
+         "firm": "Morgan Stanley",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-30",
+         "target": 391.0
+        },
+        {
+         "firm": "CIBC",
+         "grade": "Outperformer",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-28",
+         "target": 343.0
+        },
+        {
+         "firm": "Wells Fargo",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-28",
+         "target": 352.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "AEP Increases 2027-2031 Capital Plan to $100.4 Billion and Forms Infrastructure Unit",
+      "company": "American Electric Power Company, Inc.",
+      "ticker": "AEP",
+      "country": "United States",
+      "profile": "American Electric Power Company is one of the largest electric utility holding companies in the United States, serving over 5.6 million customers across 11 states.",
+      "why_it_matters": "AEP's massive capex increase demonstrates how regulated utilities are expanding capital deployment to capture data center demand, setting up long-term rate-base growth despite higher capital requirements.",
+      "what_happened": {
+       "strategy": "Expand transmission and generation capacity to support rapidly growing power demand from industrial customers and data centers.",
+       "event": "AEP formed a new unit, AEP Infrastructure, and raised its 2027 to 2031 capital plan to US$100.4 billion.",
+       "why": "The expanded capex plan addresses accelerated load growth from long-term contracted customers, data centers, and grid upgrades."
+      },
+      "url": "https://finance.yahoo.com/energy/articles/bigger-grid-spending-altering-investment-043654675.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-13",
+      "related": [
+       "AEP"
+      ],
+      "link_verified": true,
+      "symbol": "AEP",
+      "growth": {
+       "w1": 2.09,
+       "y1": 6.34,
+       "y5": 57.5,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "American Electric Power Company, Inc.",
+       "currency": "USD",
+       "price": 129.18,
+       "market_cap": 70341910528,
+       "country": "United States",
+       "industry": "Utilities - Regulated Electric",
+       "website": "https://www.aep.com",
+       "logo": "https://www.google.com/s2/favicons?domain=aep.com&sz=128",
+       "exchange": "NasdaqGS",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.83,
+        "analysts": 22,
+        "target_mean": 141.57,
+        "upside": 9.6,
+        "breakdown": {
+         "buy": 15,
+         "hold": 8,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "AEP",
+       "ratings": [
+        {
+         "firm": "Barclays",
+         "grade": "Equal-Weight",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-02",
+         "target": 132.0
+        },
+        {
+         "firm": "Wells Fargo",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-29",
+         "target": 149.0
+        },
+        {
+         "firm": "Jefferies",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-22",
+         "target": 146.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Southern Company Beats Q3 Earnings Estimates and Raises Full-Year Outlook",
+      "company": "The Southern Company",
+      "ticker": "SO",
+      "country": "United States",
+      "profile": "The Southern Company is a major American energy utility provider serving nine million electric and gas customers across the Southeast.",
+      "why_it_matters": "Southern's earnings beat provides clear evidence that data center power demand is translating directly into utility bottom-line growth and upward financial guidance revisions.",
+      "what_happened": {
+       "strategy": "Drive regulated utility rate-base expansion while accommodating rapid commercial and industrial load expansion across its service territory.",
+       "event": "Southern Company reported third-quarter earnings that beat consensus expectations and raised its full-year financial outlook.",
+       "why": "Surging electricity demand from data center developments and commercial expansion drove higher-than-anticipated quarterly revenues."
+      },
+      "url": "https://finance.yahoo.com/markets/stocks/articles/q3-earnings-beat-data-center-151600286.html",
+      "source": "Zacks",
+      "published": "2026-11-13",
+      "related": [
+       "SO",
+       "IDA",
+       "AWK"
+      ],
+      "link_verified": true,
+      "symbol": "SO",
+      "growth": {
+       "w1": 1.35,
+       "y1": 2.65,
+       "y5": 51.22,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "The Southern Company",
+       "currency": "USD",
+       "price": 93.59,
+       "market_cap": 108963184640,
+       "country": "United States",
+       "industry": "Utilities - Regulated Electric",
+       "website": "https://www.southerncompany.com",
+       "logo": "https://www.google.com/s2/favicons?domain=southerncompany.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Hold",
+        "mean": 2.64,
+        "analysts": 19,
+        "target_mean": 95.84,
+        "upside": 2.4,
+        "breakdown": {
+         "buy": 7,
+         "hold": 12,
+         "sell": 3
+        }
+       },
+       "ratings_ticker": "SO",
+       "ratings": [
+        {
+         "firm": "HSBC",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "init",
+         "date": "2026-10-22",
+         "target": 99.5
+        },
+        {
+         "firm": "Morgan Stanley",
+         "grade": "Underweight",
+         "rating": "sell",
+         "action": "main",
+         "date": "2026-10-21",
+         "target": 84.0
+        },
+        {
+         "firm": "Jefferies",
+         "grade": "Hold",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-10-20",
+         "target": 95.0
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "XLRE": {
+    "name": "Real Estate",
+    "updated_at": "2026-11-15T05:13:49Z",
+    "items": [
+     {
+      "headline": "GO Residential Files C$102M Lawsuit Against H&R REIT Following C$3.4B Deal Collapse",
+      "company": "H&R Real Estate Investment Trust",
+      "ticker": "HR-UN.TO",
+      "country": "Canada",
+      "profile": "H&R Real Estate Investment Trust is one of Canada's largest diversified real estate investment trusts holding office, retail, industrial, and residential properties.",
+      "why_it_matters": "The collapse of the C$3.4 billion deal leaves H&R REIT independent while exposing it to substantial legal claims, highlighting heightened execution risks in Canadian REIT M&A.",
+      "what_happened": {
+       "strategy": "H&R REIT agreed to a proposed CA$3.4 billion sale to a GO Residential REIT-led consortium.",
+       "event": "GO Residential filed a court claim seeking a C$102,131,000 termination fee after unitholders rejected the arrangement.",
+       "why": "Unitholders rejected the transaction, resulting in the termination of the arrangement agreement and alleged breaches."
+      },
+      "url": "https://finance.yahoo.com/news/residential-reit-announces-commencement-proceedings-200300649.html",
+      "source": "CNW Group",
+      "published": "2026-11-13",
+      "related": [
+       "GO-U.TO",
+       "HR-UN.TO"
+      ],
+      "link_verified": true,
+      "symbol": "HR-UN.TO",
+      "growth": {
+       "w1": 2.2,
+       "y1": -11.92,
+       "y5": -30.97,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "H&R Real Estate Investment Trust",
+       "currency": "CAD",
+       "price": 9.75,
+       "market_cap": 2754438656,
+       "country": "Canada",
+       "industry": "REIT - Diversified",
+       "website": "https://www.hr-reit.com",
+       "logo": "https://www.google.com/s2/favicons?domain=hr-reit.com&sz=128",
+       "exchange": "Toronto",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 2.4,
+        "analysts": 5,
+        "target_mean": 10.95,
+        "upside": 12.3,
+        "breakdown": {
+         "buy": 2,
+         "hold": 3,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "HR-UN.TO",
+       "ratings": []
+      }
+     },
+     {
+      "headline": "Prologis Research Projects Widening Industrial Supply Deficit and Rent Inflation Through 2027",
+      "company": "Prologis, Inc.",
+      "ticker": "PLD",
+      "country": "United States",
+      "profile": "Prologis, Inc. is the global leader in logistics real estate, owning and operating high-quality supply chain infrastructure assets.",
+      "why_it_matters": "Tightening warehouse availability combined with cost-prohibitive new construction supports sustained rent growth for incumbent industrial REIT landlords.",
+      "what_happened": {
+       "strategy": "Prologis tracks market supply and demand trends to optimize its development pipeline and leasing rates globally.",
+       "event": "Prologis Research projected continuous vacancy tightening through 2027 and a widening supply gap.",
+       "why": "Rents must climb substantially for new logistics developments to reach economic viability under current replacement costs."
+      },
+      "url": "https://finance.yahoo.com/real-estate/articles/could-tightening-supply-mean-prologis-011346500.html",
+      "source": "Simply Wall St.",
+      "published": "2026-11-13",
+      "related": [
+       "PLD"
+      ],
+      "link_verified": true,
+      "symbol": "PLD",
+      "growth": {
+       "w1": 1.35,
+       "y1": 3.77,
+       "y5": -13.53,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Prologis, Inc.",
+       "currency": "USD",
+       "price": 128.67,
+       "market_cap": 125102104576,
+       "country": "United States",
+       "industry": "REIT - Industrial",
+       "website": "https://www.prologis.com",
+       "logo": "https://www.google.com/s2/favicons?domain=prologis.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 1.71,
+        "analysts": 14,
+        "target_mean": 152.07,
+        "upside": 18.2,
+        "breakdown": {
+         "buy": 14,
+         "hold": 3,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "PLD",
+       "ratings": [
+        {
+         "firm": "Wells Fargo",
+         "grade": "Overweight",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-02",
+         "target": 158.0
+        },
+        {
+         "firm": "Truist Securities",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-10-26",
+         "target": 141.0
+        },
+        {
+         "firm": "Raymond James",
+         "grade": "Outperform",
+         "rating": "buy",
+         "action": "up",
+         "date": "2026-10-21",
+         "target": 163.0
+        }
+       ]
+      }
+     },
+     {
+      "headline": "Public Self-Storage Sector Rebounds with Positive Q3 Same-Store NOI Growth Across All Major REITs",
+      "company": "Public Storage",
+      "ticker": "PSA",
+      "country": "United States",
+      "profile": "Public Storage is the largest self-storage real estate investment trust in the United States with thousands of location footprint assets.",
+      "why_it_matters": "This marks the sector's first unanimous same-store NOI expansion since 2024, signaling an operational inflection point for self-storage fundamentals.",
+      "what_happened": {
+       "strategy": "Self-storage REITs focused on adjusting pricing and maximizing retention during a multi-year post-pandemic slowdown.",
+       "event": "All four major public self-storage REITs posted positive same-store net operating income growth in Q3.",
+       "why": "Operational recovery was driven by fading new competitive construction supply and longer tenant stay durations."
+      },
+      "url": "https://finance.yahoo.com/real-estate/articles/self-storage-reits-grow-noi-165851389.html",
+      "source": "CRE Daily",
+      "published": "2026-11-12",
+      "related": [
+       "PSA",
+       "CUBE"
+      ],
+      "link_verified": true,
+      "symbol": "PSA",
+      "growth": {
+       "w1": -1.44,
+       "y1": 21.26,
+       "y5": 1.04,
+       "as_of": "2026-11-13"
+      },
+      "facts": {
+       "name": "Public Storage",
+       "currency": "USD",
+       "price": 332.59,
+       "market_cap": 62142263296,
+       "country": "United States",
+       "industry": "REIT - Industrial",
+       "website": "https://www.publicstorage.com",
+       "logo": "https://www.google.com/s2/favicons?domain=publicstorage.com&sz=128",
+       "exchange": "NYSE",
+       "partial": false,
+       "consensus": {
+        "rating": "Buy",
+        "mean": 2.5,
+        "analysts": 18,
+        "target_mean": 343.39,
+        "upside": 3.2,
+        "breakdown": {
+         "buy": 7,
+         "hold": 15,
+         "sell": 0
+        }
+       },
+       "ratings_ticker": "PSA",
+       "ratings": [
+        {
+         "firm": "Truist Securities",
+         "grade": "Buy",
+         "rating": "buy",
+         "action": "main",
+         "date": "2026-11-12",
+         "target": 365.0
+        },
+        {
+         "firm": "UBS",
+         "grade": "Neutral",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-04",
+         "target": 334.0
+        },
+        {
+         "firm": "Evercore ISI Group",
+         "grade": "In-Line",
+         "rating": "hold",
+         "action": "main",
+         "date": "2026-11-02",
+         "target": 320.0
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}
