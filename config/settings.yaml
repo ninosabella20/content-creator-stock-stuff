@@ -25,7 +25,7 @@ show:
   sign_off: "That's your Daily Market Brief. I'll be back after the next market close."
   # Public in the RSS feed: Spotify/Apple send ownership-verification codes here.
   # The PODCAST_OWNER_EMAIL variable overrides it.
-  owner_email: "ninosabella20@gmail.com"
+  owner_email: ""                # set via the PODCAST_OWNER_EMAIL repository variable
   podcast_feed_url: "https://ninosabella20.github.io/content-creator-stock-stuff/podcast/feed.xml"
 
 sources:
