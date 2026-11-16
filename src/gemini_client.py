@@ -58,10 +58,14 @@ def list_models(key: str) -> list[str]:
             return names
 
 
-def pick_text_models(available: list[str], override: str | None = None) -> list[str]:
-    """Newest stable flash first, then flash-latest, previews, then lite models."""
+def pick_text_models(available: list[str], override: str | None = None,
+                     prefer: str | None = None) -> list[str]:
+    """Newest stable flash first, then flash-latest, previews, then lite models.
+    `prefer` (the model that worked last run) is tried first if still available."""
     if override:
         return [override]
+    if prefer and prefer in available:
+        return [prefer] + [m for m in pick_text_models(available) if m != prefer]
     bad = re.compile(r"image|tts|audio|live|embedding|vision|robotics|computer|omni", re.I)
 
     def ver(n: str) -> float:
@@ -89,8 +93,10 @@ class Gemini:
         self.model = self.models[0]
         self.min_interval = min_interval
         self.timeout = timeout
-        self.max_calls = max_calls
+        self.max_calls = max_calls          # successful (quota-consuming) calls
+        self.max_attempts = max_calls * 4 + 4  # all HTTP attempts incl. timeouts/503s
         self.calls = 0
+        self.attempts = 0
         self.usage = usage or Usage()
         self._last = 0.0
 
@@ -110,13 +116,15 @@ class Gemini:
         attempts = 0
         while True:
             if self.calls >= self.max_calls:
-                raise QuotaExhausted(f"run cap of {self.max_calls} Gemini calls reached")
+                raise QuotaExhausted(f"run cap of {self.max_calls} successful Gemini calls reached")
+            if self.attempts >= self.max_attempts:
+                raise GeminiError(f"gave up after {self.attempts} attempts (models busy or timing out)")
             wait = self.min_interval - (time.time() - self._last)
             if wait > 0:
                 time.sleep(wait)
             self._last = time.time()
             attempts += 1
-            self.calls += 1
+            self.attempts += 1
             try:
                 r = HTTP.post(f"{BASE}/models/{self.model}:generateContent",
                               headers={"x-goog-api-key": self.key, "Content-Type": "application/json"},
@@ -131,6 +139,7 @@ class Gemini:
                 time.sleep(10 * attempts)
                 continue
             if r.status_code == 200:
+                self.calls += 1
                 self.usage.ok[self.model] = self.usage.ok.get(self.model, 0) + 1
                 j = r.json()
                 um = j.get("usageMetadata") or {}
@@ -158,7 +167,7 @@ class Gemini:
                 self._drop_model(f"{r.status_code}: {text[:200]}")
                 attempts = 0
                 continue
-            if r.status_code >= 500 and attempts < 3:
+            if r.status_code >= 500 and attempts < 2:
                 time.sleep(10 * attempts)
                 continue
             if r.status_code >= 500:

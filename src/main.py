@@ -184,7 +184,10 @@ def cmd_run(args) -> int:
         from .editorial.pipeline import produce_script
         recent = ledger.recent_story_urls(episode_date, int(s("editorial.avoid_repeat_days", 3)))
         episode, ed_report = run.stage("generate_script", produce_script, mb, geo, rep, episode_date, settings,
-                                       secret("GEMINI_API_KEY"), recent, usage_text, args.template)
+                                       secret("GEMINI_API_KEY"), recent, usage_text, args.template,
+                                       ledger.meta.get("last_good_text_model"))
+        if ed_report.get("text_model"):
+            ledger.meta["last_good_text_model"] = ed_report["text_model"]
         run.report["editorial"] = {k: v for k, v in ed_report.items() if k != "ranking"}
         write_json(out_dir / "episode.json", episode)
         write_json(out_dir / "story_ranking.json", ed_report.get("ranking", {}))

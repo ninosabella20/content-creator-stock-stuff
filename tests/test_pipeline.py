@@ -35,7 +35,14 @@ def test_full_run_then_no_duplicate(env):
     assert rep["status"] == "ok" and rep["youtube"]["status"].startswith("disabled")
     ledger = json.loads((env / "episodes.json").read_text())
     assert ledger["episodes"]["market-brief-daily-2026-11-15"]["status"] == "produced"
-    # second run the same day: nothing is rebuilt or published
+    # flagged (template) episode: the next trigger retries it
+    (out / "run_report.json").unlink()
+    assert run() == 0
+    assert (out / "run_report.json").exists()
+    # a clean episode is final: the next trigger does nothing
+    led = json.loads((env / "episodes.json").read_text())
+    led["episodes"]["market-brief-daily-2026-11-15"]["flags"] = []
+    (env / "episodes.json").write_text(json.dumps(led))
     (out / "run_report.json").unlink()
     assert run() == 0
     assert not (out / "run_report.json").exists()

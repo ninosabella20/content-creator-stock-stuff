@@ -28,7 +28,16 @@ class Ledger:
         return rec
 
     def is_produced(self, episode_id: str) -> bool:
-        return self.get(episode_id).get("status") in ("produced", "published")
+        """Done for the day. A flagged, unpublished episode (e.g. Gemini was down and the
+        template fallback was used) is NOT done: the next scheduled trigger retries it."""
+        rec = self.get(episode_id)
+        if rec.get("status") == "published":
+            return True
+        return rec.get("status") == "produced" and not rec.get("flags")
+
+    @property
+    def meta(self) -> dict:
+        return self.data.setdefault("meta", {})
 
     def youtube_done(self, episode_id: str) -> bool:
         yt = self.get(episode_id).get("youtube") or {}

@@ -22,7 +22,7 @@ log = logging.getLogger(__name__)
 def produce_script(mb: MarketBrief, geo: Geopolitics | None, data_report: DataReport,
                    episode_date: date, settings: Settings, gemini_key: str | None,
                    recent_urls: set[str] | None = None, usage: Usage | None = None,
-                   force_template: bool = False) -> tuple[dict, dict]:
+                   force_template: bool = False, prefer_model: str | None = None) -> tuple[dict, dict]:
     """Return (episode, report). Raises StageError if no acceptable script can be made."""
     s = settings.get_path
     usage = usage or Usage()
@@ -40,7 +40,7 @@ def produce_script(mb: MarketBrief, geo: Geopolitics | None, data_report: DataRe
         try:
             if not gemini_key:
                 raise GeminiError("GEMINI_API_KEY is not set")
-            models = pick_text_models(list_models(gemini_key), s("gemini.model") or None)
+            models = pick_text_models(list_models(gemini_key), s("gemini.model") or None, prefer_model)
             log.info("script model candidates: %s", ", ".join(models[:6]))
             gem = Gemini(gemini_key, models, float(s("gemini.min_interval_seconds", 12)),
                          float(s("gemini.timeout_seconds", 180)),
@@ -61,6 +61,7 @@ def produce_script(mb: MarketBrief, geo: Geopolitics | None, data_report: DataRe
             if not val.ok:
                 raise GeminiError("script still invalid after repair: " + "; ".join(val.errors))
             episode["validation"] = val.as_dict()
+            report["text_model"] = gem.model
         except Exception as e:  # noqa: BLE001 - any AI failure goes through the same policy
             log.error("Gemini script generation failed: %s", e)
             report["gemini_error"] = str(e)[:500]

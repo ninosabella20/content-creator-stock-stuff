@@ -64,7 +64,7 @@ gemini:
   # Empty = auto-pick the newest stable "gemini-X.Y-flash" listed for the key, then fall back.
   model: ""                      # env: GEMINI_MODEL
   temperature: 0.4
-  timeout_seconds: 180
+  timeout_seconds: 150
   min_interval_seconds: 12       # spacing between calls (free-tier RPM)
   max_calls_per_run: 6           # hard cap on text-generation calls (env: MAX_AI_CALLS)
 
