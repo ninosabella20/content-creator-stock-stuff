@@ -31,10 +31,9 @@ class GeminiTTSProvider(TTSProvider):
         return f"gemini:{self.client.model}:{self.voice}"
 
     def prompt(self, text: str) -> str:
-        if not self.style:
-            return text
-        return (f"{self.style}\nRead the following transcript aloud exactly as written, "
-                f"without adding anything:\n\n{text}")
+        # The transcript ONLY. Instructions in the same request were sometimes read aloud
+        # ("please read the following..."), so a style text is deliberately not supported.
+        return text
 
     def synthesize(self, text: str) -> tuple[np.ndarray, int]:
         try:

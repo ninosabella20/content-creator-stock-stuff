@@ -87,3 +87,9 @@ def test_timeline_and_mastering(tmp_path, settings):
     mp3 = tmp_path / "e.mp3"
     ap.export_mp3(master, mp3, {"title": "T", "artist": "Active Thinking"})
     assert abs(ap.ffprobe_duration(mp3) - tl["duration"]) < 0.3
+
+
+def test_gemini_tts_sends_only_the_script():
+    from src.audio.gemini_tts import GeminiTTSProvider
+    p = GeminiTTSProvider("k", ["m"], voice="Charon", style="Read this as a presenter")
+    assert p.prompt("Good morning.") == "Good morning."

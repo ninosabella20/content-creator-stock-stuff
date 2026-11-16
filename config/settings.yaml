@@ -86,10 +86,9 @@ tts:
     # Tried in order; the first one that works voices the whole episode.
     models: [gemini-2.5-flash-preview-tts, gemini-3.8-flash-tts, gemini-3.1-flash-tts-preview, gemini-3.8-flash-lite-tts]
     voice: "Charon"              # env: NARRATOR_VOICE  (prebuilt Gemini voice, "Informative")
-    style: >-
-      Read this as a calm, confident, professional financial news presenter on a
-      morning briefing. Measured pace, clear diction, natural pauses between ideas,
-      neutral and analytical tone, never sensational.
+    # Only the script is sent to the voice: any instruction text risks being read aloud
+    # (it happened in testing). Tone comes from the chosen voice. Leave empty.
+    style: ""
     # Free tier = 10 TTS requests per model per day (measured Nov 2026). ~650 words per
     # request -> 2-3 requests per episode, leaving room for a retry.
     max_words_per_chunk: 650
