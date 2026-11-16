@@ -15,8 +15,14 @@ on:
     - cron: "30 20 * * 1-5"
     - cron: "30 21 * * 1-5"
     - cron: "30 22 * * 1-5"
+  # Also triggered by cron-job.org at 22:30 Europe/Madrid Mon-Fri with inputs.scheduled=true
+  # (GitHub's own schedule above can start late; whichever comes first does the work).
   workflow_dispatch:
     inputs:
+      scheduled:
+        description: "Behave like the daily schedule (used by the external cron trigger)"
+        type: boolean
+        default: false
       date:
         description: "Episode date YYYY-MM-DD (empty = today, Madrid)"
         type: string
@@ -77,15 +83,15 @@ jobs:
       # Optional repository VARIABLES (Settings > Secrets and variables > Actions > Variables)
       GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
       NARRATOR_VOICE: ${{ vars.NARRATOR_VOICE }}
-      TTS_PROVIDER: ${{ github.event_name == 'workflow_dispatch' && inputs.tts_provider || vars.TTS_PROVIDER || 'gemini' }}
-      PUBLISH_YOUTUBE: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.publish_youtube) || vars.PUBLISH_YOUTUBE || 'false' }}
-      YOUTUBE_PRIVACY: ${{ github.event_name == 'workflow_dispatch' && inputs.youtube_privacy || vars.YOUTUBE_PRIVACY || 'private' }}
+      TTS_PROVIDER: ${{ (github.event_name == 'workflow_dispatch' && !inputs.scheduled) && inputs.tts_provider || vars.TTS_PROVIDER || 'gemini' }}
+      PUBLISH_YOUTUBE: ${{ (github.event_name == 'workflow_dispatch' && !inputs.scheduled) && format('{0}', inputs.publish_youtube) || vars.PUBLISH_YOUTUBE || 'false' }}
+      YOUTUBE_PRIVACY: ${{ (github.event_name == 'workflow_dispatch' && !inputs.scheduled) && inputs.youtube_privacy || vars.YOUTUBE_PRIVACY || 'private' }}
       PUBLISH_PUBLICLY: ${{ vars.PUBLISH_PUBLICLY || 'false' }}
-      PUBLISH_SPOTIFY: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.publish_spotify) || vars.PUBLISH_SPOTIFY || 'false' }}
+      PUBLISH_SPOTIFY: ${{ (github.event_name == 'workflow_dispatch' && !inputs.scheduled) && format('{0}', inputs.publish_spotify) || vars.PUBLISH_SPOTIFY || 'false' }}
       SPOTIFY_MODE: ${{ vars.SPOTIFY_MODE || 'rss' }}
       PODCAST_OWNER_EMAIL: ${{ vars.PODCAST_OWNER_EMAIL }}
       GITHUB_TOKEN: ${{ github.token }}
-      ALLOW_STALE: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.allow_stale) || 'false' }}
+      ALLOW_STALE: ${{ (github.event_name == 'workflow_dispatch' && !inputs.scheduled) && format('{0}', inputs.allow_stale) || 'false' }}
     steps:
       # Always the LATEST commit of this branch (not the one that queued the run), so a
       # retry sees the ledger committed by the run before it -> no duplicate episodes.
@@ -113,7 +119,7 @@ jobs:
         id: run
         run: |
           ARGS=""
-          if [ "${{ github.event_name }}" = "schedule" ]; then ARGS="--scheduled"; fi
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.scheduled }}" = "true" ]; then ARGS="--scheduled"; fi
           if [ -n "${{ inputs.date }}" ]; then ARGS="$ARGS --date ${{ inputs.date }}"; fi
           if [ "${{ inputs.force }}" = "true" ]; then ARGS="$ARGS --force"; fi
           if [ "${{ inputs.template }}" = "true" ]; then ARGS="$ARGS --template"; fi
