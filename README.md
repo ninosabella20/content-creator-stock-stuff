@@ -6,10 +6,11 @@ morning into a ~10-minute daily news briefing:
 * **Script:** market overview → one top story for each of the 11 GICS sectors → geopolitics → takeaway
 * **Narration:** one consistent AI voice (Gemini TTS, free tier; Piper as an offline fallback)
 * **Video:** 1080p30 H.264/AAC with animated charts, story cards, a world map, burned-in subtitles
-* **Podcast:** the same narration as an MP3 with ID3 tags and cover art, plus a ready-to-upload Spotify package
+* **Podcast (Spotify, audio only):** the same narration as an MP3, published automatically through an RSS feed
 * **YouTube:** official Data API upload (off by default; private/unlisted only until you approve public)
 
-Runs on GitHub Actions every day at **08:30 Europe/Madrid**. Target cost: **€0/month**.
+Runs on GitHub Actions **after the US market close (≈16:30 New York), Monday-Friday**, skipping
+market holidays. Target cost: **€0/month**.
 
 > Not investment advice. The pipeline only uses facts that Market Brief already published and checks the
 > script's numbers against them, but AI-written text can still be wrong. Review episodes before enabling
@@ -20,15 +21,19 @@ Runs on GitHub Actions every day at **08:30 Europe/Madrid**. Target cost: **€0
 ## 1. What runs every morning
 
 ```
-06:00-07:00  Market Brief website refreshes data.json + geo.json (separate repo, untouched)
-08:30        Daily production (this repo)
-   fetch data.json + geo.json ── stale? retry every 5 min for up to 60 min, then stop (no stale episodes)
+06:00-07:00 Madrid  Market Brief refreshes data.json + geo.json (separate repo, untouched): stories,
+                    geopolitics, company facts
+16:30 New York      Daily production (this repo), Mon-Fri
+   skip weekends; skip market holidays (no trading session today)
+   today's official closes for SPY + 11 sector ETFs + story companies (Yahoo Finance, free)
+   Market Brief's morning recap describes the PREVIOUS session -> kept only as labelled background
    rank stories per sector (rules) ── Gemini picks 1 per sector and writes the script (1 call)
    validate script (11 sectors, URLs, numbers vs source data, no advice) ── 1 repair call if needed
    narrate (Gemini TTS, ~6 calls) ── loudness-normalise (-16 LUFS) ── WAV master + MP3
    render video (parallel) + subtitles (SRT/VTT) + thumbnail + cover art
-   completeness check ── podcast package ── publish ONLY if enabled and the episode is clean
-   ledger committed (state/episodes.json) ── files uploaded as a GitHub Actions artifact (14 days)
+   completeness check ── publish ONLY if enabled and the episode is clean:
+      YouTube (Data API)  ·  Spotify (MP3 on a GitHub Release + RSS feed on GitHub Pages)
+   ledger + feed committed ── files uploaded as a GitHub Actions artifact (14 days)
 ```
 
 **Where to find the episode:** GitHub → **Actions** → *Daily production* → latest run → **Artifacts**
@@ -127,6 +132,9 @@ All switches are repository **Variables** (Settings → Secrets and variables �
 | `TTS_PROVIDER` | `gemini` | `gemini` or `piper` |
 | `NARRATOR_VOICE` | `Charon` | any Gemini prebuilt voice (e.g. `Orus`, `Iapetus`, `Kore`, `Schedar`) |
 | `GEMINI_MODEL` | auto | pin a text model, e.g. `gemini-2.5-flash` |
+| `PUBLISH_SPOTIFY` | `false` | `true` = add every clean episode to the podcast feed (Spotify) |
+| `PODCAST_OWNER_EMAIL` | none | email shown in the feed for Spotify ownership verification |
+| `SPOTIFY_MODE` | `rss` | `rss` (automatic) or `manual` (upload package only) |
 
 A one-off test upload: **Actions** → *Daily production* → **Run workflow** → tick *force* and
 *publish_youtube*, privacy *private* → **Run workflow**.
@@ -138,22 +146,33 @@ Safety rules built into the code (not just config):
   uploads are checked for the episode ID before uploading.
 * `public` is downgraded to `private` unless `PUBLISH_PUBLICLY=true`.
 
-## 4. Spotify
+## 4. Spotify (automatic, audio only)
 
-Spotify has **no public API for uploading episodes** (checked Nov 2026). Supported free options:
+Spotify has no public upload API, so the official automatic route is an RSS feed that Spotify reads:
 
-1. **Manual upload (default, ~2 min/day).** Each artifact contains `podcast/` with the MP3, cover,
-   title, description and step-by-step `UPLOAD_TO_SPOTIFY.md`. Uploading the **MP4** instead of the MP3
-   in Spotify for Creators makes it a **video podcast** on Spotify.
-2. **Automatic via RSS (audio only on Spotify).** `src/publishing/spotify.py` already builds a standard
-   podcast RSS feed. Hosting it free (GitHub Pages + MP3s on GitHub Releases) and moving the show with
-   Spotify's official *"Switching away from Spotify for Creators with a 301 redirect"* process would make
-   Spotify, Apple and others pick episodes up automatically, but Spotify would then show audio only.
-   Not enabled: tell me if you want it.
+* Each clean episode's MP3 is attached to a **GitHub Release** in this repo (tag = episode ID).
+* `docs/podcast/feed.xml` is rebuilt and served by **GitHub Pages** at
+  `https://ninosabella20.github.io/content-creator-stock-stuff/podcast/feed.xml`.
+* Your Spotify for Creators show is **redirected** to that feed once; after that Spotify picks up every
+  new episode by itself, normally within a few hours. Apple Podcasts etc. can use the same feed.
 
-Spotify also lets some third-party hosts deliver video via its Distribution API (Libsyn, Podigee,
-Audioboom, Audiomeans, Podspace as of May 2026), but they're paid and have their own APIs, so this
-project doesn't use them.
+One-time setup (≈10 minutes):
+
+1. **Turn on GitHub Pages:** repo → **Settings** → **Pages** → *Build and deployment* → Source
+   **Deploy from a branch** → Branch `claude/eager-ride-5heya6`, folder **/docs** → **Save**.
+   After a minute the feed URL above opens in a browser.
+2. **Owner email:** Spotify confirms you own the show by sending a code to the email in the feed.
+   Repo → Settings → Secrets and variables → Actions → **Variables** → **New repository variable** →
+   `PODCAST_OWNER_EMAIL` = the address you want (it will be **publicly visible** in the feed; a dedicated
+   address is a good idea).
+3. **Switch publishing on:** add the variable `PUBLISH_SPOTIFY` = `true`.
+4. After the first episode is in the feed, on a computer (not the mobile app) open
+   https://creators.spotify.com → **Settings** → **Redirect your podcast** → paste the feed URL →
+   **Redirect**. Spotify says this can take up to 7 days to complete.
+
+Episodes are never added to the feed if they are flagged (stale data, template script, fallback voice)
+or incomplete. To pause, set `PUBLISH_SPOTIFY` to `false`. For manual uploads instead, set
+`SPOTIFY_MODE` = `manual`: every run still includes a `podcast/` upload package with instructions.
 
 ## 5. Free-tier budget
 
@@ -181,20 +200,21 @@ Defaults live in `config/settings.yaml` (word targets, voice, style prompt, paci
 schedule window, freshness rules, story-age limits, quotas). Every important value can be overridden by
 an environment variable / repository variable (see `.env.example`). Never put secrets in either file.
 
-## 7. Schedule and daylight saving
+## 7. Schedule, daylight saving and market holidays
 
-GitHub cron is UTC only, so the workflow fires at **06:30, 07:30 and 09:15 UTC** and the code proceeds only
-when it is between **08:30 and 13:00 in Madrid** and today's episode doesn't exist yet:
+GitHub cron is UTC only, so the workflow fires at **20:30, 21:30 and 22:30 UTC, Monday-Friday**, and
+the code proceeds only between **16:25 and 20:30 New York time**, once per trading session:
 
-| UTC trigger | Winter (CET, UTC+1) | Summer (CEST, UTC+2) |
+| UTC trigger | Winter (EST, UTC-5) | Summer (EDT, UTC-4) |
 |---|---|---|
-| 06:30 | 07:30 → too early, skip | **08:30 → produce** |
-| 07:30 | **08:30 → produce** | 09:30 → already done, skip |
-| 09:15 | 10:15 → backup if the earlier run was dropped | 11:15 → backup |
+| 20:30 | 15:30 → before the close, skip | **16:30 → produce** |
+| 21:30 | **16:30 → produce** | 17:30 → already done, skip |
+| 22:30 | 17:30 → backup if the earlier run was dropped | 18:30 → backup |
 
-The switch happens automatically on DST dates. GitHub sometimes starts scheduled runs late; for a
-guaranteed start you can add an external trigger the same way Market Brief does (cron-job.org calling
-`workflow_dispatch`), but it isn't required.
+US daylight-saving dates are handled automatically (they differ from Europe's). On market holidays
+(e.g. Thanksgiving) the price data shows no session for today, so nothing is produced. The episode ID
+and title use the **market session date**, e.g. `market-brief-daily-2026-11-16`. Production takes about
+15-20 minutes, so episodes go out around 16:50-17:00 New York time (22:50-23:00 Madrid).
 
 ## 8. Running locally
 

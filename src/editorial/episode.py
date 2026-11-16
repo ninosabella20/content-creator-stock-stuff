@@ -48,6 +48,11 @@ def build_context(mb: MarketBrief, geo: Geopolitics | None, ranked: dict[str, li
         "sectors": [],
         "geopolitics": [],
     }
+    if mb.prior_session:
+        ctx["previous_session_context"] = {
+            "WARNING": ("Describes the PREVIOUS session (" + mb.prior_session.get("label", "") +
+                        "), not today's. Background only: never present it as today's market move."),
+            **mb.prior_session}
     for t in settings.get_path("editorial.sector_order", list(SECTOR_NAMES)):
         cands = ranked.get(t, [])[:n]
         ctx["sectors"].append({
@@ -105,6 +110,7 @@ def assemble(writer: dict, mb: MarketBrief, geo: Geopolitics | None,
                      "ticker": st.ticker, "url": st.url, "source": st.source,
                      "published": st.published.isoformat() if st.published else None,
                      "link_verified": st.link_verified, "week_return": st.week_return,
+                     "today_return": st.today_return,
                      "y1_return": st.y1_return, "consensus": st.consensus or None,
                      "selection_score": round(chosen.score, 2), "selection_notes": chosen.labels}
         segments.append({

@@ -22,19 +22,23 @@ show:
     does not constitute professional financial or investment advice. Listeners are
     responsible for their own investment decisions. Active Thinking does not provide
     personalised investment recommendations.
-  sign_off: "That's your Daily Market Brief. I'll be back tomorrow with the next one."
+  sign_off: "That's your Daily Market Brief. I'll be back after the next market close."
+  podcast_feed_url: "https://ninosabella20.github.io/content-creator-stock-stuff/podcast/feed.xml"
 
 sources:
   data_url: "https://raw.githubusercontent.com/ninosabella20/market-brief/main/docs/data.json"
   geo_url: "https://raw.githubusercontent.com/ninosabella20/market-brief/main/docs/geo.json"
-  # Freshness rules. "Fresh" = generated on the episode's Madrid date, at/after
-  # min_local_hour (the website builds between 06:00 and 07:00 Madrid).
+  # Freshness rules for Market Brief (stories + geopolitics). "Fresh" = generated on the
+  # episode's date (Madrid clock), at/after min_local_hour (it builds 06:00-07:00 Madrid).
   min_local_hour: 5
-  max_data_age_hours: 20        # hard limit even if the date matches
+  max_data_age_hours: 22        # the evening episode runs ~16-17 h after that build
+  # After the US close, replace Market Brief's morning numbers (previous session) with
+  # today's official closes from Yahoo Finance (free, no key). Same formulas as Market Brief.
+  use_live_close: true
   max_geo_age_hours: 30         # geo is secondary: older -> warning, not failure
   # If data is stale, re-fetch every retry_interval_minutes, up to retry_max_minutes.
   retry_interval_minutes: 5
-  retry_max_minutes: 60
+  retry_max_minutes: 15          # Market Brief builds once a day; long waits don't help
   # false (default): stale market data stops the run. true: produce an episode that is
   # clearly flagged as stale and is never auto-published.
   allow_stale: false
@@ -114,7 +118,10 @@ publishing:
     upload_captions: true
   spotify:
     enabled: false               # env: PUBLISH_SPOTIFY
-    mode: "manual"               # manual = ready-to-upload package | rss = self-hosted RSS feed
+    # rss = automatic: MP3 on a GitHub Release + podcast RSS feed on GitHub Pages, which
+    #       Spotify reads (audio only). manual = ready-to-upload package only.
+    mode: "rss"                  # env: SPOTIFY_MODE
+    feed_max_episodes: 300
   public: false                  # env: PUBLISH_PUBLICLY - master switch for anything public
 
 storage:
@@ -122,11 +129,13 @@ storage:
   ledger_path: "state/episodes.json"
 
 schedule:
-  # The workflow fires on several UTC times; the pipeline itself only proceeds when
-  # Madrid local time is inside this window (handles summer/winter time automatically).
-  local_start: "08:30"
-  local_end: "13:00"
-  produce_on_weekends: true
+  # After the US market close, Monday-Friday, New York time. The workflow fires at several
+  # UTC times; the pipeline only proceeds inside this window (US daylight saving handled
+  # automatically) and only on days the market actually traded (holidays are skipped).
+  timezone: "America/New_York"
+  local_start: "16:25"
+  local_end: "20:30"
+  produce_on_weekends: false
 
 quotas:
   # Free-tier assumptions used by the quota estimator. Google shows the real values for

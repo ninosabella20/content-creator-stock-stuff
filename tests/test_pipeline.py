@@ -61,15 +61,51 @@ def test_failure_reports_the_stage(env, monkeypatch):
     assert ledger["episodes"]["market-brief-daily-2026-11-15"]["status"] == "failed"
 
 
-def test_schedule_window(settings):
+def test_schedule_window_new_york(settings):
     from datetime import datetime
     from zoneinfo import ZoneInfo
-    tz = ZoneInfo("Europe/Madrid")
-    # 06:30 UTC in winter = 07:30 Madrid: too early. 07:30 UTC in winter = 08:30: due.
-    assert not m.in_window(settings, datetime(2026, 12, 1, 6, 30, tzinfo=ZoneInfo("UTC")).astimezone(tz))
-    assert m.in_window(settings, datetime(2026, 12, 1, 7, 30, tzinfo=ZoneInfo("UTC")).astimezone(tz))
-    # summer: 06:30 UTC = 08:30 Madrid: due
-    assert m.in_window(settings, datetime(2026, 7, 1, 6, 30, tzinfo=ZoneInfo("UTC")).astimezone(tz))
+    ny, utc = ZoneInfo("America/New_York"), ZoneInfo("UTC")
+    # winter (EST, UTC-5): 20:30 UTC = 15:30 NY too early; 21:30 UTC = 16:30 NY due
+    assert not m.in_window(settings, datetime(2026, 12, 1, 20, 30, tzinfo=utc).astimezone(ny))
+    assert m.in_window(settings, datetime(2026, 12, 1, 21, 30, tzinfo=utc).astimezone(ny))
+    # summer (EDT, UTC-4): 20:30 UTC = 16:30 NY due
+    assert m.in_window(settings, datetime(2026, 7, 1, 20, 30, tzinfo=utc).astimezone(ny))
+
+
+def test_scheduled_run_skips_weekends(env, monkeypatch):
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    sat = datetime(2026, 11, 14, 17, 0, tzinfo=ZoneInfo("America/New_York"))
+    monkeypatch.setattr(m, "local_now", lambda tz: sat)
+    assert m.main(["run", "--scheduled"]) == 0
+    assert not (env / "episodes.json").exists()
+
+
+def test_scheduled_run_skips_market_holidays(env, monkeypatch):
+    from datetime import date, datetime
+    from zoneinfo import ZoneInfo
+    thanksgiving = datetime(2026, 11, 26, 17, 0, tzinfo=ZoneInfo("America/New_York"))
+    monkeypatch.setattr(m, "local_now", lambda tz: thanksgiving)
+    monkeypatch.setattr("src.data.market_close.latest_session", lambda d: ({}, date(2026, 11, 25)))
+    assert m.main(["run", "--scheduled"]) == 0
+    assert not (env / "episodes.json").exists()
+
+
+def test_publish_failure_keeps_episode_produced(env, monkeypatch):
+    monkeypatch.setenv("PUBLISH_YOUTUBE", "true")
+
+    def boom(*a, **k):
+        from src.publishing.youtube import YouTubeError
+        raise YouTubeError("missing GitHub secret(s): YOUTUBE_REFRESH_TOKEN")
+    monkeypatch.setattr("src.publishing.youtube.publish", boom)
+    # full render needed for publishing; use the cheap fake voice and allow the template flag
+    rc = m.main(["run", "--date", "2026-11-15", "--data-dir", str(FIX), "--force", "--allow-flagged"])
+    assert rc == 1
+    out = env / "out" / "market-brief-daily-2026-11-15"
+    rep = json.loads((out / "run_report.json").read_text())
+    assert rep["status"] == "produced_publish_failed" and rep["youtube"]["status"] == "failed"
+    ledger = json.loads((env / "episodes.json").read_text())
+    assert ledger["episodes"]["market-brief-daily-2026-11-15"]["status"] == "produced"
 
 
 def test_quota_estimate(settings):

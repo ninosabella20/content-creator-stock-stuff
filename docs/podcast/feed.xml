@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:podcast="https://podcastindex.org/namespace/1.0">
+<channel>
+<title>Daily Market Brief</title>
+<link>https://ninosabella20.github.io/market-brief/</link>
+<atom:link href="https://ninosabella20.github.io/content-creator-stock-stuff/podcast/feed.xml" rel="self" type="application/rss+xml"/>
+<language>en</language>
+<description>Daily updates covering the top stories across all 11 market sectors and major geopolitical developments, explaining what happened, why it matters, and what it means for investors.
+
+This podcast provides news and commentary for informational purposes only and does not constitute professional financial or investment advice. Listeners are responsible for their own investment decisions. Active Thinking does not provide personalised investment recommendations.</description>
+<itunes:summary>Daily updates covering the top stories across all 11 market sectors and major geopolitical developments, explaining what happened, why it matters, and what it means for investors.
+
+This podcast provides news and commentary for informational purposes only and does not constitute professional financial or investment advice. Listeners are responsible for their own investment decisions. Active Thinking does not provide personalised investment recommendations.</itunes:summary>
+<itunes:author>Active Thinking</itunes:author>
+<itunes:owner><itunes:name>Active Thinking</itunes:name></itunes:owner>
+<copyright>© Active Thinking</copyright>
+<itunes:image href="https://ninosabella20.github.io/content-creator-stock-stuff/podcast/cover.jpg"/>
+<itunes:category text="Business"><itunes:category text="Investing"/></itunes:category>
+<itunes:explicit>false</itunes:explicit>
+<itunes:type>episodic</itunes:type>
+</channel>
+</rss>

@@ -54,8 +54,13 @@ def write_template(mb: MarketBrief, geo: Geopolitics | None, ranked: dict[str, l
     intro = (f"Good morning, and welcome to the {show} for {long_date(episode_date)}. "
              f"Here is what moved markets, sector by sector, and why it matters.")
     leaders, laggards = mb.leaders_laggards(2)
-    market = clean_signs(mb.recap) if mb.recap else (
-        f"The S&P 500 {spoken_move(idx.day if idx else None)} in the latest session.")
+    if mb.recap:
+        market = clean_signs(mb.recap)
+    else:
+        wd = mb.market_date.strftime("%A") if mb.market_date else "the latest"
+        market = f"The S&P 500 {spoken_move(idx.day if idx else None)} in {wd}'s session"
+        market += (f", and is {'up' if idx.week >= 0 else 'down'} {abs(idx.week):.2f} percent over the past week."
+                   if idx and idx.week is not None else ".")
     if leaders and laggards:
         market += (f" Leading the day: {leaders[0].name}. Lagging: {laggards[0].name}.")
     market_points = []
@@ -111,7 +116,7 @@ def write_template(mb: MarketBrief, geo: Geopolitics | None, ranked: dict[str, l
                    "key_points": [shorten(f"{p.name}: {p.week_line}", 70) for p in players]}
     else:
         geo_seg["narration"] = ("Geopolitical intelligence was not available for today's "
-                                "edition, so we'll pick up that thread tomorrow.")
+                                "edition, so we'll pick up that thread in the next one.")
 
     best = max([r for r in mb.sectors.values() if r.day is not None], key=lambda r: abs(r.day),
                default=None)

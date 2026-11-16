@@ -274,7 +274,10 @@ class SectorScene(Scene):
                     fill=g.MUTED)
             cx = rb[2] - 44
             chips = []
-            if st.get("week_return") is not None:
+            if st.get("today_return") is not None:
+                chips.append((f"{st.get('ticker') or 'Stock'} today {st['today_return']:+.1f}%",
+                              g.move_color(st["today_return"])))
+            elif st.get("week_return") is not None:
                 chips.append((f"1W {st['week_return']:+.1f}%", g.move_color(st["week_return"])))
             cons = st.get("consensus") or {}
             if cons.get("rating"):
@@ -412,7 +415,7 @@ class ClosingScene(Scene):
             f_big = g.font("Black", 130, True)
             ld.text((W / 2, 300), "MARKET BRIEF", font=f_big, fill=g.TEXT, anchor="mt")
             ld.text((W / 2, 470), "D A I L Y", font=g.font("Bold", 50, True), fill=g.ACCENT, anchor="mt")
-            ld.text((W / 2, 580), "Back tomorrow with the next briefing", font=g.font("Medium", 40),
+            ld.text((W / 2, 580), "Back after the next market close", font=g.font("Medium", 40),
                     fill=g.TEXT, anchor="mt")
             ld.text((W / 2, 650), "Sources for every story are in the description", font=g.font("Regular", 30),
                     fill=g.MUTED, anchor="mt")

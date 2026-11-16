@@ -104,6 +104,7 @@ class Story:
     consensus: dict = field(default_factory=dict)
     ratings: list[dict] = field(default_factory=list)
     position: int = 0  # order in Market Brief's list (its own editorial ranking)
+    today_return: float | None = None  # same-day % move, filled in after the US close
 
     @property
     def id(self) -> str:
@@ -155,6 +156,7 @@ class Story:
             "profile": self.profile, "what_happened": self.event,
             "background": self.strategy, "cause": self.why,
             "why_it_matters": self.why_it_matters,
+            "stock_move_today_pct": self.today_return,
             "stock_1w_return_pct": self.week_return, "stock_1y_return_pct": self.y1_return,
             "analyst_consensus": self.consensus or None,
             "recent_rating_changes": self.ratings or None,
@@ -186,6 +188,8 @@ class MarketBrief:
     missing: list[str]
     model: str
     raw: dict = field(repr=False, default_factory=dict)
+    # Market Brief's morning text when it describes an EARLIER session than the episode
+    prior_session: dict = field(default_factory=dict)
 
     @property
     def market_date(self) -> date | None:

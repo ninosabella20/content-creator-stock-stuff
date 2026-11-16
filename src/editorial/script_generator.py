@@ -29,6 +29,11 @@ Accuracy
   analyst opinions ("analysts at Y rate it..."), market interpretation ("investors appear to...")
   and your own explanation ("the logic is simple: ..."). Never present speculation as fact.
 - If INPUT gives a reason for a move, you may use it. If it doesn't, don't guess one.
+- "sp500" and each sector's "performance_pct" are the OFFICIAL numbers for the session in
+  "market_session". "previous_session_context" (if present) describes an EARLIER session: never
+  present its moves or explanations as today's. Without an explanation for today's move, report
+  the number and, at most, note which of today's stories may be related ("alongside...").
+- "stock_move_today_pct" is the company's share-price move in today's session.
 - No investment advice, no price predictions, no "buy/sell/hold" recommendations of your own.
   Analyst ratings from INPUT may be reported as analysts' views.
 

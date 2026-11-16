@@ -85,14 +85,9 @@ class Run:
 def cmd_run(args) -> int:
     settings = load_settings()
     s = settings.get_path
-    tz = s("show.timezone", "Europe/Madrid")
+    tz = s("schedule.timezone", "America/New_York")
     now_local = local_now(tz)
-    episode_date = date.fromisoformat(args.date) if args.date else now_local.date()
-
-    from .editorial.episode import episode_id as make_id
-    from .state import Ledger
-    eid = make_id(settings, episode_date)
-    ledger = Ledger(ROOT / s("storage.ledger_path", "state/episodes.json"))
+    today = now_local.date()
     gh_out = os.environ.get("GITHUB_OUTPUT")
 
     def gh_set(**kv):
@@ -101,18 +96,44 @@ def cmd_run(args) -> int:
                 for k, v in kv.items():
                     f.write(f"{k}={v}\n")
 
-    gh_set(episode_id=eid)
-    # ---- gates for scheduled runs -----------------------------------------------------
+    # ---- gates for scheduled runs (US market close, weekdays) --------------------------
     if args.scheduled:
+        if not s("schedule.produce_on_weekends", False) and today.weekday() >= 5:
+            print(f"{today:%A}: no market session, nothing to do.")
+            gh_set(produced="false")
+            return 0
         if not in_window(settings, now_local):
             print(f"Not due: it is {now_local:%H:%M} in {tz}; production window is "
                   f"{s('schedule.local_start')}-{s('schedule.local_end')}. Nothing to do.")
             gh_set(produced="false")
             return 0
-        if not s("schedule.produce_on_weekends", True) and episode_date.weekday() >= 5:
-            print("Weekend and produce_on_weekends is false. Nothing to do.")
+
+    # ---- which market session is this episode about? -------------------------------------
+    close_rows, session = None, None
+    use_close = bool(s("sources.use_live_close", True)) and not args.data_dir
+    if use_close:
+        from .data.market_close import latest_session
+        try:
+            close_rows, session = latest_session(today)
+        except Exception as e:  # noqa: BLE001
+            print(f"FAILED at stage 'market_close': {e}")
+            gh_set(produced="false", failed_stage="market_close")
+            return 1
+        if args.scheduled and session != today:
+            print(f"US market did not trade today ({today}); latest session is {session}. Nothing to do.")
             gh_set(produced="false")
             return 0
+        episode_date = date.fromisoformat(args.date) if args.date else session
+    else:
+        episode_date = date.fromisoformat(args.date) if args.date else today
+    # Market Brief freshness is judged against the day we run, not the session date
+    data_date = today if use_close else episode_date
+
+    from .editorial.episode import episode_id as make_id
+    from .state import Ledger
+    eid = make_id(settings, episode_date)
+    ledger = Ledger(ROOT / s("storage.ledger_path", "state/episodes.json"))
+    gh_set(episode_id=eid)
     if ledger.is_produced(eid) and not args.force:
         print(f"{eid} was already produced ({ledger.get(eid).get('status')}). Use --force to rebuild.")
         gh_set(produced="false")
@@ -139,11 +160,23 @@ def cmd_run(args) -> int:
             dd = Path(args.data_dir)
             mb_raw = json.loads((dd / "data.json").read_text())
             geo_raw = json.loads((dd / "geo.json").read_text())
-            mb, geo, rep = run.stage("fetch_data", fetch_validated, settings, episode_date,
+            mb, geo, rep = run.stage("fetch_data", fetch_validated, settings, data_date,
                                      sleep=lambda _: None, fetch_mb=lambda _: parse_market_brief(mb_raw),
                                      fetch_g=lambda _: parse_geo(geo_raw))
         else:
-            mb, geo, rep = run.stage("fetch_data", fetch_validated, settings, episode_date)
+            mb, geo, rep = run.stage("fetch_data", fetch_validated, settings, data_date)
+        if close_rows is not None:
+            from .data.market_close import apply_close, stock_day_moves
+
+            def close_stage():
+                apply_close(mb, close_rows, session)
+                stories = [st for sec in mb.stories.values() for st in sec.stories]
+                moves = stock_day_moves([st.ticker for st in stories])
+                for st in stories:
+                    st.today_return = moves.get(st.ticker)
+                return {"session": mb.as_of_label, "stock_moves": len(moves),
+                        "morning_text_was_previous_session": bool(mb.prior_session)}
+            run.report["market_close"] = run.stage("market_close", close_stage)
         run.report["data"] = rep.as_dict()
 
         # 4-6. stories + script
@@ -231,32 +264,63 @@ def cmd_run(args) -> int:
                       produced_at=now_utc().isoformat(timespec="seconds"))
         gh_set(produced="true")
 
-        # 12. publishing (only when explicitly enabled, never for flagged/partial episodes)
+        # 12. publishing (only when explicitly enabled, never for flagged/partial episodes).
+        # Each destination is independent: a publishing failure never un-produces the episode.
         allow_public = bool(s("publishing.public", False))
         complete_ep = not args.video_seconds and not args.skip_video
-        if s("publishing.youtube.enabled", False):
-            if episode["flags"] and not args.allow_flagged:
-                run.report["youtube"] = {"status": "skipped", "reason": "episode is flagged: " + "; ".join(episode["flags"])}
-            elif not complete_ep:
-                run.report["youtube"] = {"status": "skipped", "reason": "partial/test render is never published"}
-            elif ledger.youtube_done(eid):
-                run.report["youtube"] = {"status": "skipped", "reason": "already uploaded (ledger)",
-                                         **(ledger.get(eid).get("youtube") or {})}
-            else:
-                from .publishing.youtube import publish as yt_publish
-                res = run.stage("publish_youtube", yt_publish, episode, files, yt_title, yt_desc, tags,
-                                settings, allow_public)
-                run.report["youtube"] = res
-                ledger.update(eid, youtube=res)
-                ledger.save()
-        else:
+        blocked = None
+        if episode["flags"] and not args.allow_flagged:
+            blocked = "episode is flagged: " + "; ".join(episode["flags"])
+        elif not complete_ep:
+            blocked = "partial/test render is never published"
+        publish_errors = []
+
+        def attempt(dest: str, fn):
+            try:
+                return run.stage(f"publish_{dest}", fn)
+            except StageError as e:
+                publish_errors.append(dest)
+                log.error("publishing to %s failed: %s", dest, e.message)
+                return {"status": "failed", "error": e.message[:500]}
+
+        if not s("publishing.youtube.enabled", False):
             run.report["youtube"] = {"status": "disabled (PUBLISH_YOUTUBE=false)"}
-        if s("publishing.spotify.enabled", False) and s("publishing.spotify.mode") == "manual":
-            run.report["spotify"] = ManualPublisher().publish(pkg, {})
+        elif blocked:
+            run.report["youtube"] = {"status": "skipped", "reason": blocked}
+        elif ledger.youtube_done(eid):
+            run.report["youtube"] = {"status": "skipped", "reason": "already uploaded (ledger)",
+                                     **(ledger.get(eid).get("youtube") or {})}
         else:
-            run.report["spotify"] = {"status": "package ready for manual upload", "package": str(pkg.relative_to(out_dir))}
-        if run.report.get("youtube", {}).get("status") in ("uploaded", "already_uploaded"):
-            ledger.update(eid, status="published")
+            from .publishing.youtube import publish as yt_publish
+            res = attempt("youtube", lambda: yt_publish(episode, files, yt_title, yt_desc, tags,
+                                                        settings, allow_public))
+            run.report["youtube"] = res
+            if res.get("status") != "failed":
+                ledger.update(eid, youtube=res)
+            ledger.save()
+
+        mode = s("publishing.spotify.mode", "rss")
+        if not s("publishing.spotify.enabled", False):
+            run.report["spotify"] = {"status": "disabled (PUBLISH_SPOTIFY=false); upload package ready",
+                                     "package": str(pkg.relative_to(out_dir))}
+        elif mode == "manual":
+            run.report["spotify"] = ManualPublisher().publish(pkg, {})
+        elif blocked:
+            run.report["spotify"] = {"status": "skipped", "reason": blocked}
+        else:
+            from .publishing import podcast_feed
+            run.report["spotify"] = attempt("spotify", lambda: podcast_feed.publish(
+                episode, files, p_title, p_desc, timeline, ledger, settings))
+            ledger.save()
+
+        published = [d for d in ("youtube", "spotify")
+                     if (run.report.get(d) or {}).get("status") in ("uploaded", "already_uploaded", "in_feed")]
+        if published:
+            ledger.update(eid, status="published", published_to=published)
+        if publish_errors:
+            run.report["status"] = "produced_publish_failed"
+            gh_set(failed_stage="publish_" + "_".join(publish_errors))
+            return 1
         run.report["status"] = "ok"
         return 0
     except StageError as e:

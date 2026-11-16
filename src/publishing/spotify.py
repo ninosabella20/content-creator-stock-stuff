@@ -88,7 +88,8 @@ class ManualPublisher(PodcastPublisher):
 
 
 # ------------------------------------------------------------------------------ RSS feed
-def rss_feed(settings: Settings, items: list[dict], feed_url: str, cover_url: str) -> str:
+def rss_feed(settings: Settings, items: list[dict], feed_url: str, cover_url: str,
+             owner_email: str = "") -> str:
     """items: [{title, description, guid, date (YYYY-MM-DD), mp3_url, mp3_bytes, duration}]"""
     s = settings.get_path
     show_desc = f"{s('show.description')}\n\n{s('show.disclaimer')}"
@@ -103,6 +104,9 @@ def rss_feed(settings: Settings, items: list[dict], feed_url: str, cover_url: st
            f"<description>{escape(show_desc)}</description>",
            f"<itunes:summary>{escape(show_desc)}</itunes:summary>",
            f"<itunes:author>{escape(s('show.creator'))}</itunes:author>",
+           "<itunes:owner>" + f"<itunes:name>{escape(s('show.creator'))}</itunes:name>" +
+           (f"<itunes:email>{escape(owner_email)}</itunes:email>" if owner_email else "") + "</itunes:owner>",
+           f"<copyright>© {escape(s('show.creator'))}</copyright>",
            f'<itunes:image href="{escape(cover_url)}"/>',
            f'<itunes:category text="Business"><itunes:category text="{escape(s("show.category"))}"/></itunes:category>',
            "<itunes:explicit>false</itunes:explicit>", "<itunes:type>episodic</itunes:type>"]
@@ -115,6 +119,7 @@ def rss_feed(settings: Settings, items: list[dict], feed_url: str, cover_url: st
                 f"<pubDate>{format_datetime(pub)}</pubDate>",
                 f'<enclosure url="{escape(it["mp3_url"])}" length="{int(it["mp3_bytes"])}" type="audio/mpeg"/>',
                 f"<itunes:duration>{int(it['duration'])}</itunes:duration>",
+                f"<link>{escape(s('show.website'))}</link>",
                 "<itunes:episodeType>full</itunes:episodeType>", "<itunes:explicit>false</itunes:explicit>",
                 "</item>"]
     out += ["</channel>", "</rss>"]

@@ -2,19 +2,19 @@ name: Daily production
 # Produces one episode per day; see README section 1 and 7.
 
 # WHEN IT RUNS
-# GitHub cron is UTC-only, and Madrid is UTC+1 in winter (CET) and UTC+2 in summer (CEST).
-# So we schedule BOTH candidate times, and the pipeline itself (src/main.py --scheduled) only
-# proceeds when it is between 08:30 and 13:00 in Europe/Madrid AND today's episode has not
-# been produced yet:
-#   06:30 UTC = 08:30 summer (runs)   | 07:30 winter (too early -> skips)
-#   07:30 UTC = 09:30 summer (already done -> skips) | 08:30 winter (runs)
-#   09:15 UTC = backup if GitHub dropped or badly delayed the earlier run (10:15/11:15 Madrid)
-# This switches automatically on the DST dates; nothing to edit twice a year.
+# After the US market close (16:00 New York), Monday-Friday. GitHub cron is UTC-only and New
+# York is UTC-5 in winter (EST) and UTC-4 in summer (EDT), so we schedule both candidate
+# times and the pipeline (src/main.py --scheduled) only proceeds between 16:25 and 20:30 New
+# York time, on days the market actually traded (holidays skipped), once per session:
+#   20:30 UTC = 16:30 EDT (runs in summer)  | 15:30 EST (too early in winter -> skips)
+#   21:30 UTC = 17:30 EDT (already done)    | 16:30 EST (runs in winter)
+#   22:30 UTC = backup if GitHub dropped or badly delayed the earlier run
+# Weekday filter 1-5 is in UTC, which is the same calendar day as New York at these times.
 on:
   schedule:
-    - cron: "30 6 * * *"
-    - cron: "30 7 * * *"
-    - cron: "15 9 * * *"
+    - cron: "30 20 * * 1-5"
+    - cron: "30 21 * * 1-5"
+    - cron: "30 22 * * 1-5"
   workflow_dispatch:
     inputs:
       date:
@@ -40,6 +40,10 @@ on:
         default: ""
       publish_youtube:
         description: "Upload to YouTube (never public unless repo variable PUBLISH_PUBLICLY=true)"
+        type: boolean
+        default: false
+      publish_spotify:
+        description: "Add the episode to the podcast RSS feed (Spotify, audio only)"
         type: boolean
         default: false
       youtube_privacy:
@@ -77,7 +81,10 @@ jobs:
       PUBLISH_YOUTUBE: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.publish_youtube) || vars.PUBLISH_YOUTUBE || 'false' }}
       YOUTUBE_PRIVACY: ${{ github.event_name == 'workflow_dispatch' && inputs.youtube_privacy || vars.YOUTUBE_PRIVACY || 'private' }}
       PUBLISH_PUBLICLY: ${{ vars.PUBLISH_PUBLICLY || 'false' }}
-      PUBLISH_SPOTIFY: ${{ vars.PUBLISH_SPOTIFY || 'false' }}
+      PUBLISH_SPOTIFY: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.publish_spotify) || vars.PUBLISH_SPOTIFY || 'false' }}
+      SPOTIFY_MODE: ${{ vars.SPOTIFY_MODE || 'rss' }}
+      PODCAST_OWNER_EMAIL: ${{ vars.PODCAST_OWNER_EMAIL }}
+      GITHUB_TOKEN: ${{ github.token }}
       ALLOW_STALE: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.allow_stale) || 'false' }}
     steps:
       # Always the LATEST commit of this branch (not the one that queued the run), so a
@@ -126,14 +133,16 @@ jobs:
           retention-days: 14
           compression-level: 0
 
-      - name: Save episode ledger
+      - name: Save episode ledger and podcast feed
         if: always()
         run: |
-          if [ -z "$(git status --porcelain state/)" ]; then echo "ledger unchanged"; exit 0; fi
+          if [ -z "$(git status --porcelain state/ docs/)" ]; then echo "ledger unchanged"; exit 0; fi
           git config user.name  "market-brief-daily-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add state/episodes.json
-          git commit -m "Ledger: ${{ steps.run.outputs.episode_id }} [skip ci]"
+          if [ -d docs/podcast ]; then git add docs/podcast; fi
+          # no [skip ci]: GitHub Pages must rebuild to publish the updated podcast feed
+          git commit -m "Ledger: ${{ steps.run.outputs.episode_id }}"
           for i in 1 2 3 4; do
             git pull --rebase -X theirs origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}" && exit 0
             sleep $((i * 5))
