@@ -205,16 +205,19 @@ class Gemini:
                 "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voice}}},
             },
         }
-        j = self._post(body)
-        for cand in j.get("candidates") or []:
-            for part in cand.get("content", {}).get("parts", []):
-                inline = part.get("inlineData") or part.get("inline_data")
-                if inline and inline.get("data"):
-                    mime = inline.get("mimeType") or inline.get("mime_type") or ""
-                    m = re.search(r"rate=(\d+)", mime)
-                    return base64.b64decode(inline["data"]), int(m.group(1)) if m else 24000
-        fin = (j.get("candidates") or [{}])[0].get("finishReason")
-        raise GeminiError(f"no audio in TTS response (finishReason={fin})")
+        while True:
+            j = self._post(body)
+            for cand in j.get("candidates") or []:
+                for part in cand.get("content", {}).get("parts", []):
+                    inline = part.get("inlineData") or part.get("inline_data")
+                    if inline and inline.get("data"):
+                        mime = inline.get("mimeType") or inline.get("mime_type") or ""
+                        m = re.search(r"rate=(\d+)", mime)
+                        return base64.b64decode(inline["data"]), int(m.group(1)) if m else 24000
+            fin = (j.get("candidates") or [{}])[0].get("finishReason") or \
+                (j.get("promptFeedback") or {}).get("blockReason")
+            # e.g. a false-positive SAFETY block on one model: try the next model
+            self._drop_model(f"no audio (finishReason={fin})")
 
 
 def parse_json_text(text: str):

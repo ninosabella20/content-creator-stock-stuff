@@ -84,7 +84,9 @@ tts:
       Read this as a calm, confident, professional financial news presenter on a
       morning briefing. Measured pace, clear diction, natural pauses between ideas,
       neutral and analytical tone, never sensational.
-    max_words_per_chunk: 300     # fewer, larger chunks = fewer requests per day
+    # Free tier = 10 TTS requests per model per day (measured Nov 2026). ~650 words per
+    # request -> 2-3 requests per episode, leaving room for a retry.
+    max_words_per_chunk: 650
     min_interval_seconds: 21     # free tier TTS is ~3 requests/minute
     timeout_seconds: 300
     max_calls_per_run: 14
@@ -149,7 +151,7 @@ quotas:
   # Free-tier assumptions used by the quota estimator. Google shows the real values for
   # YOUR project in AI Studio (Rate limits page); update these if they differ.
   gemini_text_rpd_per_model: 20
-  gemini_tts_rpd_per_model: 15
+  gemini_tts_rpd_per_model: 10
   youtube_daily_units: 10000
   youtube_upload_units: 1600
   youtube_thumbnail_units: 50
