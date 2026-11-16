@@ -27,6 +27,10 @@ on:
         description: "Episode date YYYY-MM-DD (empty = today, Madrid)"
         type: string
         default: ""
+      id_suffix:
+        description: "Append to the episode ID (e.g. v2) to re-issue a corrected episode"
+        type: string
+        default: ""
       force:
         description: "Rebuild even if today's episode already exists"
         type: boolean
@@ -122,6 +126,7 @@ jobs:
           if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.scheduled }}" = "true" ]; then ARGS="--scheduled"; fi
           if [ -n "${{ inputs.date }}" ]; then ARGS="$ARGS --date ${{ inputs.date }}"; fi
           if [ "${{ inputs.force }}" = "true" ]; then ARGS="$ARGS --force"; fi
+          if [ -n "${{ inputs.id_suffix }}" ]; then ARGS="$ARGS --id-suffix ${{ inputs.id_suffix }}"; fi
           if [ "${{ inputs.template }}" = "true" ]; then ARGS="$ARGS --template"; fi
           if [ -n "${{ inputs.video_seconds }}" ]; then ARGS="$ARGS --video-seconds ${{ inputs.video_seconds }}"; fi
           python -m src.main run $ARGS

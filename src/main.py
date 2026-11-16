@@ -131,7 +131,7 @@ def cmd_run(args) -> int:
 
     from .editorial.episode import episode_id as make_id
     from .state import Ledger
-    eid = make_id(settings, episode_date)
+    eid = make_id(settings, episode_date) + (f"-{args.id_suffix}" if args.id_suffix else "")
     ledger = Ledger(ROOT / s("storage.ledger_path", "state/episodes.json"))
     gh_set(episode_id=eid)
     if ledger.is_produced(eid) and not args.force:
@@ -189,6 +189,7 @@ def cmd_run(args) -> int:
         if ed_report.get("text_model"):
             ledger.meta["last_good_text_model"] = ed_report["text_model"]
         settings.set_path("gemini.preferred_model", ledger.meta.get("last_good_text_model"))
+        episode["episode_id"] = eid
         run.report["editorial"] = {k: v for k, v in ed_report.items() if k != "ranking"}
         write_json(out_dir / "episode.json", episode)
         write_json(out_dir / "story_ranking.json", ed_report.get("ranking", {}))
@@ -402,6 +403,7 @@ def main(argv=None) -> int:
     r.add_argument("--skip-video", action="store_true")
     r.add_argument("--video-seconds", type=float, help="render only the first N seconds (test)")
     r.add_argument("--data-dir", help="read data.json/geo.json from a folder instead of the web")
+    r.add_argument("--id-suffix", help="append to the episode ID, e.g. v2 (re-issue a corrected episode)")
     r.add_argument("--allow-flagged", action="store_true", help="allow publishing a flagged episode")
     r.set_defaults(fn=cmd_run)
     sub.add_parser("quota").set_defaults(fn=cmd_quota)
