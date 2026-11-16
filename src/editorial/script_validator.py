@@ -18,6 +18,13 @@ ADVICE_RE = re.compile(
 CLICHE_RE = re.compile(
     r"\b(buckle up|delve|fast-paced world|game[- ]changer|it'?s worth noting|"
     r"navigat(e|ing) the (landscape|waters)|in conclusion|let'?s dive in)\b", re.I)
+# Prompt/instruction wording that must never be spoken.
+INSTRUCTION_RE = re.compile(
+    r"(read (the following|this|aloud)|in a way that (sounds|is)|as a (calm|professional|financial news) "
+    r"presenter|\btranscript\b|\bword count\b|\bstory_id\b|\bpre_rank|\bJSON\b|"
+    r"\bkey_points\b|\bscreen_headline\b|\bthis script\b|\bspoken words\b|"
+    r"(please )?(describe|explain|summari[sz]e) (the )?(activity|this|the following)|"
+    r"\bas an ai\b|\blanguage model\b|\bhere is (the|your)\b)", re.I)
 SEGMENT_WORDS = {"intro": (15, 60), "market_overview": (80, 190), "sector": (55, 130),
                  "geopolitics": (70, 190), "closing": (45, 140)}
 
@@ -170,6 +177,8 @@ def validate_script(episode: dict, context: dict, settings, raw_writer: dict | N
     full = "\n".join(x.get("narration", "") for x in segs)
     for m in ADVICE_RE.finditer(full):
         res.errors.append(f"possible investment advice: {m.group(0)!r}")
+    for m in INSTRUCTION_RE.finditer(full):
+        res.errors.append(f"instruction/prompt wording in narration: {m.group(0)!r}")
     for m in CLICHE_RE.finditer(full):
         res.warnings.append(f"cliché: {m.group(0)!r}")
     if "http" in full or "www." in full:

@@ -195,6 +195,17 @@ class Gemini:
             raise GeminiError(f"empty answer (finishReason={cands[0].get('finishReason')})")
         return text
 
+    def transcribe(self, wav_bytes: bytes) -> str:
+        """Speech-to-text of a short WAV clip (used to check narration audio)."""
+        body = {"contents": [{"role": "user", "parts": [
+            {"inlineData": {"mimeType": "audio/wav", "data": base64.b64encode(wav_bytes).decode()}},
+            {"text": "Transcribe the speech in this audio exactly, word for word. "
+                     "Output only the transcript, nothing else."}]}],
+                "generationConfig": {"temperature": 0}}
+        j = self._post(body)
+        parts = ((j.get("candidates") or [{}])[0].get("content") or {}).get("parts") or []
+        return "".join(p.get("text", "") for p in parts if not p.get("thought")).strip()
+
     # -- speech --------------------------------------------------------------------------
     def generate_speech(self, text: str, voice: str) -> tuple[bytes, int]:
         """Return (16-bit little-endian mono PCM, sample_rate)."""

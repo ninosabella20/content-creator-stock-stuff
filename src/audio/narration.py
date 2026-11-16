@@ -66,11 +66,14 @@ def _synth_checked(provider: TTSProvider, text: str, words: int, wpm: float) -> 
         samples, sr = provider.synthesize(text)
         samples = ap.trim_silence(samples, sr)
         dur = len(samples) / sr
-        if expected * 0.5 <= dur <= expected * 2.2 or expected < 4:
-            return samples, sr
-        log.warning("%s audio is %.1fs for ~%.1fs of text (attempt %d)", provider.name, dur,
-                    expected, attempt)
-    raise TTSError(f"{provider.name} returned audio of implausible length ({dur:.1f}s vs ~{expected:.0f}s)")
+        if not (expected * 0.5 <= dur <= expected * 2.2 or expected < 4):
+            problem = f"audio is {dur:.1f}s for ~{expected:.1f}s of text"
+        else:
+            problem = provider.verify(samples, sr, text)
+            if problem is None:
+                return samples, sr
+        log.warning("%s: %s (attempt %d)", provider.name, problem, attempt)
+    raise TTSError(f"{provider.name} audio rejected twice: {problem}")
 
 
 def voice_segments(segments: list[dict], provider: TTSProvider, settings: Settings

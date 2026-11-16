@@ -93,3 +93,24 @@ def test_gemini_tts_sends_only_the_script():
     from src.audio.gemini_tts import GeminiTTSProvider
     p = GeminiTTSProvider("k", ["m"], voice="Charon", style="Read this as a presenter")
     assert p.prompt("Good morning.") == "Good morning."
+
+
+def test_leak_detection():
+    from src.audio.gemini_tts import leak_problem
+    script = "Good morning, and welcome to the Daily Market Brief for Tuesday."
+    assert leak_problem("Good morning and welcome to the Daily Market Brief for", script) is None
+    assert leak_problem("Please read the following transcript aloud as a calm presenter. "
+                        "Good morning and welcome to the Daily Market Brief", script)
+    assert leak_problem("Read this in a calm tone", script)
+
+
+def test_rejected_audio_is_retried_then_fails(settings):
+    from .conftest import ToneTTS
+
+    class Leaky(ToneTTS):
+        def verify(self, samples, sr, text):
+            return "audio starts with extra speech"
+    tts = Leaky()
+    with pytest.raises(TTSError):
+        voice_segments([{"id": "x", "type": "sector", "narration": "One two three. Four five six."}], tts, settings)
+    assert tts.calls == 2

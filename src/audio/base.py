@@ -20,6 +20,10 @@ class TTSProvider(ABC):
     def synthesize(self, text: str) -> tuple[np.ndarray, int]:
         """Speak `text` (already normalised). Returns (int16 mono samples, sample_rate)."""
 
+    def verify(self, samples: np.ndarray, sr: int, text: str) -> str | None:
+        """Optional quality check of generated audio. Return a problem description, or None."""
+        return None
+
     @property
     def voice_signature(self) -> str:
         """Identifies the exact voice. If it changes mid-episode the episode is re-voiced,

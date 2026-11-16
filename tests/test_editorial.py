@@ -155,3 +155,11 @@ def test_gemini_client_call_cap(monkeypatch):
     g.generate_text("a")
     with pytest.raises(QuotaExhausted):
         g.generate_text("b")
+
+
+def test_validator_rejects_instruction_wording(template_episode, mb, geo, settings):
+    ep = copy.deepcopy(template_episode)
+    ep["segments"][2]["narration"] = ("Please describe activity in a way that sounds natural. "
+                                      + ep["segments"][2]["narration"])
+    res = validate_script(ep, _context(mb, geo, settings), settings)
+    assert any("instruction/prompt wording" in e for e in res.errors)

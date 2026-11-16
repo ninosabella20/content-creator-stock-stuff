@@ -56,7 +56,8 @@
         "date": "2026-11-13",
         "mp3_url": "https://github.com/ninosabella20/content-creator-stock-stuff/releases/download/market-brief-daily-2026-11-13/market-brief-daily-2026-11-13.mp3",
         "mp3_bytes": 10755087,
-        "duration": 664
+        "duration": 664,
+        "withdrawn": "2026-11-16: voice read an instruction at the start"
       },
       "published_to": [
         "spotify",

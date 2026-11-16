@@ -76,7 +76,7 @@ def write_feed(ledger, settings: Settings, cover: Path | None) -> Path:
     if cover and cover.exists() and not cover_dst.exists():
         shutil.copy2(cover, cover_dst)
     items = [rec["podcast"] for rec in ledger.data["episodes"].values()
-             if (rec.get("podcast") or {}).get("mp3_url")]
+             if (rec.get("podcast") or {}).get("mp3_url") and not rec["podcast"].get("withdrawn")]
     items = sorted(items, key=lambda x: x["date"], reverse=True)[: int(s("publishing.spotify.feed_max_episodes", 300))]
     xml = rss_feed(settings, items, feed_url, f"{base}/cover.jpg",
                    owner_email=_owner_email(settings))
