@@ -1,4 +1,5 @@
 name: Daily production
+# Produces one episode per day; see README section 1 and 7.
 
 # WHEN IT RUNS
 # GitHub cron is UTC-only, and Madrid is UTC+1 in winter (CET) and UTC+2 in summer (CEST).
