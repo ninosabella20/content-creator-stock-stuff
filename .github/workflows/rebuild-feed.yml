@@ -26,7 +26,7 @@ jobs:
       - run: pip install -q requests PyYAML numpy Pillow matplotlib
       - name: Rebuild feed
         env:
-          PODCAST_OWNER_EMAIL: ${{ vars.PODCAST_OWNER_EMAIL }}
+          PODCAST_OWNER_EMAIL: ${{ vars.PODCAST_OWNER_EMAIL || secrets.PODCAST_OWNER_EMAIL }}
         run: python -m src.main rebuild-feed
       - name: Commit feed
         run: |

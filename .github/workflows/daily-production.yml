@@ -89,7 +89,7 @@ jobs:
       PUBLISH_PUBLICLY: ${{ vars.PUBLISH_PUBLICLY || 'false' }}
       PUBLISH_SPOTIFY: ${{ (github.event_name == 'workflow_dispatch' && !inputs.scheduled) && format('{0}', inputs.publish_spotify) || vars.PUBLISH_SPOTIFY || 'false' }}
       SPOTIFY_MODE: ${{ vars.SPOTIFY_MODE || 'rss' }}
-      PODCAST_OWNER_EMAIL: ${{ vars.PODCAST_OWNER_EMAIL }}
+      PODCAST_OWNER_EMAIL: ${{ vars.PODCAST_OWNER_EMAIL || secrets.PODCAST_OWNER_EMAIL }}
       GITHUB_TOKEN: ${{ github.token }}
       ALLOW_STALE: ${{ (github.event_name == 'workflow_dispatch' && !inputs.scheduled) && format('{0}', inputs.allow_stale) || 'false' }}
     steps:
