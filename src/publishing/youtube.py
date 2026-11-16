@@ -117,6 +117,26 @@ def upload_video(tok: str, video: Path, meta: dict) -> dict:
             pos = int(rng.split("-")[1]) + 1 if rng else 0
 
 
+def get_privacy(tok: str, video_id: str) -> str | None:
+    r = HTTP.get(f"{API}/videos", params={"part": "status", "id": video_id}, headers=_h(tok), timeout=30)
+    items = r.json().get("items") or [] if r.status_code == 200 else []
+    return (items[0].get("status") or {}).get("privacyStatus") if items else None
+
+
+def ensure_privacy(tok: str, video_id: str, wanted: str, made_for_kids: bool) -> str | None:
+    """Read back the video's visibility; if it differs from what was requested, set it once."""
+    actual = get_privacy(tok, video_id)
+    if actual == wanted or actual is None:
+        return actual
+    log.warning("video %s is %s, requested %s: updating", video_id, actual, wanted)
+    HTTP.put(f"{API}/videos", params={"part": "status"}, timeout=30,
+             headers=_h(tok, **{"Content-Type": "application/json"}),
+             json={"id": video_id, "status": {"privacyStatus": wanted,
+                                              "selfDeclaredMadeForKids": made_for_kids,
+                                              "containsSyntheticMedia": True}})
+    return get_privacy(tok, video_id)
+
+
 def set_thumbnail(tok: str, video_id: str, image: Path) -> str:
     r = HTTP.post(f"{UPLOAD}/thumbnails/set", params={"videoId": video_id},
                   headers=_h(tok, **{"Content-Type": "image/jpeg"}), data=image.read_bytes(), timeout=120)
@@ -168,9 +188,14 @@ def publish(episode: dict, files: dict[str, Path], title: str, description: str,
            "privacy_requested": privacy,
            "privacy_reported": (res.get("status") or {}).get("privacyStatus"),
            "upload_status": (res.get("status") or {}).get("uploadStatus")}
+    out["privacy_verified"] = ensure_privacy(tok, vid, privacy,
+                                             bool(s("publishing.youtube.made_for_kids", False)))
     if files.get("thumbnail"):
         out["thumbnail"] = set_thumbnail(tok, vid, files["thumbnail"])
     if files.get("captions") and s("publishing.youtube.upload_captions", True):
         out["captions"] = upload_captions(tok, vid, files["captions"])
     log.info("YouTube upload done: %s", {k: v for k, v in out.items() if k != "url"})
+    if out["privacy_verified"] and out["privacy_verified"] != privacy:
+        raise YouTubeError(f"video {vid} uploaded but is {out['privacy_verified']}, not {privacy}: "
+                           f"check it in YouTube Studio ({out['url']})")
     return out
