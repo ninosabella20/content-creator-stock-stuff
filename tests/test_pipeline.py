@@ -15,7 +15,7 @@ def env(tmp_path, monkeypatch):
     for k in ("PUBLISH_YOUTUBE", "GEMINI_API_KEY", "YOUTUBE_REFRESH_TOKEN", "TTS_PROVIDER"):
         monkeypatch.delenv(k, raising=False)
     monkeypatch.setattr("src.data.validation.now_utc", lambda: FRESH_NOW)
-    monkeypatch.setattr("src.audio.narration.make_provider", lambda name, s, u=None: ToneTTS(wps=4.5))
+    monkeypatch.setattr("src.audio.narration.make_provider", lambda name, s, u=None: ToneTTS(wps=3))
     return tmp_path
 
 

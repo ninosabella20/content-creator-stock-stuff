@@ -66,7 +66,7 @@ class ToneTTS(TTSProvider):
     name = "tone"
     max_words_per_call = 0
 
-    def __init__(self, sr=24000, wps=2.5, signature="tone:1", max_words=0):
+    def __init__(self, sr=24000, wps=2.2, signature="tone:1", max_words=0):
         self.sr, self.wps, self.sig, self.calls = sr, wps, signature, 0
         self.max_words_per_call = max_words
 

@@ -17,7 +17,7 @@ from .conftest import ToneTTS
 @pytest.fixture
 def produced(template_episode, settings, tmp_path):
     segs = [s for s in template_episode["segments"]]
-    audios = voice_segments(segs, ToneTTS(wps=4.5), settings)   # fast fake voice
+    audios = voice_segments(segs, ToneTTS(wps=3), settings)   # fast fake voice
     full, tl = build_timeline(segs, audios, 0.5)
     wav = tmp_path / "n.wav"
     ap.write_wav(wav, full, 24000)

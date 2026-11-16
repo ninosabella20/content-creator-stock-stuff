@@ -43,7 +43,7 @@ editorial:
   sector_order: [XLK, XLC, XLY, XLP, XLF, XLV, XLI, XLB, XLE, XLU, XLRE]
   target_words_min: 1250
   target_words_max: 1450
-  words_per_minute: 150          # used for duration estimates
+  words_per_minute: 125          # duration estimates (Gemini "Charon" measured at ~125 wpm)
   max_story_age_days: 5          # older stories are treated as "no fresh development"
   candidates_per_sector: 5       # candidates shown to the model (pre-ranked in Python)
   avoid_repeat_days: 3           # penalise stories (URLs) used in recent episodes
