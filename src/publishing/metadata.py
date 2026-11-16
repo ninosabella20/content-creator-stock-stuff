@@ -68,6 +68,9 @@ def youtube_title(episode: dict) -> str:
 def youtube_description(episode: dict, timeline: dict, settings: Settings) -> str:
     s = settings.get_path
     parts = [episode.get("summary") or "", ""]
+    if s("show.spotify_url"):
+        parts += [f"🎧 Also available as an audio podcast on Spotify: \"{s('show.spotify_show_name')}\" "
+                  f"by {s('show.creator')}: {s('show.spotify_url')}", ""]
     if episode.get("flags"):
         parts += ["⚠ " + f for f in episode["flags"]] + [""]
     parts.append("Chapters")
@@ -107,7 +110,11 @@ def podcast_title(episode: dict) -> str:
 
 def podcast_description(episode: dict, timeline: dict, settings: Settings) -> str:
     s = settings.get_path
-    lines = [episode.get("summary") or "", "",
+    promo = []
+    if s("show.youtube_url"):
+        promo = [f"📺 Watch the video version with charts on YouTube: {s('show.youtube_channel_name')} "
+                 f"({s('show.youtube_handle')}): {s('show.youtube_url')}", ""]
+    lines = [episode.get("summary") or "", "", *promo,
              "In this episode: the market overview, the top story in each of the 11 sectors, "
              "and the week's key geopolitical developments.", "", "Chapters"]
     lines += [f"{ts} {label}" for ts, label in chapters(episode, timeline)]

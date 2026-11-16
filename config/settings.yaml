@@ -26,6 +26,12 @@ show:
   # Public in the RSS feed: Spotify/Apple send ownership-verification codes here.
   # The PODCAST_OWNER_EMAIL variable overrides it.
   owner_email: ""                # set via the PODCAST_OWNER_EMAIL repository variable
+  # Cross-promotion: each platform's description points to the other one.
+  spotify_show_name: "Daily Market Brief"
+  spotify_url: "https://open.spotify.com/show/0DaMkgbRTSgF4tTVFZPUp6"
+  youtube_channel_name: "Active Thinker"
+  youtube_handle: "@activethinker-t5v"
+  youtube_url: "https://www.youtube.com/@activethinker-t5v"
   podcast_feed_url: "https://ninosabella20.github.io/content-creator-stock-stuff/podcast/feed.xml"
 
 sources:

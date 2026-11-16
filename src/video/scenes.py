@@ -419,6 +419,8 @@ class ClosingScene(Scene):
                     fill=g.TEXT, anchor="mt")
             ld.text((W / 2, 650), "Sources for every story are in the description", font=g.font("Regular", 30),
                     fill=g.MUTED, anchor="mt")
+            ld.text((W / 2, 705), "Also on Spotify: Daily Market Brief by Active Thinking",
+                    font=g.font("SemiBold", 30), fill=g.UP, anchor="mt")
             ld.text((W / 2, 760), "News and commentary for information only. Not investment advice.",
                     font=g.font("Regular", 26), fill=g.DIM, anchor="mt")
             img.alpha_composite(g.with_alpha(layer, e))
