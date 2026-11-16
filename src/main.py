@@ -342,6 +342,19 @@ def cmd_run(args) -> int:
                          indent=1))
 
 
+def cmd_rebuild_feed(_args) -> int:
+    """Regenerate docs/podcast/feed.xml from the ledger (e.g. after setting PODCAST_OWNER_EMAIL)."""
+    from .publishing.podcast_feed import write_feed
+    from .state import Ledger
+    settings = load_settings()
+    ledger = Ledger(ROOT / settings.get_path("storage.ledger_path", "state/episodes.json"))
+    out = write_feed(ledger, settings, None)
+    n = sum(1 for r in ledger.data["episodes"].values() if (r.get("podcast") or {}).get("mp3_url"))
+    print(f"wrote {out.relative_to(ROOT)} with {n} episode(s); owner email "
+          f"{'set' if os.environ.get('PODCAST_OWNER_EMAIL') else 'NOT set'}")
+    return 0
+
+
 def cmd_quota(_args) -> int:
     from .quota import estimate
     print(json.dumps(estimate(load_settings()), indent=2))
@@ -387,6 +400,7 @@ def main(argv=None) -> int:
     r.add_argument("--allow-flagged", action="store_true", help="allow publishing a flagged episode")
     r.set_defaults(fn=cmd_run)
     sub.add_parser("quota").set_defaults(fn=cmd_quota)
+    sub.add_parser("rebuild-feed").set_defaults(fn=cmd_rebuild_feed)
     sub.add_parser("check-secrets").set_defaults(fn=cmd_check_secrets)
     sub.add_parser("youtube-auth-check").set_defaults(fn=cmd_youtube_auth_check)
     args = p.parse_args(argv)
