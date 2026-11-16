@@ -149,6 +149,12 @@ Safety rules built into the code (not just config):
 
 ## 4. Spotify (automatic, audio only)
 
+**Live:** https://open.spotify.com/show/0DaMkgbRTSgF4tTVFZPUp6 (Spotify for Creators show ID
+`0DaMkgbRTSgF4tTVFZPUp6`, externally hosted, imported from the RSS feed below; Business & Technology >
+Investing). **Never change** the feed URL, the show name, or the episode GUID format
+(`market-brief-daily-YYYY-MM-DD`): Spotify uses them to recognise the show and avoid duplicates.
+
+
 Spotify has no public upload API, so the official automatic route is an RSS feed that Spotify reads:
 
 * Each clean episode's MP3 is attached to a **GitHub Release** in this repo (tag = episode ID).
