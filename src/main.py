@@ -320,7 +320,8 @@ def cmd_run(args) -> int:
         published = [d for d in ("youtube", "spotify")
                      if (run.report.get(d) or {}).get("status") in ("uploaded", "already_uploaded", "in_feed")]
         if published:
-            ledger.update(eid, status="published", published_to=published)
+            before = ledger.get(eid).get("published_to") or []
+            ledger.update(eid, status="published", published_to=sorted(set(before) | set(published)))
         if publish_errors:
             run.report["status"] = "produced_publish_failed"
             gh_set(failed_stage="publish_" + "_".join(publish_errors))
