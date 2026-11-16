@@ -57,10 +57,10 @@ on:
         type: boolean
         default: false
       youtube_privacy:
-        description: "YouTube privacy for this upload"
+        description: "YouTube privacy for this upload (settings = use the YOUTUBE_PRIVACY variable)"
         type: choice
-        options: [private, unlisted]
-        default: private
+        options: [settings, private, unlisted, public]
+        default: settings
       allow_stale:
         description: "Produce even if Market Brief data is stale (flagged, never published)"
         type: boolean
@@ -89,7 +89,7 @@ jobs:
       NARRATOR_VOICE: ${{ vars.NARRATOR_VOICE }}
       TTS_PROVIDER: ${{ (github.event_name == 'workflow_dispatch' && !inputs.scheduled) && inputs.tts_provider || vars.TTS_PROVIDER || 'gemini' }}
       PUBLISH_YOUTUBE: ${{ (github.event_name == 'workflow_dispatch' && !inputs.scheduled) && format('{0}', inputs.publish_youtube) || vars.PUBLISH_YOUTUBE || 'false' }}
-      YOUTUBE_PRIVACY: ${{ (github.event_name == 'workflow_dispatch' && !inputs.scheduled) && inputs.youtube_privacy || vars.YOUTUBE_PRIVACY || 'private' }}
+      YOUTUBE_PRIVACY: ${{ (github.event_name == 'workflow_dispatch' && !inputs.scheduled && inputs.youtube_privacy != 'settings') && inputs.youtube_privacy || vars.YOUTUBE_PRIVACY || 'private' }}
       PUBLISH_PUBLICLY: ${{ vars.PUBLISH_PUBLICLY || 'false' }}
       PUBLISH_SPOTIFY: ${{ (github.event_name == 'workflow_dispatch' && !inputs.scheduled) && format('{0}', inputs.publish_spotify) || vars.PUBLISH_SPOTIFY || 'false' }}
       SPOTIFY_MODE: ${{ vars.SPOTIFY_MODE || 'rss' }}
