@@ -18,5 +18,52 @@ This podcast provides news and commentary for informational purposes only and do
 <itunes:category text="Business"><itunes:category text="Investing"/></itunes:category>
 <itunes:explicit>false</itunes:explicit>
 <itunes:type>episodic</itunes:type>
+<item>
+<title>13 Nov 2026: Tech Sell-Off Pressures Markets as Nvidia Shifts</title>
+<description>The S&amp;P 500 slipped 0.36 percent on Friday but secured a 2.59 percent gain for the week, as strength in energy and consumer defensive sectors offset severe technology pressure. Nvidia faced leadership uncertainty while Treasury yields topped 5 percent, driving rotation across major sectors. We examine today's key moves across technology, energy, healthcare, and global trade.
+
+📺 Watch the video version with charts on YouTube: Active Thinker (@activethinker-t5v): https://www.youtube.com/@activethinker-t5v
+
+In this episode: the market overview, the top story in each of the 11 sectors, and the week's key geopolitical developments.
+
+Chapters
+00:00 Intro
+00:13 Market Overview
+00:58 Information Technology: Nvidia Corporation
+01:32 Communication Services: Netflix, Inc.
+02:09 Consumer Discretionary: Tesla, Inc.
+02:48 Consumer Staples: Walmart Inc.
+03:26 Financials: Global Payments Inc.
+04:02 Health Care: CVS Health Corporation
+04:34 Industrials: The Boeing Company
+05:08 Materials: Air Products and Chemicals, Inc.
+05:40 Energy: ExxonMobil
+06:12 Utilities: American Electric Power Company, Inc.
+06:45 Real Estate: Public Storage
+07:17 Geopolitical Intelligence
+08:10 The Takeaway
+
+Sources
+• Information Technology: Nvidia Corporation (NVDA): Jensen Huang Reportedly Mulls Return as Nvidia CEO Following Resignation [Investor's Business Daily, 2026-11-16] https://finance.yahoo.com/m/694d3941-721c-31d4-aff5-d306f1116454/jensen-huang-reportedly.html
+• Communication Services: Netflix, Inc. (NFLX): Netflix Lowers 2026 Ad Revenue and Free Cash Flow Outlook [Simply Wall St., 2026-11-14] https://finance.yahoo.com/markets/stocks/articles/netflix-nflx-following-ad-outlook-190805204.html
+• Consumer Discretionary: Tesla, Inc. (TSLA): Tesla Cybercab Driverless Vehicle Goes on Sale Following Major Announcement [Fox Business, 2026-11-15] https://finance.yahoo.com/technology/ai/articles/tesla-makes-major-cybercab-announcement-014928775.html
+• Consumer Staples: Walmart Inc. (WMT): Walmart Agrees to $7.8 Million Child Labor Settlement Ahead of Q3 Results [Simply Wall St., 2026-11-13] https://finance.yahoo.com/markets/stocks/articles/digital-expansion-walmart-wmt-changed-231951520.html
+• Financials: Global Payments Inc. (GPN): Elliott Takes Activist Stake in Global Payments, Questioning Worldpay Deal [Simply Wall St., 2026-11-15] https://finance.yahoo.com/markets/stocks/articles/next-global-payments-gpn-elliott-120827361.html
+• Health Care: CVS Health Corporation (CVS): CVS Health Identifies $350 Monthly Break-Even Threshold for GLP-1 Drugs [Reuters, 2026-11-14] https://finance.yahoo.com/healthcare/articles/cvs-says-glp-1s-save-110514978.html
+• Industrials: The Boeing Company (BA): Boeing Cuts 2,500 Jobs Despite Record $745 Billion Backlog [24/7 Wall St., 2026-11-13] https://finance.yahoo.com/markets/stocks/articles/boeing-cuts-2-500-jobs-163700843.html
+• Materials: Air Products and Chemicals, Inc. (APD): Air Products Reports Full-Year 2026 Sales of $12.99 Billion and Net Income of $532 Million [Simply Wall St., 2026-11-14] https://finance.yahoo.com/markets/stocks/articles/profit-return-might-change-case-051133163.html
+• Energy: ExxonMobil (XOM): ExxonMobil Approves $12.5 Billion Offshore Guyana Longtail Development [Simply Wall St., 2026-11-14] https://finance.yahoo.com/energy/articles/exxonmobil-holdings-xom-undervalued-12-011312124.html
+
+More: https://ninosabella20.github.io/market-brief/
+
+This podcast provides news and commentary for informational purposes only and does not constitute professional financial or investment advice. Listeners are responsible for their own investment decisions. Active Thinking does not provide personalised investment recommendations.</description>
+<guid isPermaLink="false">market-brief-daily-2026-11-13-v2</guid>
+<pubDate>Fri, 13 Nov 2026 07:30:00 +0000</pubDate>
+<enclosure url="https://github.com/ninosabella20/content-creator-stock-stuff/releases/download/market-brief-daily-2026-11-13-v2/market-brief-daily-2026-11-13-v2.mp3" length="8597579" type="audio/mpeg"/>
+<itunes:duration>529</itunes:duration>
+<link>https://ninosabella20.github.io/market-brief/</link>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:explicit>false</itunes:explicit>
+</item>
 </channel>
 </rss>

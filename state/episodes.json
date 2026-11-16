@@ -98,6 +98,55 @@
         "https://finance.yahoo.com/news/residential-reit-announces-commencement-proceedings-200300649.html"
       ],
       "produced_at": "2026-11-16T11:45:10+00:00"
+    },
+    "market-brief-daily-2026-11-13-v2": {
+      "date": "2026-11-13",
+      "status": "published",
+      "run_id": "43912235937",
+      "updated_at": "2026-11-16T17:09:54+00:00",
+      "generator": "gemini:gemini-3.6-flash",
+      "flags": [],
+      "voice": "gemini:gemini-2.5-flash-preview-tts:Charon",
+      "duration": 528.777,
+      "words": 1313,
+      "story_urls": [
+        "https://finance.yahoo.com/m/694d3941-721c-31d4-aff5-d306f1116454/jensen-huang-reportedly.html",
+        "https://finance.yahoo.com/markets/stocks/articles/netflix-nflx-following-ad-outlook-190805204.html",
+        "https://finance.yahoo.com/technology/ai/articles/tesla-makes-major-cybercab-announcement-014928775.html",
+        "https://finance.yahoo.com/markets/stocks/articles/digital-expansion-walmart-wmt-changed-231951520.html",
+        "https://finance.yahoo.com/markets/stocks/articles/next-global-payments-gpn-elliott-120827361.html",
+        "https://finance.yahoo.com/healthcare/articles/cvs-says-glp-1s-save-110514978.html",
+        "https://finance.yahoo.com/markets/stocks/articles/boeing-cuts-2-500-jobs-163700843.html",
+        "https://finance.yahoo.com/markets/stocks/articles/profit-return-might-change-case-051133163.html",
+        "https://finance.yahoo.com/energy/articles/exxonmobil-holdings-xom-undervalued-12-011312124.html",
+        "https://finance.yahoo.com/energy/articles/bigger-grid-spending-altering-investment-043654675.html",
+        "https://finance.yahoo.com/real-estate/articles/self-storage-reits-grow-noi-165851389.html"
+      ],
+      "produced_at": "2026-11-16T17:09:41+00:00",
+      "youtube": {
+        "status": "uploaded",
+        "video_id": "Yb5DCnvVuPU",
+        "url": "https://youtu.be/Yb5DCnvVuPU",
+        "privacy_requested": "public",
+        "privacy_reported": "public",
+        "upload_status": "uploaded",
+        "privacy_verified": "public",
+        "thumbnail": "ok",
+        "captions": "ok"
+      },
+      "podcast": {
+        "title": "13 Nov 2026: Tech Sell-Off Pressures Markets as Nvidia Shifts",
+        "description": "The S&P 500 slipped 0.36 percent on Friday but secured a 2.59 percent gain for the week, as strength in energy and consumer defensive sectors offset severe technology pressure. Nvidia faced leadership uncertainty while Treasury yields topped 5 percent, driving rotation across major sectors. We examine today's key moves across technology, energy, healthcare, and global trade.\n\n📺 Watch the video version with charts on YouTube: Active Thinker (@activethinker-t5v): https://www.youtube.com/@activethinker-t5v\n\nIn this episode: the market overview, the top story in each of the 11 sectors, and the week's key geopolitical developments.\n\nChapters\n00:00 Intro\n00:13 Market Overview\n00:58 Information Technology: Nvidia Corporation\n01:32 Communication Services: Netflix, Inc.\n02:09 Consumer Discretionary: Tesla, Inc.\n02:48 Consumer Staples: Walmart Inc.\n03:26 Financials: Global Payments Inc.\n04:02 Health Care: CVS Health Corporation\n04:34 Industrials: The Boeing Company\n05:08 Materials: Air Products and Chemicals, Inc.\n05:40 Energy: ExxonMobil\n06:12 Utilities: American Electric Power Company, Inc.\n06:45 Real Estate: Public Storage\n07:17 Geopolitical Intelligence\n08:10 The Takeaway\n\nSources\n• Information Technology: Nvidia Corporation (NVDA): Jensen Huang Reportedly Mulls Return as Nvidia CEO Following Resignation [Investor's Business Daily, 2026-11-16] https://finance.yahoo.com/m/694d3941-721c-31d4-aff5-d306f1116454/jensen-huang-reportedly.html\n• Communication Services: Netflix, Inc. (NFLX): Netflix Lowers 2026 Ad Revenue and Free Cash Flow Outlook [Simply Wall St., 2026-11-14] https://finance.yahoo.com/markets/stocks/articles/netflix-nflx-following-ad-outlook-190805204.html\n• Consumer Discretionary: Tesla, Inc. (TSLA): Tesla Cybercab Driverless Vehicle Goes on Sale Following Major Announcement [Fox Business, 2026-11-15] https://finance.yahoo.com/technology/ai/articles/tesla-makes-major-cybercab-announcement-014928775.html\n• Consumer Staples: Walmart Inc. (WMT): Walmart Agrees to $7.8 Million Child Labor Settlement Ahead of Q3 Results [Simply Wall St., 2026-11-13] https://finance.yahoo.com/markets/stocks/articles/digital-expansion-walmart-wmt-changed-231951520.html\n• Financials: Global Payments Inc. (GPN): Elliott Takes Activist Stake in Global Payments, Questioning Worldpay Deal [Simply Wall St., 2026-11-15] https://finance.yahoo.com/markets/stocks/articles/next-global-payments-gpn-elliott-120827361.html\n• Health Care: CVS Health Corporation (CVS): CVS Health Identifies $350 Monthly Break-Even Threshold for GLP-1 Drugs [Reuters, 2026-11-14] https://finance.yahoo.com/healthcare/articles/cvs-says-glp-1s-save-110514978.html\n• Industrials: The Boeing Company (BA): Boeing Cuts 2,500 Jobs Despite Record $745 Billion Backlog [24/7 Wall St., 2026-11-13] https://finance.yahoo.com/markets/stocks/articles/boeing-cuts-2-500-jobs-163700843.html\n• Materials: Air Products and Chemicals, Inc. (APD): Air Products Reports Full-Year 2026 Sales of $12.99 Billion and Net Income of $532 Million [Simply Wall St., 2026-11-14] https://finance.yahoo.com/markets/stocks/articles/profit-return-might-change-case-051133163.html\n• Energy: ExxonMobil (XOM): ExxonMobil Approves $12.5 Billion Offshore Guyana Longtail Development [Simply Wall St., 2026-11-14] https://finance.yahoo.com/energy/articles/exxonmobil-holdings-xom-undervalued-12-011312124.html\n\nMore: https://ninosabella20.github.io/market-brief/\n\nThis podcast provides news and commentary for informational purposes only and does not constitute professional financial or investment advice. Listeners are responsible for their own investment decisions. Active Thinking does not provide personalised investment recommendations.",
+        "guid": "market-brief-daily-2026-11-13-v2",
+        "date": "2026-11-13",
+        "mp3_url": "https://github.com/ninosabella20/content-creator-stock-stuff/releases/download/market-brief-daily-2026-11-13-v2/market-brief-daily-2026-11-13-v2.mp3",
+        "mp3_bytes": 8597579,
+        "duration": 529
+      },
+      "published_to": [
+        "spotify",
+        "youtube"
+      ]
     }
   },
   "meta": {
