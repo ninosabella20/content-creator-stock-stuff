@@ -73,6 +73,31 @@
         "thumbnail": "not allowed (403): custom thumbnails need a verified channel. Verify at youtube.com/verify, then re-run.",
         "captions": "ok"
       }
+    },
+    "market-brief-daily-2026-11-12": {
+      "date": "2026-11-12",
+      "status": "produced",
+      "run_id": "43859085876",
+      "updated_at": "2026-11-16T11:45:10+00:00",
+      "generator": "gemini:gemini-3.6-flash",
+      "flags": [],
+      "voice": "gemini:gemini-2.5-flash-preview-tts:Charon",
+      "duration": 518.711,
+      "words": 1311,
+      "story_urls": [
+        "https://finance.yahoo.com/markets/stocks/articles/marvell-trillion-dollar-target-002002774.html",
+        "https://finance.yahoo.com/technology/articles/italy-fines-meta-805-million-135324699.html",
+        "https://finance.yahoo.com/news/us-rocket-fails-launch-payload-202554696.html",
+        "https://finance.yahoo.com/markets/stocks/articles/costco-paying-13-billion-special-180502940.html",
+        "https://finance.yahoo.com/m/f6833278-a282-381a-a8cf-3802b9d06b33/jpmorgan%E2%80%99s-top-credit-cards.html",
+        "https://finance.yahoo.com/healthcare/articles/j-j-looks-buy-ollin-004930607.html",
+        "https://finance.yahoo.com/m/a9636277-7c15-31d0-8ee8-c364b5cdb3c2/railroad-ceo%E2%80%99s-loose-lips.html",
+        "https://finance.yahoo.com/markets/commodities/articles/tdg-gold-corp-agrees-sell-183800100.html",
+        "https://finance.yahoo.com/markets/stocks/articles/learn-why-bull-case-marathon-121051253.html",
+        "https://finance.yahoo.com/energy/articles/constellation-energy-corp-ceg-q3-230123365.html",
+        "https://finance.yahoo.com/news/residential-reit-announces-commencement-proceedings-200300649.html"
+      ],
+      "produced_at": "2026-11-16T11:45:10+00:00"
     }
   },
   "meta": {
