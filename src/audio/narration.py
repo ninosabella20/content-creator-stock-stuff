@@ -28,11 +28,13 @@ def make_provider(name: str, settings: Settings, usage: Usage | None = None) -> 
     s = settings.get_path
     if name == "gemini":
         from .gemini_tts import GeminiTTSProvider
-        return GeminiTTSProvider(
+        prov = GeminiTTSProvider(
             secret("GEMINI_API_KEY") or "", list(s("tts.gemini.models")), s("tts.gemini.voice", "Charon"),
             s("tts.gemini.style", ""), int(s("tts.gemini.max_words_per_chunk", 300)),
             float(s("tts.gemini.min_interval_seconds", 21)), float(s("tts.gemini.timeout_seconds", 300)),
             int(s("tts.gemini.max_calls_per_run", 14)), usage)
+        prov.preferred_check_model = s("gemini.preferred_model")
+        return prov
     if name == "piper":
         from .piper_tts import PiperTTSProvider
         spk = s("tts.piper.speaker")

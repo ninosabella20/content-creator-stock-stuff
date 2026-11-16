@@ -31,6 +31,7 @@ class GeminiTTSProvider(TTSProvider):
         self._key = key
         self._checker: Gemini | None = None
         self.check_seconds = 20.0
+        self.preferred_check_model: str | None = None
 
     @property
     def voice_signature(self) -> str:
@@ -44,8 +45,9 @@ class GeminiTTSProvider(TTSProvider):
     def _check_client(self) -> Gemini:
         if self._checker is None:
             from ..gemini_client import list_models, pick_text_models
-            self._checker = Gemini(self._key, pick_text_models(list_models(self._key)),
-                                   min_interval=4, timeout=90, max_calls=12)
+            self._checker = Gemini(self._key, pick_text_models(list_models(self._key), None,
+                                                               self.preferred_check_model),
+                                   min_interval=4, timeout=60, max_calls=12)
         return self._checker
 
     def verify(self, samples: np.ndarray, sr: int, text: str) -> str | None:
@@ -63,6 +65,7 @@ class GeminiTTSProvider(TTSProvider):
         except Exception as e:  # noqa: BLE001 - the check must never block narration
             log.warning("audio check skipped (transcription unavailable: %s)", str(e)[:150])
             return None
+        log.info("audio check heard: %r", " ".join(heard.split()[:14]))
         return leak_problem(heard, text)
 
     def synthesize(self, text: str) -> tuple[np.ndarray, int]:

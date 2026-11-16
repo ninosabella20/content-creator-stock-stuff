@@ -188,6 +188,7 @@ def cmd_run(args) -> int:
                                        ledger.meta.get("last_good_text_model"))
         if ed_report.get("text_model"):
             ledger.meta["last_good_text_model"] = ed_report["text_model"]
+        settings.set_path("gemini.preferred_model", ledger.meta.get("last_good_text_model"))
         run.report["editorial"] = {k: v for k, v in ed_report.items() if k != "ranking"}
         write_json(out_dir / "episode.json", episode)
         write_json(out_dir / "story_ranking.json", ed_report.get("ranking", {}))
