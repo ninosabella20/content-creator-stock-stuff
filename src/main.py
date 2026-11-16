@@ -378,7 +378,10 @@ def cmd_youtube_auth_check(_args) -> int:
         if r.status_code != 200 or not items:
             print(f"Token works but channel lookup failed: HTTP {r.status_code}")
             return 1
-        print(f"OK: refresh token valid; uploads will go to channel '{items[0]['snippet']['title']}'")
+        sn = items[0]["snippet"]
+        print(f"OK: refresh token valid; uploads will go to channel '{sn['title']}'")
+        print(f"Channel handle: {sn.get('customUrl') or '(none)'}  "
+              f"URL: https://www.youtube.com/{sn.get('customUrl') or 'channel/' + items[0]['id']}")
         return 0
     except YouTubeError as e:
         print(f"YouTube auth check FAILED: {e}")
