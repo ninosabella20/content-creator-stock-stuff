@@ -111,11 +111,9 @@ the channel name the uploads will go to.
 
 ### 2c. Two YouTube rules to know
 
-* **Uploads from an un-audited API project are locked to *private*.** This applies to every Google Cloud
-  project created after July 2020, including **Podcast**. Private test uploads work fine. Before public
-  publishing, submit Google's free *YouTube API Services Audit and Quota Extension* form
-  (https://support.google.com/youtube/contact/yt_api_form). Videos locked private before the audit
-  stay private; later uploads can be public.
+* **Visibility:** videos get exactly the visibility the app requests (`YOUTUBE_PRIVACY`). Google's YouTube
+  API team confirmed in Nov 2026 that API uploads are not automatically made private. After each upload the
+  app reads the visibility back from YouTube and fails the run (with a GitHub issue) if it doesn't match.
 * **Custom thumbnails need a verified channel:** verify once at https://www.youtube.com/verify (phone).
   Until then the upload still works and the thumbnail step reports "not allowed".
 
