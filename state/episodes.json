@@ -147,9 +147,58 @@
         "spotify",
         "youtube"
       ]
+    },
+    "market-brief-daily-2026-11-16": {
+      "date": "2026-11-16",
+      "status": "published",
+      "run_id": "44043141571",
+      "updated_at": "2026-11-17T08:16:05+00:00",
+      "generator": "gemini:gemini-3.8-flash",
+      "flags": [],
+      "voice": "gemini:gemini-2.5-flash-preview-tts:Charon",
+      "duration": 555.18,
+      "words": 1386,
+      "story_urls": [
+        "https://finance.yahoo.com/markets/stocks/articles/nvidia-turmoil-advanced-micro-devices-031446562.html",
+        "https://finance.yahoo.com/markets/stocks/articles/netflix-lowers-2026-ad-revenue-135900499.html",
+        "https://finance.yahoo.com/m/65412fe9-d0ea-3145-b9f8-fb7320675017/tesla-will-invest-%243.31.html",
+        "https://finance.yahoo.com/markets/stocks/articles/tyson-foods-q4-earnings-miss-144400754.html",
+        "https://finance.yahoo.com/technology/ai/articles/morgan-stanley-ms-really-gaining-190954314.html",
+        "https://finance.yahoo.com/healthcare/articles/johnson-johnson-agrees-buy-ollin-165031669.html",
+        "https://finance.yahoo.com/technology/articles/northrop-grumman-lands-1-6-150000883.html",
+        "https://finance.yahoo.com/news/tdg-gold-sell-51-aurora-084305323.html",
+        "https://finance.yahoo.com/energy/articles/chevron-reportedly-moves-ahead-talks-212832438.html",
+        "https://finance.yahoo.com/markets/stocks/articles/q3-earnings-beat-data-center-151600286.html",
+        "https://finance.yahoo.com/real-estate/articles/blackstone-data-center-reit-makes-145243410.html"
+      ],
+      "produced_at": "2026-11-17T08:15:56+00:00",
+      "youtube": {
+        "status": "uploaded",
+        "video_id": "CaO1TSd0bxg",
+        "url": "https://youtu.be/CaO1TSd0bxg",
+        "privacy_requested": "public",
+        "privacy_reported": "public",
+        "upload_status": "uploaded",
+        "privacy_verified": "public",
+        "thumbnail": "ok",
+        "captions": "ok"
+      },
+      "podcast": {
+        "title": "16 Nov 2026: Tech Sinks Benchmarks as Nvidia Leadership Shifts",
+        "description": "Major equity benchmarks retreated Monday as a sharp selloff in Information Technology pulled the S&P 500 down 1.91 percent. Losses accelerated following leadership changes at Nvidia and expanded export restrictions, while defensive groups like Consumer Staples and Utilities managed modest gains.\n\n📺 Watch the video version with charts on YouTube: Active Thinker (@activethinker-t5v): https://www.youtube.com/@activethinker-t5v\n\nIn this episode: the market overview, the top story in each of the 11 sectors, and the week's key geopolitical developments.\n\nChapters\n00:00 Intro\n00:14 Market Overview\n01:03 Information Technology: NVIDIA Corporation\n01:43 Communication Services: Netflix, Inc.\n02:21 Consumer Discretionary: Tesla, Inc.\n02:59 Consumer Staples: Tyson Foods, Inc.\n03:39 Financials: Morgan Stanley\n04:16 Health Care: Johnson & Johnson\n04:53 Industrials: Northrop Grumman Corporation\n05:30 Materials: Freeport-McMoRan Inc.\n06:07 Energy: Chevron\n06:41 Utilities: The Southern Company\n07:21 Real Estate: Blackstone Inc.\n07:55 Geopolitical Intelligence\n08:43 The Takeaway\n\nSources\n• Information Technology: NVIDIA Corporation (NVDA): NVIDIA Chief Executive Jensen Huang Resigns from CEO and Board Roles [Insider Monkey, 2026-11-17] https://finance.yahoo.com/markets/stocks/articles/nvidia-turmoil-advanced-micro-devices-031446562.html\n• Communication Services: Netflix, Inc. (NFLX): Netflix Lowers 2026 Advertising Revenue Forecast to $2.7 Billion [Zacks, 2026-11-16] https://finance.yahoo.com/markets/stocks/articles/netflix-lowers-2026-ad-revenue-135900499.html\n• Consumer Discretionary: Tesla, Inc. (TSLA): Tesla to Invest $3.31 Billion Expanding German Factory for Cybercab Production [The Wall Street Journal, 2026-11-16] https://finance.yahoo.com/m/65412fe9-d0ea-3145-b9f8-fb7320675017/tesla-will-invest-%243.31.html\n• Consumer Staples: Tyson Foods, Inc. (TSN): Tyson Foods Q4 Earnings Miss Estimates as Beef Losses Widen [Zacks, 2026-11-16] https://finance.yahoo.com/markets/stocks/articles/tyson-foods-q4-earnings-miss-144400754.html\n• Financials: Morgan Stanley (MS): Morgan Stanley Secures Lead Underwriting Role for Record Anthropic IPO [Simply Wall St., 2026-11-16] https://finance.yahoo.com/technology/ai/articles/morgan-stanley-ms-really-gaining-190954314.html\n• Health Care: Johnson & Johnson (JNJ): Johnson & Johnson to Acquire Ollin Biosciences for Up to $3.33 Billion [MT Newswires, 2026-11-16] https://finance.yahoo.com/healthcare/articles/johnson-johnson-agrees-buy-ollin-165031669.html\n• Industrials: Northrop Grumman Corporation (NOC): Northrop Grumman Secures $1.6 Billion Order to Scale PAC-3 Missile Propulsion [GlobeNewswire, 2026-11-16] https://finance.yahoo.com/technology/articles/northrop-grumman-lands-1-6-150000883.html\n• Materials: Freeport-McMoRan Inc. (FCX): Freeport-McMoRan to Acquire 51% Interest in Aurora West Copper Project for $77M [Mining Technology, 2026-11-13] https://finance.yahoo.com/news/tdg-gold-sell-51-aurora-084305323.html\n• Energy: Chevron (CVX): Chevron Nears $5 Billion Acquisition of Stake in Beacon Offshore Energy [International Business Times, 2026-11-16] https://finance.yahoo.com/energy/articles/chevron-reportedly-moves-ahead-talks-212832438.html\n• Utilities: The Southern Company (SO): Southern Co. Beats Q3 Earnings Estimates and Raises Full-Year Outlook [Zacks, 2026-11-13] https://finance.yahoo.com/markets/stocks/articles/q3-earnings-beat-data-center-151600286.html\n\nMore: https://ninosabella20.github.io/market-brief/\n\nThis podcast provides news and commentary for informational purposes only and does not constitute professional financial or investment advice. Listeners are responsible for their own investment decisions. Active Thinking does not provide personalised investment recommendations.",
+        "guid": "market-brief-daily-2026-11-16",
+        "date": "2026-11-16",
+        "mp3_url": "https://github.com/ninosabella20/content-creator-stock-stuff/releases/download/market-brief-daily-2026-11-16/market-brief-daily-2026-11-16.mp3",
+        "mp3_bytes": 9019719,
+        "duration": 555
+      },
+      "published_to": [
+        "spotify",
+        "youtube"
+      ]
     }
   },
   "meta": {
-    "last_good_text_model": "gemini-3.6-flash"
+    "last_good_text_model": "gemini-3.8-flash"
   }
 }
