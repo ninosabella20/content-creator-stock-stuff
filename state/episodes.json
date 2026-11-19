@@ -245,9 +245,58 @@
         "spotify",
         "youtube"
       ]
+    },
+    "market-brief-daily-2026-11-18": {
+      "date": "2026-11-18",
+      "status": "published",
+      "run_id": "44484042113",
+      "updated_at": "2026-11-19T08:34:54+00:00",
+      "generator": "gemini:gemini-3-flash-preview",
+      "flags": [],
+      "voice": "gemini:gemini-2.5-flash-preview-tts:Charon",
+      "duration": 528.89,
+      "words": 1585,
+      "story_urls": [
+        "https://finance.yahoo.com/m/0233bacd-d39a-3d34-9ebd-028946cb5515/wall-street-pledged-to.html",
+        "https://finance.yahoo.com/news/gamers-ready-enter-vice-city-110339411.html",
+        "https://finance.yahoo.com/markets/stocks/articles/tjx-stock-changed-earnings-beat-011726728.html",
+        "https://finance.yahoo.com/m/e1b03594-d419-34dc-b0da-f74ff752b7cc/walmart-earnings-could-add-to.html",
+        "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-taps-20-company-veteran-232910777.html",
+        "https://finance.yahoo.com/healthcare/articles/unitedhealth-sinks-12-cms-fraud-194116346.html",
+        "https://finance.yahoo.com/m/64059d5e-ecfd-3f7c-b0a6-62de62c50c84/caterpillar-is-spending-%241.html",
+        "https://finance.yahoo.com/m/9233f114-c0ab-3c1a-bd8e-f0f03832cc80/copper-prices-plunge-in-worst.html",
+        "https://finance.yahoo.com/markets/stocks/articles/eog-resources-eog-lifts-dividend-061638768.html",
+        "https://finance.yahoo.com/energy/articles/does-duke-energy-duk-winning-052304470.html",
+        "https://finance.yahoo.com/markets/stocks/articles/dimensional-fund-advisors-ltd-form-101600594.html"
+      ],
+      "produced_at": "2026-11-19T08:34:42+00:00",
+      "youtube": {
+        "status": "uploaded",
+        "video_id": "yubrxrPO0Oc",
+        "url": "https://youtu.be/yubrxrPO0Oc",
+        "privacy_requested": "public",
+        "privacy_reported": "public",
+        "upload_status": "uploaded",
+        "privacy_verified": "public",
+        "thumbnail": "ok",
+        "captions": "ok"
+      },
+      "podcast": {
+        "title": "18 Nov 2026: Anthropic IPO Debuts Amid Hawkish Fed Minutes",
+        "description": "The S&P 500 fell 0.31 percent on Wednesday, breaking its two-hundred-day moving average as hawkish Federal Reserve minutes fueled rate shock concerns. While the Energy and Health Care sectors lagged, the market focused on the historic 81 billion dollar IPO of AI lab Anthropic and a 10 percent drop in UnitedHealth.\n\n📺 Watch the video version with charts on YouTube: Active Thinker (@activethinker-t5v): https://www.youtube.com/@activethinker-t5v\n\nIn this episode: the market overview, the top story in each of the 11 sectors, and the week's key geopolitical developments.\n\nChapters\n00:00 Intro\n00:15 Market Overview\n00:56 Information Technology: Nvidia Corporation\n01:37 Communication Services: Take-Two Interactive Software, Inc.\n02:11 Consumer Discretionary: The TJX Companies, Inc.\n02:47 Consumer Staples: Walmart Inc.\n03:27 Financials: JPMorgan Chase & Co.\n04:01 Health Care: UnitedHealth Group Inc.\n04:38 Industrials: Caterpillar Inc.\n05:12 Materials: Freeport-McMoRan Inc.\n05:46 Energy: EOG Resources\n06:25 Utilities: Duke Energy\n07:00 Real Estate: Prologis, Inc.\n07:37 Geopolitical Intelligence\n08:19 The Takeaway\n\nSources\n• Information Technology: Nvidia Corporation (NVDA): Wall Street Pledged $500 Billion to Fund Nvidia Chip Purchases Has Yet to Deploy Capital [The Wall Street Journal, 2026-11-19] https://finance.yahoo.com/m/0233bacd-d39a-3d34-9ebd-028946cb5515/wall-street-pledged-to.html\n• Communication Services: Take-Two Interactive Software, Inc. (TTWO): Take-Two Launches Grand Theft Auto VI to Record Reviews [Reuters, 2026-11-19] https://finance.yahoo.com/news/gamers-ready-enter-vice-city-110339411.html\n• Consumer Discretionary: The TJX Companies, Inc. (TJX): TJX Shares Surge as Q3 Earnings Beat Estimates and Guidance Is Raised [Simply Wall St., 2026-11-19] https://finance.yahoo.com/markets/stocks/articles/tjx-stock-changed-earnings-beat-011726728.html\n• Consumer Staples: Walmart Inc. (WMT): Walmart Shares Approach Buy Point Ahead of Q3 Earnings and Recession Signal [Barrons.com, 2026-11-18] https://finance.yahoo.com/m/e1b03594-d419-34dc-b0da-f74ff752b7cc/walmart-earnings-could-add-to.html\n• Financials: JPMorgan Chase & Co. (JPM): JPMorgan Appoints Bregje de Best as CFO to Succeed Jeremy Barnum [Fortune, 2026-11-18] https://finance.yahoo.com/markets/stocks/articles/jpmorgan-taps-20-company-veteran-232910777.html\n• Health Care: UnitedHealth Group Inc. (UNH): UnitedHealth Shares Sink 12% on Proposed CMS Anti-Fraud Rule [TIKR, 2026-11-18] https://finance.yahoo.com/healthcare/articles/unitedhealth-sinks-12-cms-fraud-194116346.html\n• Industrials: Caterpillar Inc. (CAT): Caterpillar Pivots to Small Equipment with $1 Billion Investment [Barrons.com, 2026-11-18] https://finance.yahoo.com/m/64059d5e-ecfd-3f7c-b0a6-62de62c50c84/caterpillar-is-spending-%241.html\n• Materials: Freeport-McMoRan Inc. (FCX): Copper Prices Plunge to Seven-Month Low on AI Demand Concerns [Barrons.com, 2026-11-18] https://finance.yahoo.com/m/9233f114-c0ab-3c1a-bd8e-f0f03832cc80/copper-prices-plunge-in-worst.html\n• Energy: EOG Resources (EOG): EOG Resources Raises Dividend 8% on Record Production [Simply Wall St., 2026-11-18] https://finance.yahoo.com/markets/stocks/articles/eog-resources-eog-lifts-dividend-061638768.html\n• Utilities: Duke Energy (DUK): Duke Energy Secures Approval for 2025 Carolinas Resource Plan [Simply Wall St., 2026-11-18] https://finance.yahoo.com/energy/articles/does-duke-energy-duk-winning-052304470.html\n\nMore: https://ninosabella20.github.io/market-brief/\n\nThis podcast provides news and commentary for informational purposes only and does not constitute professional financial or investment advice. Listeners are responsible for their own investment decisions. Active Thinking does not provide personalised investment recommendations.",
+        "guid": "market-brief-daily-2026-11-18",
+        "date": "2026-11-18",
+        "mp3_url": "https://github.com/ninosabella20/content-creator-stock-stuff/releases/download/market-brief-daily-2026-11-18/market-brief-daily-2026-11-18.mp3",
+        "mp3_bytes": 8599248,
+        "duration": 529
+      },
+      "published_to": [
+        "spotify",
+        "youtube"
+      ]
     }
   },
   "meta": {
-    "last_good_text_model": "gemini-3.8-flash"
+    "last_good_text_model": "gemini-3-flash-preview"
   }
 }
