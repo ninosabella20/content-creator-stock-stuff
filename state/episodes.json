@@ -294,9 +294,36 @@
         "spotify",
         "youtube"
       ]
+    },
+    "market-brief-daily-2026-11-19": {
+      "date": "2026-11-19",
+      "status": "produced",
+      "run_id": "44699181164",
+      "updated_at": "2026-11-20T08:31:43+00:00",
+      "generator": "gemini:gemini-3.5-flash-lite",
+      "flags": [
+        "FALLBACK VOICE: narrated with piper:en-us-libritts-high:0 because gemini failed"
+      ],
+      "voice": "piper:en-us-libritts-high:0",
+      "duration": 596.918,
+      "words": 1337,
+      "story_urls": [
+        "https://finance.yahoo.com/technology/ai/articles/us-approved-nvidia-amd-ai-000557363.html",
+        "https://finance.yahoo.com/technology/articles/verizon-ceo-knows-elon-musk-174602710.html",
+        "https://finance.yahoo.com/m/2a3dc039-5d33-38ad-92d8-639d011370eb/ross-stores-earnings-beat-but.html",
+        "https://finance.yahoo.com/markets/stocks/articles/walmart-inc-wmt-q3-2027-210048614.html",
+        "https://finance.yahoo.com/markets/stocks/articles/anthropic-ipo-nets-goldman-sachs-233822497.html",
+        "https://finance.yahoo.com/m/8344ba04-192f-3ca6-a30d-5b6f30413bdd/sanofi-reportedly-gears-up.html",
+        "https://finance.yahoo.com/markets/stocks/articles/investors-reacting-lockheed-martin-stock-191021628.html",
+        "https://finance.yahoo.com/markets/stocks/articles/steel-dynamics-stld-adds-buyback-131232910.html",
+        "https://finance.yahoo.com/energy/articles/exxonmobil-holdings-xom-gets-mozambique-211612645.html",
+        "https://finance.yahoo.com/markets/stocks/articles/doj-closes-antitrust-probe-nextera-032504407.html",
+        "https://finance.yahoo.com/real-estate/articles/dlr-boosts-frankfurt-data-center-171800144.html"
+      ],
+      "produced_at": "2026-11-20T08:31:43+00:00"
     }
   },
   "meta": {
-    "last_good_text_model": "gemini-3-flash-preview"
+    "last_good_text_model": "gemini-3.5-flash-lite"
   }
 }
