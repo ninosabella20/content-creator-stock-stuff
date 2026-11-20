@@ -297,16 +297,14 @@
     },
     "market-brief-daily-2026-11-19": {
       "date": "2026-11-19",
-      "status": "produced",
-      "run_id": "44699181164",
-      "updated_at": "2026-11-20T08:31:43+00:00",
-      "generator": "gemini:gemini-3.5-flash-lite",
-      "flags": [
-        "FALLBACK VOICE: narrated with piper:en-us-libritts-high:0 because gemini failed"
-      ],
-      "voice": "piper:en-us-libritts-high:0",
-      "duration": 596.918,
-      "words": 1337,
+      "status": "published",
+      "run_id": "44754397319",
+      "updated_at": "2026-11-20T14:50:24+00:00",
+      "generator": "gemini:gemini-3.6-flash",
+      "flags": [],
+      "voice": "gemini:gemini-2.5-flash-preview-tts:Charon",
+      "duration": 476.918,
+      "words": 1257,
       "story_urls": [
         "https://finance.yahoo.com/technology/ai/articles/us-approved-nvidia-amd-ai-000557363.html",
         "https://finance.yahoo.com/technology/articles/verizon-ceo-knows-elon-musk-174602710.html",
@@ -320,10 +318,34 @@
         "https://finance.yahoo.com/markets/stocks/articles/doj-closes-antitrust-probe-nextera-032504407.html",
         "https://finance.yahoo.com/real-estate/articles/dlr-boosts-frankfurt-data-center-171800144.html"
       ],
-      "produced_at": "2026-11-20T08:31:43+00:00"
+      "produced_at": "2026-11-20T14:50:14+00:00",
+      "youtube": {
+        "status": "uploaded",
+        "video_id": "Kl0gPFU1wEo",
+        "url": "https://youtu.be/Kl0gPFU1wEo",
+        "privacy_requested": "public",
+        "privacy_reported": "public",
+        "upload_status": "uploaded",
+        "privacy_verified": "public",
+        "thumbnail": "ok",
+        "captions": "ok"
+      },
+      "podcast": {
+        "title": "19 Nov 2026: S&P 500 Plunges 1.96% as Tech Selloff Intensifies",
+        "description": "The S&P 500 fell 1.96% on Thursday, extending its losing streak to six sessions as broad tech liquidations and Fed hawkishness pressured equities. While defensive sectors like Energy and Utilities outperformed, tech profit-taking overshadowed corporate developments across major sectors. We analyze market drivers, sector highlights, and key foreign trade news.\n\n📺 Watch the video version with charts on YouTube: Active Thinker (@activethinker-t5v): https://www.youtube.com/@activethinker-t5v\n\nIn this episode: the market overview, the top story in each of the 11 sectors, and the week's key geopolitical developments.\n\nChapters\n00:00 Intro\n00:15 Market Overview\n00:56 Information Technology: NVIDIA Corporation\n01:30 Communication Services: Verizon Communications Inc.\n02:05 Consumer Discretionary: Ross Stores, Inc.\n02:38 Consumer Staples: Walmart Inc.\n03:12 Financials: The Goldman Sachs Group, Inc.\n03:45 Health Care: Insmed Incorporated\n04:15 Industrials: Lockheed Martin Corporation\n04:45 Materials: Steel Dynamics, Inc.\n05:17 Energy: Exxon Mobil Corporation\n05:47 Utilities: NextEra Energy, Inc.\n06:16 Real Estate: Digital Realty Trust, Inc.\n06:45 Geopolitical Intelligence\n07:22 The Takeaway\n\nSources\n• Information Technology: NVIDIA Corporation (NVDA): US Approves Export Licenses for Nvidia and AMD AI Chip Sales to China [MT Newswires, 2026-11-20] https://finance.yahoo.com/technology/ai/articles/us-approved-nvidia-amd-ai-000557363.html\n• Communication Services: Verizon Communications Inc. (VZ): FCC Advances SpaceX Spectrum Bid as Verizon CEO Dismisses Threat [Fortune, 2026-11-19] https://finance.yahoo.com/technology/articles/verizon-ceo-knows-elon-musk-174602710.html\n• Consumer Discretionary: Ross Stores, Inc. (ROST): Ross Stores Beats Q3 Estimates but Sinks on Weak Holiday Quarter Outlook [Investor's Business Daily, 2026-11-19] https://finance.yahoo.com/m/2a3dc039-5d33-38ad-92d8-639d011370eb/ross-stores-earnings-beat-but.html\n• Consumer Staples: Walmart Inc. (WMT): Walmart Beats Q3 Expectations and Lifts Outlook on Strong E-Commerce [GuruFocus.com, 2026-11-19] https://finance.yahoo.com/markets/stocks/articles/walmart-inc-wmt-q3-2027-210048614.html\n• Financials: The Goldman Sachs Group, Inc. (GS): Goldman Sachs and Morgan Stanley Earn $113 Million Each Underwriting Anthropic IPO [Fortune, 2026-11-19] https://finance.yahoo.com/markets/stocks/articles/anthropic-ipo-nets-goldman-sachs-233822497.html\n• Health Care: Insmed Incorporated (INSM): Insmed Surges on Reports of Potential Takeover Bid by Sanofi [Investor's Business Daily, 2026-11-19] https://finance.yahoo.com/m/8344ba04-192f-3ca6-a30d-5b6f30413bdd/sanofi-reportedly-gears-up.html\n• Industrials: Lockheed Martin Corporation (LMT): Lockheed Martin Expands Backlog to $292 Billion on Missile and Sustainment Contracts [Simply Wall St., 2026-11-19] https://finance.yahoo.com/markets/stocks/articles/investors-reacting-lockheed-martin-stock-191021628.html\n• Materials: Steel Dynamics, Inc. (STLD): Steel Dynamics Authorizes New $3.0 Billion Share Repurchase Program and Declares Dividend [Simply Wall St., 2026-11-18] https://finance.yahoo.com/markets/stocks/articles/steel-dynamics-stld-adds-buyback-131232910.html\n• Energy: Exxon Mobil Corporation (XOM): ExxonMobil Secures Approval for $30 Billion Rovuma LNG Project in Mozambique [Simply Wall St., 2026-11-19] https://finance.yahoo.com/energy/articles/exxonmobil-holdings-xom-gets-mozambique-211612645.html\n\nMore: https://ninosabella20.github.io/market-brief/\n\nThis podcast provides news and commentary for informational purposes only and does not constitute professional financial or investment advice. Listeners are responsible for their own investment decisions. Active Thinking does not provide personalised investment recommendations.",
+        "guid": "market-brief-daily-2026-11-19",
+        "date": "2026-11-19",
+        "mp3_url": "https://github.com/ninosabella20/content-creator-stock-stuff/releases/download/market-brief-daily-2026-11-19/market-brief-daily-2026-11-19.mp3",
+        "mp3_bytes": 7767931,
+        "duration": 477
+      },
+      "published_to": [
+        "spotify",
+        "youtube"
+      ]
     }
   },
   "meta": {
-    "last_good_text_model": "gemini-3.5-flash-lite"
+    "last_good_text_model": "gemini-3.6-flash"
   }
 }
