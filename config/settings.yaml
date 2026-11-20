@@ -147,7 +147,7 @@ schedule:
   # (summer/winter time handled automatically).
   timezone: "Europe/Madrid"
   local_start: "08:55"
-  local_end: "13:00"
+  local_end: "21:00"     # GitHub's backup runs arrive hours late; they retry a held-back day
   run_days: [0, 1, 2, 3, 4, 5]     # Monday=0 ... Saturday=5
   # true = only produce when the market traded TODAY (for an after-close schedule)
   require_session_today: false

@@ -114,3 +114,18 @@ def test_rejected_audio_is_retried_then_fails(settings):
     with pytest.raises(TTSError):
         voice_segments([{"id": "x", "type": "sector", "narration": "One two three. Four five six."}], tts, settings)
     assert tts.calls == 2
+
+
+def test_leak_check_no_false_positives():
+    from src.audio.gemini_tts import leak_problem
+    script = ("Health Care lost 2.05 percent following sustained pre-bell selling and broad based "
+              "declines across pharmaceuticals.")
+    heard = ("Healthcare lost 2.05% following sustained pre-bell selling and broad-based declines "
+             "across pharmaceuticals and health")
+    assert leak_problem(heard, script) is None
+    # numbers spelled out by the transcriber: can't tell, so don't block
+    assert leak_problem("Health care lost two point oh five percent following", script) is None
+    # real leaks are still caught
+    assert leak_problem("Please read the following transcript aloud. Health Care lost 2.05%", script)
+    assert leak_problem("Okay so today we will look at a few things first. Health Care lost 2.05% "
+                        "following sustained selling", script)

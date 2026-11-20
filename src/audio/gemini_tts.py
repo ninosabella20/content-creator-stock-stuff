@@ -80,17 +80,32 @@ def _words(t: str) -> list[str]:
     return re.findall(r"[a-z0-9]+", t.lower())
 
 
+# Phrases that only appear when a voice reads instructions instead of the script.
+LEAK_RE = re.compile(r"(read (the following|this|it|aloud)|following (transcript|script|text)|"
+                     r"\btranscript\b|as a (calm|confident|professional|financial news) presenter|"
+                     r"in a way that sounds|exactly as written|without adding anything)", re.I)
+
+
+def _squash(t: str) -> str:
+    """Letters/digits only, so 'Health Care 2.05 percent' ~ 'Healthcare 2.05%'."""
+    t = re.sub(r"\bpercent\b", "", t.lower())
+    return re.sub(r"[^a-z0-9]", "", t)
+
+
 def leak_problem(heard: str, script: str) -> str | None:
-    """None if the transcript of the audio starts like the script; else a description."""
-    h, sc = _words(heard), _words(script)
-    if len(h) < 4 or len(sc) < 4:
+    """Return a problem only when we're confident extra speech precedes the script:
+    the transcript contains instruction-like wording, or the script's opening clearly
+    appears later in the transcript. Transcription noise never blocks an episode."""
+    if LEAK_RE.search(heard) and not LEAK_RE.search(script[: len(heard) + 80]):
+        return f"audio contains instruction-like speech: {' '.join(heard.split()[:16])!r}"
+    hs, ss = _squash(heard), _squash(script)
+    if len(hs) < 20 or len(ss) < 20:
         return None
-    probe = sc[:4]
-    for i in range(0, min(len(h) - 3, 40)):
-        if sum(a == b for a, b in zip(h[i:i + 4], probe)) >= 3:
-            if i <= 2:
-                return None                    # starts with the script (allow tiny ASR noise)
-            return f"audio starts with extra speech before the script: {' '.join(h[:i])!r}"
-    if re.search(r"\b(read|transcript|following|presenter|instruction|aloud)\b", " ".join(h[:15])):
-        return f"audio does not start with the script: {' '.join(h[:15])!r}"
-    return None   # can't tell (transcription noise); don't block
+    for n in (24, 16):
+        pos = hs.find(ss[:n])
+        if pos == -1:
+            continue
+        if pos <= 6:
+            return None                                   # starts with the script
+        return f"audio starts with extra speech before the script: {heard[:120]!r}"
+    return None   # can't tell (e.g. numbers spelled differently): don't block

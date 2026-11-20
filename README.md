@@ -221,7 +221,7 @@ start runs late). Setup:
    * Success = HTTP **204**. Turn on "notify on failure". Renew the token before it expires.
 
 **Backup:** the workflow's own cron at 07:00, 08:00 and 09:30 UTC (Mon-Sat). The code only proceeds
-between **08:55 and 13:00 Madrid** and never produces the same session twice:
+between **08:55 and 21:00 Madrid** (GitHub's late backup runs can then retry a held-back day) and never produces the same session twice:
 
 | UTC trigger | Winter (CET, UTC+1) | Summer (CEST, UTC+2) |
 |---|---|---|
