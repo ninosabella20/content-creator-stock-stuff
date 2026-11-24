@@ -392,9 +392,58 @@
         "spotify",
         "youtube"
       ]
+    },
+    "market-brief-daily-2026-11-23": {
+      "date": "2026-11-23",
+      "status": "published",
+      "run_id": "45352464848",
+      "updated_at": "2026-11-24T08:20:13+00:00",
+      "generator": "gemini:gemini-3.5-flash",
+      "flags": [],
+      "voice": "gemini:gemini-2.5-flash-preview-tts:Charon",
+      "duration": 472.634,
+      "words": 1251,
+      "story_urls": [
+        "https://finance.yahoo.com/news/nvidia-reinstates-jensen-huang-ceo-135916841.html",
+        "https://finance.yahoo.com/markets/stocks/articles/ast-spacemobile-stock-gets-fcc-002319879.html",
+        "https://finance.yahoo.com/markets/stocks/articles/automaker-ford-eyes-aerospace-growth-174839507.html",
+        "https://finance.yahoo.com/m/38c53485-5fd4-351e-9720-8af2f8dfd923/eu-probes-coca-cola-bottler%2C.html",
+        "https://finance.yahoo.com/markets/stocks/articles/citigroup-executive-says-credit-card-161405543.html",
+        "https://finance.yahoo.com/healthcare/articles/lilly-buys-huntington-drug-developer-161709361.html",
+        "https://finance.yahoo.com/economy/policy/articles/union-pacific-norfolk-southern-ceos-160000282.html",
+        "https://finance.yahoo.com/markets/stocks/articles/air-products-chemicals-files-mixed-213740443.html",
+        "https://finance.yahoo.com/energy/articles/v-r-energi-ob-var-021712414.html",
+        "https://finance.yahoo.com/energy/articles/doj-closes-nextera-dominion-antitrust-162712933.html",
+        "https://finance.yahoo.com/real-estate/articles/american-tower-announces-proposed-settlement-130000096.html"
+      ],
+      "produced_at": "2026-11-24T08:20:05+00:00",
+      "youtube": {
+        "status": "uploaded",
+        "video_id": "iSysjiTREa0",
+        "url": "https://youtu.be/iSysjiTREa0",
+        "privacy_requested": "public",
+        "privacy_reported": "public",
+        "upload_status": "uploaded",
+        "privacy_verified": "public",
+        "thumbnail": "ok",
+        "captions": "ok"
+      },
+      "podcast": {
+        "title": "23 Nov 2026: S&P 500 Surges 4.71% as Nvidia Reinstates CEO",
+        "description": "Wall Street posted its strongest single-day rally since early 2025 as the reinstatement of Jensen Huang as Nvidia CEO relieved acute fears around artificial intelligence spending. Mega-cap technology led broad market gains while energy equities lagged due to declining crude oil prices.\n\n📺 Watch the video version with charts on YouTube: Active Thinker (@activethinker-t5v): https://www.youtube.com/@activethinker-t5v\n\nIn this episode: the market overview, the top story in each of the 11 sectors, and the week's key geopolitical developments.\n\nChapters\n00:00 Intro\n00:13 Market Overview\n00:48 Information Technology: Nvidia Corporation\n01:26 Communication Services: AST SpaceMobile, Inc.\n02:01 Consumer Discretionary: Ford Motor Company\n02:36 Consumer Staples: Coca-Cola Europacific Partners PLC\n03:12 Financials: Citigroup Inc.\n03:44 Health Care: Eli Lilly and Company\n04:17 Industrials: Union Pacific Corporation\n04:48 Materials: Air Products and Chemicals, Inc.\n05:16 Energy: Vår Energi ASA\n05:45 Utilities: NextEra Energy, Inc.\n06:16 Real Estate: American Tower Corporation\n06:42 Geopolitical Intelligence\n07:27 The Takeaway\n\nSources\n• Information Technology: Nvidia Corporation (NVDA): Jensen Huang Reinstated as Nvidia CEO Following Board Reversal [Reuters, 2026-11-24] https://finance.yahoo.com/news/nvidia-reinstates-jensen-huang-ceo-135916841.html\n• Communication Services: AST SpaceMobile, Inc. (ASTS): AST SpaceMobile Secures FCC Approval for Direct-to-Device Satellite Service [Simply Wall St., 2026-11-24] https://finance.yahoo.com/markets/stocks/articles/ast-spacemobile-stock-gets-fcc-002319879.html\n• Consumer Discretionary: Ford Motor Company (F): Ford Takes Minority Stake in Defense Contractor Revolution Space [Investing.com, 2026-11-23] https://finance.yahoo.com/markets/stocks/articles/automaker-ford-eyes-aerospace-growth-174839507.html\n• Consumer Staples: Coca-Cola Europacific Partners PLC (CCEP): European Commission Launches Antitrust Investigation into Coca-Cola Bottler [The Wall Street Journal, 2026-11-23] https://finance.yahoo.com/m/38c53485-5fd4-351e-9720-8af2f8dfd923/eu-probes-coca-cola-bottler%2C.html\n• Financials: Citigroup Inc. (C): Citigroup Focuses Card Unit on High-Spenders Amid Expense Growth Warning [24/7 Wall St., 2026-11-23] https://finance.yahoo.com/markets/stocks/articles/citigroup-executive-says-credit-card-161405543.html\n• Health Care: Eli Lilly and Company (LLY): Eli Lilly Acquires Huntington's Drug Developer LoQus23 for Up to $725 Million [BioPharma Dive, 2026-11-23] https://finance.yahoo.com/healthcare/articles/lilly-buys-huntington-drug-developer-161709361.html\n• Industrials: Union Pacific Corporation (UNP): Union Pacific and Norfolk Southern Reaffirm Progress on STB Merger Application [Business Wire, 2026-11-23] https://finance.yahoo.com/economy/policy/articles/union-pacific-norfolk-southern-ceos-160000282.html\n• Materials: Air Products and Chemicals, Inc. (APD): Air Products and Chemicals Files Mixed Shelf Registration Statement [MT Newswires, 2026-11-20] https://finance.yahoo.com/markets/stocks/articles/air-products-chemicals-files-mixed-213740443.html\n• Energy: Vår Energi ASA (VAR.OL): Vår Energi Acquires ConocoPhillips North Sea Assets for $4.4 Billion [Simply Wall St., 2026-11-24] https://finance.yahoo.com/energy/articles/v-r-energi-ob-var-021712414.html\n\nMore: https://ninosabella20.github.io/market-brief/\n\nThis podcast provides news and commentary for informational purposes only and does not constitute professional financial or investment advice. Listeners are responsible for their own investment decisions. Active Thinking does not provide personalised investment recommendations.",
+        "guid": "market-brief-daily-2026-11-23",
+        "date": "2026-11-23",
+        "mp3_url": "https://github.com/ninosabella20/content-creator-stock-stuff/releases/download/market-brief-daily-2026-11-23/market-brief-daily-2026-11-23.mp3",
+        "mp3_bytes": 7699382,
+        "duration": 473
+      },
+      "published_to": [
+        "spotify",
+        "youtube"
+      ]
     }
   },
   "meta": {
-    "last_good_text_model": "gemini-3.7-flash"
+    "last_good_text_model": "gemini-3.5-flash"
   }
 }
