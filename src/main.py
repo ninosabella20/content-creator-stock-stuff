@@ -267,7 +267,8 @@ def cmd_run(args) -> int:
         ledger.update(eid, status="produced", generator=episode["generator"], flags=episode["flags"],
                       voice=timeline["voice"]["voice"], duration=timeline["duration"],
                       words=episode["word_count"], story_urls=story_urls,
-                      produced_at=now_utc().isoformat(timespec="seconds"))
+                      produced_at=now_utc().isoformat(timespec="seconds"),
+                      failed_stage=None, error=None)
         gh_set(produced="true")
 
         # 12. publishing (only when explicitly enabled, never for flagged/partial episodes).
