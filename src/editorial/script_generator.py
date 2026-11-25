@@ -125,12 +125,53 @@ def build_repair_prompt(context: dict, draft: dict, problems: list[str], setting
             "changing only what is needed:\n- " + "\n- ".join(problems))
 
 
+SEG_ALIASES = {"intro": "intro", "introduction": "intro", "opening": "intro",
+               "market": "market", "market_overview": "market", "overview": "market",
+               "geopolitics": "geopolitics", "geopolitical": "geopolitics",
+               "closing": "closing", "close": "closing", "takeaway": "closing", "outro": "closing"}
+
+
+def normalize_writer(raw) -> dict:
+    """Accept the shapes models actually return: a list wrapping the object, 'segments' as a
+    list of segment objects, or 'sectors' keyed by ticker. Returns the documented shape."""
+    if isinstance(raw, list):
+        dicts = [x for x in raw if isinstance(x, dict)]
+        holder = next((d for d in dicts if "segments" in d), None)
+        raw = holder if holder else {"segments": dicts}
+    if not isinstance(raw, dict):
+        raise GeminiError(f"script JSON has unexpected type {type(raw).__name__}")
+    segs = raw.get("segments")
+    if isinstance(segs, list):
+        out: dict = {"sectors": []}
+        for item in segs:
+            if not isinstance(item, dict):
+                continue
+            if item.get("sector"):
+                out["sectors"].append(item)
+                continue
+            key = str(item.get("id") or item.get("type") or item.get("segment") or "").lower()
+            if key in SEG_ALIASES:
+                out[SEG_ALIASES[key]] = item
+            elif isinstance(item.get("sectors"), list):
+                out["sectors"].extend(x for x in item["sectors"] if isinstance(x, dict))
+        segs = out
+    if not isinstance(segs, dict):
+        raise GeminiError("script JSON has no usable 'segments'")
+    secs = segs.get("sectors")
+    if isinstance(secs, dict):
+        segs["sectors"] = [{"sector": k, **v} for k, v in secs.items() if isinstance(v, dict)]
+    for k in [k for k in list(segs) if k.lower() in SEG_ALIASES and k != SEG_ALIASES[k.lower()]]:
+        segs.setdefault(SEG_ALIASES[k.lower()], segs.pop(k))
+    raw["segments"] = segs
+    return raw
+
+
 def write_with_gemini(gem: Gemini, context: dict, settings) -> dict:
     temp = float(settings.get_path("gemini.temperature", 0.4))
     text = gem.generate_text(build_prompt(context, settings), temperature=temp, json_mode=True,
                              system=SYSTEM)
     try:
-        return parse_json_text(text)
+        return normalize_writer(parse_json_text(text))
     except ValueError as e:
         raise GeminiError(f"script was not valid JSON: {e}") from e
 
@@ -139,4 +180,4 @@ def repair_with_gemini(gem: Gemini, context: dict, draft: dict, problems: list[s
                        settings) -> dict:
     text = gem.generate_text(build_repair_prompt(context, draft, problems, settings),
                              temperature=0.2, json_mode=True, system=SYSTEM)
-    return parse_json_text(text)
+    return normalize_writer(parse_json_text(text))

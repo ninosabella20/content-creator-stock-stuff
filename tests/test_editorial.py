@@ -163,3 +163,26 @@ def test_validator_rejects_instruction_wording(template_episode, mb, geo, settin
                                       + ep["segments"][2]["narration"])
     res = validate_script(ep, _context(mb, geo, settings), settings)
     assert any("instruction/prompt wording" in e for e in res.errors)
+
+
+def test_gemini_json_shape_variants(mb, geo, settings):
+    from src.editorial.script_generator import normalize_writer
+    w = write_template(mb, geo, rank_sectors(mb, EPISODE_DATE), EPISODE_DATE, settings)
+    seg = w["segments"]
+    as_list = {"title_hook": "x", "summary": "y", "segments": [
+        {"id": "intro", **seg["intro"]}, {"type": "market_overview", **seg["market"]},
+        *seg["sectors"], {"id": "geopolitics", **seg["geopolitics"]}, {"id": "closing", **seg["closing"]}]}
+    for variant in ([as_list], as_list):
+        n = normalize_writer(copy.deepcopy(variant))
+        assert set(n["segments"]) >= {"intro", "market", "sectors", "geopolitics", "closing"}
+        assert len(n["segments"]["sectors"]) == 11
+    keyed = copy.deepcopy(w)
+    keyed["segments"]["sectors"] = {s["sector"]: s for s in seg["sectors"]}
+    assert len(normalize_writer(keyed)["segments"]["sectors"]) == 11
+
+
+def test_validator_allows_ai_in_news(template_episode, mb, geo, settings):
+    ep = copy.deepcopy(template_episode)
+    ep["segments"][2]["narration"] += " The company is positioned as an AI chip leader, using a large language model."
+    res = validate_script(ep, _context(mb, geo, settings), settings)
+    assert not any("instruction/prompt wording" in e for e in res.errors)

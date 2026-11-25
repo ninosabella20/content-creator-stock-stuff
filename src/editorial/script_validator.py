@@ -24,7 +24,7 @@ INSTRUCTION_RE = re.compile(
     r"presenter|\btranscript\b|\bword count\b|\bstory_id\b|\bpre_rank|\bJSON\b|"
     r"\bkey_points\b|\bscreen_headline\b|\bthis script\b|\bspoken words\b|"
     r"(please )?(describe|explain|summari[sz]e) (the )?(activity|this|the following)|"
-    r"\bas an ai\b|\blanguage model\b|\bhere is (the|your)\b)", re.I)
+    r"\bas an ai (language model|assistant)\b|\bi am an ai\b|\bhere is (the|your) (script|json|narration)\b)", re.I)
 SEGMENT_WORDS = {"intro": (15, 60), "market_overview": (80, 190), "sector": (55, 130),
                  "geopolitics": (70, 190), "closing": (45, 140)}
 
