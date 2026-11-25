@@ -441,6 +441,14 @@
         "spotify",
         "youtube"
       ]
+    },
+    "market-brief-daily-2026-11-24": {
+      "date": "2026-11-24",
+      "status": "failed",
+      "run_id": "45572631627",
+      "updated_at": "2026-11-25T08:02:49+00:00",
+      "failed_stage": "validate_script",
+      "error": "instruction/prompt wording in narration: 'as an AI'"
     }
   },
   "meta": {
