@@ -444,14 +444,57 @@
     },
     "market-brief-daily-2026-11-24": {
       "date": "2026-11-24",
-      "status": "failed",
-      "run_id": "45572631627",
-      "updated_at": "2026-11-25T08:02:49+00:00",
+      "status": "published",
+      "run_id": "45596951795",
+      "updated_at": "2026-11-25T10:53:12+00:00",
       "failed_stage": "validate_script",
-      "error": "instruction/prompt wording in narration: 'as an AI'"
+      "error": "instruction/prompt wording in narration: 'as an AI'",
+      "generator": "gemini:gemini-3.6-flash",
+      "flags": [],
+      "voice": "gemini:gemini-2.5-flash-preview-tts:Charon",
+      "duration": 497.084,
+      "words": 1314,
+      "story_urls": [
+        "https://finance.yahoo.com/markets/stocks/articles/dell-technologies-q3-earnings-call-001336889.html",
+        "https://finance.yahoo.com/markets/stocks/articles/bmo-highlights-top-interactive-entertainment-201103806.html",
+        "https://finance.yahoo.com/m/10b3817d-73d4-308a-ba38-df07ef930ba5/kohl%E2%80%99s-breaks-a-same-store.html",
+        "https://finance.yahoo.com/markets/stocks/articles/smucker-beats-q2-earnings-estimates-151400816.html",
+        "https://finance.yahoo.com/markets/stocks/articles/spacex-gpu-financing-goldman-sachs-151654490.html",
+        "https://finance.yahoo.com/m/512db97e-0e42-388a-871d-acdb3ea67146/insmed-snags-a-whopping-price.html",
+        "https://finance.yahoo.com/markets/stocks/articles/xiamen-airlines-signs-deal-buy-223026716.html",
+        "https://finance.yahoo.com/m/82ec65fb-5b79-3494-911a-8f56fcb62938/why-copper-producer-chile-is.html",
+        "https://finance.yahoo.com/energy/articles/petrobras-unveils-122b-investment-plan-163100586.html",
+        "https://finance.yahoo.com/energy/articles/utility-spending-plans-grow-large-081800094.html",
+        "https://finance.yahoo.com/markets/stocks/articles/realty-income-o-raises-dividend-232728653.html"
+      ],
+      "produced_at": "2026-11-25T10:53:03+00:00",
+      "youtube": {
+        "status": "uploaded",
+        "video_id": "s9vTYYpmydM",
+        "url": "https://youtu.be/s9vTYYpmydM",
+        "privacy_requested": "public",
+        "privacy_reported": "public",
+        "upload_status": "uploaded",
+        "privacy_verified": "public",
+        "thumbnail": "ok",
+        "captions": "ok"
+      },
+      "podcast": {
+        "title": "24 Nov 2026: Sanofi Buys Insmed for $41B as Tech Drops",
+        "description": "The S&P 500 slipped 0.49 percent on Tuesday as a sharp sell-off in mega-cap technology stocks prompted broad rotation into defensive sectors like Health Care and Consumer Staples. Sanofi headlined corporate activity by announcing a landmark $41 billion acquisition of Insmed to bolster its drug pipeline. Meanwhile, expanding AI infrastructure commitments and renewed trade tariff concerns continue to shape market sentiment.\n\n📺 Watch the video version with charts on YouTube: Active Thinker (@activethinker-t5v): https://www.youtube.com/@activethinker-t5v\n\nIn this episode: the market overview, the top story in each of the 11 sectors, and the week's key geopolitical developments.\n\nChapters\n00:00 Intro\n00:16 Market Overview\n01:00 Information Technology: Dell Technologies Inc.\n01:39 Communication Services: Take-Two Interactive Software, Inc.\n02:13 Consumer Discretionary: Kohl's Corporation\n02:48 Consumer Staples: The J. M. Smucker Company\n03:24 Financials: The Goldman Sachs Group, Inc.\n04:00 Health Care: Sanofi\n04:33 Industrials: The Boeing Company\n04:58 Materials: BHP Group Limited\n05:28 Energy: Petróleo Brasileiro S.A. - Petrobras\n06:02 Utilities: American Electric Power Company, Inc.\n06:28 Real Estate: Realty Income Corporation\n06:57 Geopolitical Intelligence\n07:44 The Takeaway\n\nSources\n• Information Technology: Dell Technologies Inc. (DELL): Dell Posts Record Q3 Earnings and Raises Guidance on Massive AI Backlog [MarketBeat, 2026-11-25] https://finance.yahoo.com/markets/stocks/articles/dell-technologies-q3-earnings-call-001336889.html\n• Communication Services: Take-Two Interactive Software, Inc. (TTWO): Take-Two Reports Record Launch Results for GTA VI, Drawing Wall Street Support [Investing.com, 2026-11-24] https://finance.yahoo.com/markets/stocks/articles/bmo-highlights-top-interactive-entertainment-201103806.html\n• Consumer Discretionary: Kohl's Corporation (KSS): Kohl's breaks four-year same-store sales slump and raises fiscal-year outlook [Barrons.com, 2026-11-24] https://finance.yahoo.com/m/10b3817d-73d4-308a-ba38-df07ef930ba5/kohl%E2%80%99s-breaks-a-same-store.html\n• Consumer Staples: The J. M. Smucker Company (SJM): J.M. Smucker Beats Q2 Earnings Estimates and Raises FY2027 Outlook [Zacks, 2026-11-24] https://finance.yahoo.com/markets/stocks/articles/smucker-beats-q2-earnings-estimates-151400816.html\n• Financials: The Goldman Sachs Group, Inc. (GS): Goldman Sachs Arranges Record $44B Financing Deal for SpaceX [Simply Wall St., 2026-11-24] https://finance.yahoo.com/markets/stocks/articles/spacex-gpu-financing-goldman-sachs-151654490.html\n• Health Care: Sanofi (SNY): Sanofi to Acquire Insmed for $41 Billion in Major Biotech Buyout [Investor's Business Daily, 2026-11-24] https://finance.yahoo.com/m/512db97e-0e42-388a-871d-acdb3ea67146/insmed-snags-a-whopping-price.html\n• Industrials: The Boeing Company (BA): Boeing Secures $7.4 Billion Aircraft Order from Xiamen Airlines [TipRanks, 2026-11-24] https://finance.yahoo.com/markets/stocks/articles/xiamen-airlines-signs-deal-buy-223026716.html\n• Materials: BHP Group Limited (BHP): $25 Billion in Chilean Copper Projects Pending Approval Amid High Global Prices [Barrons.com, 2026-11-24] https://finance.yahoo.com/m/82ec65fb-5b79-3494-911a-8f56fcb62938/why-copper-producer-chile-is.html\n• Energy: Petróleo Brasileiro S.A. - Petrobras (PBR): Petrobras Unveils $122 Billion Investment Plan for 2027-2031 [Zacks, 2026-11-24] https://finance.yahoo.com/energy/articles/petrobras-unveils-122b-investment-plan-163100586.html\n\nMore: https://ninosabella20.github.io/market-brief/\n\nThis podcast provides news and commentary for informational purposes only and does not constitute professional financial or investment advice. Listeners are responsible for their own investment decisions. Active Thinking does not provide personalised investment recommendations.",
+        "guid": "market-brief-daily-2026-11-24",
+        "date": "2026-11-24",
+        "mp3_url": "https://github.com/ninosabella20/content-creator-stock-stuff/releases/download/market-brief-daily-2026-11-24/market-brief-daily-2026-11-24.mp3",
+        "mp3_bytes": 8090170,
+        "duration": 497
+      },
+      "published_to": [
+        "spotify",
+        "youtube"
+      ]
     }
   },
   "meta": {
-    "last_good_text_model": "gemini-3.5-flash"
+    "last_good_text_model": "gemini-3.6-flash"
   }
 }
