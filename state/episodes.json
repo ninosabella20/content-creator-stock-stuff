@@ -492,6 +492,57 @@
         "spotify",
         "youtube"
       ]
+    },
+    "market-brief-daily-2026-11-25": {
+      "date": "2026-11-25",
+      "status": "published",
+      "run_id": "45779626984",
+      "updated_at": "2026-11-26T08:17:12+00:00",
+      "generator": "gemini:gemini-3.6-flash",
+      "flags": [],
+      "voice": "gemini:gemini-2.5-flash-preview-tts:Charon",
+      "duration": 493.545,
+      "words": 1269,
+      "story_urls": [
+        "https://finance.yahoo.com/technology/ai/articles/nvidia-chips-reach-chinese-owned-031146505.html",
+        "https://finance.yahoo.com/markets/stocks/articles/netflix-stock-focus-380-million-170053613.html",
+        "https://finance.yahoo.com/markets/stocks/articles/space-exploration-technologies-spcx-cheap-201121157.html",
+        "https://finance.yahoo.com/economy/articles/last-trump-called-walmart-40-170000360.html",
+        "https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-taps-secondaries-market-172311911.html",
+        "https://finance.yahoo.com/healthcare/articles/sanofi-bets-41-billion-insmed-183801679.html",
+        "https://finance.yahoo.com/markets/stocks/articles/raised-guidance-require-action-ge-211105140.html",
+        "https://finance.yahoo.com/markets/commodities/articles/ai-fears-trigger-plunge-copper-122504020.html",
+        "https://finance.yahoo.com/markets/stocks/articles/earnings-surge-could-game-changer-182053655.html",
+        "https://finance.yahoo.com/energy/articles/constellation-completes-divestiture-legacy-calpine-213000879.html",
+        "https://finance.yahoo.com/real-estate/articles/simon-property-group-sells-1-214700690.html"
+      ],
+      "produced_at": "2026-11-26T08:17:02+00:00",
+      "failed_stage": null,
+      "error": null,
+      "youtube": {
+        "status": "uploaded",
+        "video_id": "661lff01vrc",
+        "url": "https://youtu.be/661lff01vrc",
+        "privacy_requested": "public",
+        "privacy_reported": "public",
+        "upload_status": "uploaded",
+        "privacy_verified": "public",
+        "thumbnail": "ok",
+        "captions": "ok"
+      },
+      "podcast": {
+        "title": "25 Nov 2026: Tesla SpaceX Talks and Sanofi's $41 Billion Deal",
+        "description": "On Wednesday, November 25, 2026, the S&P 500 slipped 0.29 percent following hot inflation data, though an afternoon rally trimmed morning losses. Capital rotated heavily out of growth stocks into cyclical and defensive sectors, while major corporate deals across healthcare, energy, and aerospace led the day's corporate developments.\n\n📺 Watch the video version with charts on YouTube: Active Thinker (@activethinker-t5v): https://www.youtube.com/@activethinker-t5v\n\nIn this episode: the market overview, the top story in each of the 11 sectors, and the week's key geopolitical developments.\n\nChapters\n00:00 Intro\n00:11 Market Overview\n00:54 Information Technology: Nvidia Corporation\n01:38 Communication Services: Netflix, Inc.\n02:10 Consumer Discretionary: Tesla, Inc.\n02:47 Consumer Staples: Walmart Inc.\n03:20 Financials: The Goldman Sachs Group, Inc.\n03:56 Health Care: Sanofi\n04:28 Industrials: GE Vernova Inc.\n04:59 Materials: Rio Tinto Group\n05:29 Energy: Chevron Corporation\n05:57 Utilities: Constellation Energy\n06:26 Real Estate: Simon Property Group, Inc.\n06:54 Geopolitical Intelligence\n07:39 The Takeaway\n\nSources\n• Information Technology: Nvidia Corporation (NVDA): CBS Investigation Finds Nvidia Advanced AI Chips Reaching Chinese-Owned Firms via U.S. Entities [Investing.com, 2026-11-26] https://finance.yahoo.com/technology/ai/articles/nvidia-chips-reach-chinese-owned-031146505.html\n• Communication Services: Netflix, Inc. (NFLX): Netflix Acquires Los Angeles Radford Studio Center for $380 Million [GuruFocus.com, 2026-11-25] https://finance.yahoo.com/markets/stocks/articles/netflix-stock-focus-380-million-170053613.html\n• Consumer Discretionary: Tesla, Inc. (TSLA): Tesla and SpaceX Reportedly Deepen Talks on $3.5 Trillion Merger [Simply Wall St., 2026-11-25] https://finance.yahoo.com/markets/stocks/articles/space-exploration-technologies-spcx-cheap-201121157.html\n• Consumer Staples: Walmart Inc. (WMT): Walmart Cuts Thanksgiving Basket to $35 Despite 12% Turkey Price Surge [Moneywise, 2026-11-25] https://finance.yahoo.com/economy/articles/last-trump-called-walmart-40-170000360.html\n• Financials: The Goldman Sachs Group, Inc. (GS): Goldman Sachs Nears $1.5 Billion Private Credit Secondary Deal [Benzinga Private Markets, 2026-11-25] https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-taps-secondaries-market-172311911.html\n• Health Care: Sanofi (SAN.PA): Sanofi to Acquire Insmed for $41 Billion to Bolster Pipeline [24/7 Wall St., 2026-11-25] https://finance.yahoo.com/healthcare/articles/sanofi-bets-41-billion-insmed-183801679.html\n• Industrials: GE Vernova Inc. (GEV): GE Vernova Raises 2026 Guidance on Power Demand [Simply Wall St., 2026-11-25] https://finance.yahoo.com/markets/stocks/articles/raised-guidance-require-action-ge-211105140.html\n• Materials: Rio Tinto Group (RIO): Copper Prices Erase Annual Gains as AI Demand Optimism Fades [The Telegraph, 2026-11-25] https://finance.yahoo.com/markets/commodities/articles/ai-fears-trigger-plunge-copper-122504020.html\n• Energy: Chevron Corporation (CVX): Chevron Reports $9.9 Billion Q3 Profit Driven by Record Refining [Simply Wall St., 2026-11-24] https://finance.yahoo.com/markets/stocks/articles/earnings-surge-could-game-changer-182053655.html\n• Utilities: Constellation Energy (CEG): Constellation Completes 4.4 GW Gas Asset Divestiture to LS Power [Business Wire, 2026-11-25] https://finance.yahoo.com/energy/articles/constellation-completes-divestiture-legacy-calpine-213000879.html\n\nMore: https://ninosabella20.github.io/market-brief/\n\nThis podcast provides news and commentary for informational purposes only and does not constitute professional financial or investment advice. Listeners are responsible for their own investment decisions. Active Thinking does not provide personalised investment recommendations.",
+        "guid": "market-brief-daily-2026-11-25",
+        "date": "2026-11-25",
+        "mp3_url": "https://github.com/ninosabella20/content-creator-stock-stuff/releases/download/market-brief-daily-2026-11-25/market-brief-daily-2026-11-25.mp3",
+        "mp3_bytes": 8033752,
+        "duration": 494
+      },
+      "published_to": [
+        "spotify",
+        "youtube"
+      ]
     }
   },
   "meta": {
