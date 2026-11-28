@@ -543,6 +543,57 @@
         "spotify",
         "youtube"
       ]
+    },
+    "market-brief-daily-2026-11-27": {
+      "date": "2026-11-27",
+      "status": "published",
+      "run_id": "46123818926",
+      "updated_at": "2026-11-28T08:11:00+00:00",
+      "generator": "gemini:gemini-3.6-flash",
+      "flags": [],
+      "voice": "gemini:gemini-2.5-flash-preview-tts:Charon",
+      "duration": 474.758,
+      "words": 1224,
+      "story_urls": [
+        "https://finance.yahoo.com/markets/stocks/articles/micron-stocks-climb-4-29-192447627.html",
+        "https://finance.yahoo.com/markets/stocks/articles/market-chatter-verizon-communications-talks-175214653.html",
+        "https://finance.yahoo.com/markets/stocks/articles/market-chatter-tesla-plans-acquire-152002546.html",
+        "https://finance.yahoo.com/markets/stocks/articles/learn-why-bull-case-walmart-020743257.html",
+        "https://finance.yahoo.com/markets/stocks/articles/banks-facing-bond-price-fixing-161219624.html",
+        "https://finance.yahoo.com/healthcare/articles/stocktwits-biotech-dealmaker-sanofi-41b-001023937.html",
+        "https://finance.yahoo.com/markets/stocks/articles/record-backlog-impact-caterpillar-stock-171151286.html",
+        "https://finance.yahoo.com/markets/commodities/articles/agnico-eagle-bets-massive-gold-190217024.html",
+        "https://finance.yahoo.com/energy/articles/xom-boosts-angola-prospects-kizomba-171600732.html",
+        "https://finance.yahoo.com/energy/articles/constellation-completes-5b-sale-4-163543407.html",
+        "https://finance.yahoo.com/markets/stocks/articles/earnings-beat-welltower-well-changed-081313444.html"
+      ],
+      "produced_at": "2026-11-28T08:10:52+00:00",
+      "failed_stage": null,
+      "error": null,
+      "youtube": {
+        "status": "uploaded",
+        "video_id": "d9DbY9QN3J8",
+        "url": "https://youtu.be/d9DbY9QN3J8",
+        "privacy_requested": "public",
+        "privacy_reported": "public",
+        "upload_status": "uploaded",
+        "privacy_verified": "public",
+        "thumbnail": "ok",
+        "captions": "ok"
+      },
+      "podcast": {
+        "title": "27 Nov 2026: S&P 500 Surges 5.6% as Tech and Materials Rebound",
+        "description": "U.S. stocks surged during the holiday-shortened week, driven by a sharp rebound in technology, semiconductor, and AI equities. The S&P 500 gained 1.62% on Friday to close up 5.58% for the week. Defensive sectors lagged as investors rotated back into growth and cyclical assets.\n\n📺 Watch the video version with charts on YouTube: Active Thinker (@activethinker-t5v): https://www.youtube.com/@activethinker-t5v\n\nIn this episode: the market overview, the top story in each of the 11 sectors, and the week's key geopolitical developments.\n\nChapters\n00:00 Intro\n00:16 Market Overview\n00:52 Information Technology: Micron Technology, Inc.\n01:26 Communication Services: Verizon Communications Inc.\n01:57 Consumer Discretionary: Tesla, Inc.\n02:30 Consumer Staples: Walmart Inc.\n03:01 Financials: JPMorgan Chase & Co.\n03:33 Health Care: Sanofi\n04:03 Industrials: Caterpillar Inc.\n04:38 Materials: Agnico Eagle Mines Limited\n05:06 Energy: Exxon Mobil Corporation\n05:38 Utilities: Constellation Energy Corporation\n06:05 Real Estate: Welltower Inc.\n06:38 Geopolitical Intelligence\n07:27 The Takeaway\n\nSources\n• Information Technology: Micron Technology, Inc. (MU): Micron Backed by $32 Billion Across 26 Take-or-Pay Customer Contracts [GuruFocus.com, 2026-11-27] https://finance.yahoo.com/markets/stocks/articles/micron-stocks-climb-4-29-192447627.html\n• Communication Services: Verizon Communications Inc. (VZ): Verizon in Negotiations to Acquire Fiber Broadband Operator Fidium for $6 Billion [MT Newswires, 2026-11-27] https://finance.yahoo.com/markets/stocks/articles/market-chatter-verizon-communications-talks-175214653.html\n• Consumer Discretionary: Tesla, Inc. (TSLA): Tesla Files to Acquire German Manufacturing Systems Supplier EMAG [MT Newswires, 2026-11-27] https://finance.yahoo.com/markets/stocks/articles/market-chatter-tesla-plans-acquire-152002546.html\n• Consumer Staples: Walmart Inc. (WMT): Walmart Beats Q3 Expectations with $188.8B in Revenue and Raises Full-Year Guidance [Simply Wall St., 2026-11-28] https://finance.yahoo.com/markets/stocks/articles/learn-why-bull-case-walmart-020743257.html\n• Financials: JPMorgan Chase & Co. (JPM): Major Wall Street Banks Near $400 Million Municipal Bond Price-Fixing Settlement [Bloomberg, 2026-11-27] https://finance.yahoo.com/markets/stocks/articles/banks-facing-bond-price-fixing-161219624.html\n• Health Care: Sanofi (SAN.PA): Sanofi to Acquire Insmed for $41 Billion in Largest Biotech Deal of 2026 [Stocktwits, 2026-11-28] https://finance.yahoo.com/healthcare/articles/stocktwits-biotech-dealmaker-sanofi-41b-001023937.html\n• Industrials: Caterpillar Inc. (CAT): Caterpillar Backlog Surges to Record $78 Billion Backed by AI Data Center Demand [Simply Wall St., 2026-11-27] https://finance.yahoo.com/markets/stocks/articles/record-backlog-impact-caterpillar-stock-171151286.html\n• Materials: Agnico Eagle Mines Limited (AEM): Agnico Eagle Targets Up to 30% Gold Output Expansion into the 2030s [Oilprice.com, 2026-11-26] https://finance.yahoo.com/markets/commodities/articles/agnico-eagle-bets-massive-gold-190217024.html\n• Energy: Exxon Mobil Corporation (XOM): ExxonMobil Commits $4 Billion to Angola Block 15 Redevelopment and Makes New Discovery [Zacks, 2026-11-27] https://finance.yahoo.com/energy/articles/xom-boosts-angola-prospects-kizomba-171600732.html\n\nMore: https://ninosabella20.github.io/market-brief/\n\nThis podcast provides news and commentary for informational purposes only and does not constitute professional financial or investment advice. Listeners are responsible for their own investment decisions. Active Thinking does not provide personalised investment recommendations.",
+        "guid": "market-brief-daily-2026-11-27",
+        "date": "2026-11-27",
+        "mp3_url": "https://github.com/ninosabella20/content-creator-stock-stuff/releases/download/market-brief-daily-2026-11-27/market-brief-daily-2026-11-27.mp3",
+        "mp3_bytes": 7733241,
+        "duration": 475
+      },
+      "published_to": [
+        "spotify",
+        "youtube"
+      ]
     }
   },
   "meta": {
